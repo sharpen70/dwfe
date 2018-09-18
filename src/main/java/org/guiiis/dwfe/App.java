@@ -1,5 +1,7 @@
 package org.guiiis.dwfe;
 
+import org.guiiis.dwfe.core.DlgRewritingCloseableIterator;
+
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
 import fr.lirmm.graphik.graal.api.kb.KnowledgeBase;
 import fr.lirmm.graphik.graal.io.dlp.DlgpParser;
@@ -24,19 +26,25 @@ public class App
 		KnowledgeBase kb = kbb.build();
 		// 4 - Create a DLGP writer to print data
 		DlgpWriter writer = new DlgpWriter();
-		// 5 - Parse a query from a Java String
+		
+//		// 5 - Parse a query from a Java String
 		ConjunctiveQuery query = DlgpParser.parseQuery("?(X) :- mortal(X).");
-		// 6 - Query the KB
-		CloseableIterator resultIterator = kb.query(query);
+//		// 6 - Query the KB
+//		CloseableIterator resultIterator = kb.query(query);
+		
+		DatalogRewriting dr = new DatalogRewriting();
+		
+		DlgRewritingCloseableIterator it = dr.exec(query, kb);
+		
 		// 7 - Iterate and print results
-		writer.write("\n= Answers =\n");
-		if (resultIterator.hasNext()) {
+		writer.write("\n= Rewriting results =\n");
+		if (it.hasNext()) {
 			do {
-				writer.write(resultIterator.next());
+				writer.write(it.next());
 				writer.write("\n");
-			} while (resultIterator.hasNext());
+			} while (it.hasNext());
 		} else {
-			writer.write("No answers.\n");
+			writer.write("Not Rewritable.\n");
 		}
 		// 8 - Close resources
 		kb.close();
