@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
+import fr.lirmm.graphik.graal.core.atomset.AtomSetUtils;
 
 public class RuleRewPair {
 	private DatalogRule r1;
@@ -36,17 +37,22 @@ public class RuleRewPair {
 	}
 
 	public void replace(DatalogRule r) {
-		// TODO Auto-generated method stub
-		
+		this.r1 = r;
 	}
 
 	public DatalogRule contains(InMemoryAtomSet b) {
-		// TODO Auto-generated method stub
+		if(b.isSubSetOf(r1.getBody())) return r1;
+		if(!this.origin)
+			if(b.isSubSetOf(r2.getBody())) return r2;
+		
 		return null;
 	}
 
 	public DatalogRule unfold() {
-		// TODO Auto-generated method stub
-		return null;
+		InMemoryAtomSet mbody = r1.getBody();
+		mbody = AtomSetUtils.minus(mbody, r2.getHead());
+		mbody = AtomSetUtils.union(mbody, r2.getBody());
+		
+		return new DefaultDatalogRule(r1.getHead(), r2.getBody());
 	}
 }

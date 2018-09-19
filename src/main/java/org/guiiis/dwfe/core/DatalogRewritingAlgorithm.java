@@ -110,16 +110,19 @@ public class DatalogRewritingAlgorithm implements Profilable{
 			 * keep in final rewrite set only query more general than query just
 			 * computed
 			 */
-			selectMostGeneralFromRelativeTo(finalRewritingSet,
+			Set<ConjunctiveQuery> rm = selectMostGeneralFromRelativeTo(finalRewritingSet,
 					currentRewriteSet, compilation);
+			
+			//Remove from rtd those redundant rewritings
+			for(ConjunctiveQuery rq : rm) rtd.remove(rq);
 			
 			// add in final rewrite set the query just compute that we keep
 			finalRewritingSet.addAll(currentRewriteSet);
 
 		}
 
-		/* clean the rewrites to return */
-		Utils.computeCover(finalRewritingSet);
+//		/* clean the rewrites to return */
+//		Utils.computeCover(finalRewritingSet);
 
 		if(this.verbose) {
 			this.profiler.stop("Rewriting time");
@@ -127,8 +130,22 @@ public class DatalogRewritingAlgorithm implements Profilable{
 			this.profiler.put("Explored rewritings", exploredRewrites);
 			this.profiler.put("Pivotal rewritings", finalRewritingSet.size());
 		}
-
+		
+		/* clean the datalog rule */
+		clean(finalDatalog);
+		
 		return finalDatalog;
+	}
+	
+	
+	/**
+	 * Clean the redundant datalog rules according to the 
+	 * deletion in UCQ rewriting
+	 */
+	private void clean(Set<DatalogRule> dlg) {
+		for(DatalogRule r : dlg) {
+			
+		}
 	}
 	
 	/**
@@ -160,16 +177,24 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	 * 
 	 * @param toSelect
 	 * @param rewritingSet
+	 * @return the set of rewritings are redundant
 	 */
-	public void selectMostGeneralFromRelativeTo(
+	public Set<ConjunctiveQuery> selectMostGeneralFromRelativeTo(
 			Collection<ConjunctiveQuery> toSelect,
 			Collection<ConjunctiveQuery> rewritingSet, RulesCompilation compilation) {
 		Iterator<? extends ConjunctiveQuery> i = toSelect.iterator();
+		Set<ConjunctiveQuery> rm = new HashSet<>();
+		
 		while (i.hasNext()) {
-			InMemoryAtomSet f = i.next().getAtomSet();
-			if (containMoreGeneral(f, rewritingSet, compilation))
+			ConjunctiveQuery q = i.next();
+			InMemoryAtomSet f = q.getAtomSet();
+			if (containMoreGeneral(f, rewritingSet, compilation)) {
 				i.remove();
+				rm.add(q);
+			}
 		}
+		
+		return rm;
 	}
 	
 	/**
@@ -198,5 +223,15 @@ public class DatalogRewritingAlgorithm implements Profilable{
 
 	public void setProfiler(Profiler profiler) {
 		this.profiler = profiler;
+	}
+	
+	/**
+	 * A recording for the mapping from rewritings
+	 * to datalog rules
+	 * 
+	 * @author sharpen
+	 */
+	private class Rtd {
+		private Map<ConjunctiveQuery, RuleRewPair> rtd;
 	}
 }

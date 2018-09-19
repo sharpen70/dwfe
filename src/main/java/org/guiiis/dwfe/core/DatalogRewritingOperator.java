@@ -30,10 +30,7 @@ public class DatalogRewritingOperator {
 	
 	public RuleRewPair getRewriteFrom(DatalogRule r, QueryUnifier u) {
 		Rule _r = u.getRule();
-		InMemoryAtomSet piece = u.getPiece();
-		Partition<Term> partition = u.getPartition();
 		
-		DefaultRuleFactory rulefactory = DefaultRuleFactory.instance();
 		DefaultAtomFactory atomfactory = DefaultAtomFactory.instance();
 		
 		if(_r.getExistentials().isEmpty()) {
