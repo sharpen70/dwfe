@@ -18,7 +18,6 @@ import fr.lirmm.graphik.util.stream.IteratorException;
 public class DlgRewritingCloseableIterator implements CloseableIterator<DatalogRule>, Profilable {
 	private PureQuery                   pquery;
 	private LinkedListRuleSet           ruleset;
-	private RulesCompilation            compilation;
 	private CloseableIteratorWithoutException<DatalogRule> rewrites = null;
 
 	private ExtendedSRA           		operator;

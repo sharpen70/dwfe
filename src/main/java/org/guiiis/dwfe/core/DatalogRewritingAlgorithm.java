@@ -9,10 +9,14 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
+import fr.lirmm.graphik.graal.api.core.Atom;
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
 import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
+import fr.lirmm.graphik.graal.api.core.Predicate;
 import fr.lirmm.graphik.graal.api.core.RulesCompilation;
 import fr.lirmm.graphik.graal.core.compilation.NoCompilation;
+import fr.lirmm.graphik.graal.core.factory.DefaultAtomFactory;
+import fr.lirmm.graphik.graal.core.factory.DefaultAtomSetFactory;
 import fr.lirmm.graphik.graal.core.ruleset.IndexedByHeadPredicatesRuleSet;
 import fr.lirmm.graphik.graal.core.unifier.QueryUnifier;
 import fr.lirmm.graphik.util.profiler.Profilable;
@@ -25,14 +29,14 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	private ExtendedSRA op;
 	private DatalogRewritingOperator dp;
 	
-	private Map<ConjunctiveQuery, RuleRewPair> rtd;
+	private Rtd rtd;
 	private RewTree rewtree;
 	
 	public DatalogRewritingAlgorithm(DatalogRewritingOperator dp, ExtendedSRA op) {
 		this.dp = dp;
 		this.op = op;
 	
-		this.rtd = new HashMap<>();
+		this.rtd = new Rtd();
 		this.rewtree = new RewTree();
 	}
 	
@@ -63,7 +67,17 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		pquery.addAnswerPredicate();
 		rewriteSetToExplore.add(pquery);
 		finalRewritingSet.add(pquery);
-
+		
+		// Construct the initial DatalogRule
+		Predicate G = new Predicate("Goal", 0);
+		Atom Ghead = DefaultAtomFactory.instance().create(G);
+		DefaultAtomSetFactory.instance().create(Ghead);
+		DatalogRule H = new DefaultDatalogRule(pquery.getAtomSet(), DefaultAtomSetFactory.instance().create(Ghead));
+		
+		rtd.add(pquery, new RuleRewPair(H));
+		
+		finalDatalog.add(H);
+		
 		ConjunctiveQuery q;
 		
 		while (!Thread.currentThread().isInterrupted() && !rewriteSetToExplore.isEmpty()) {
@@ -95,10 +109,11 @@ public class DatalogRewritingAlgorithm implements Profilable{
 			this.rewtree.add(q, currentRewriteSet);
 			
 			for(ConjunctiveQuery _q: currentRewriteSet) {
-				QueryUnifier u = op.getUnificationInfo(_q);
-				DatalogRule r = findRep(u.getPiece(), _q, null);
+				ExtendedQueryUnifier eu = op.getUnificationInfo(_q);
+				QueryUnifier u = eu.getUnifier();
+				DatalogRule r = findRep(u.getPiece(), u.getQuery(), null);
 				RuleRewPair p = this.dp.getRewriteFrom(r, op.getUnificationInfo(_q));
-				rtd.put(_q, p);
+				rtd.add(_q, p);
 				finalDatalog.addAll(p.getRules());
 			}
 			
@@ -114,7 +129,7 @@ public class DatalogRewritingAlgorithm implements Profilable{
 					currentRewriteSet, compilation);
 			
 			//Remove from rtd those redundant rewritings
-			for(ConjunctiveQuery rq : rm) rtd.remove(rq);
+			for(ConjunctiveQuery rq : rm) rtd.rm(rq);
 			
 			// add in final rewrite set the query just compute that we keep
 			finalRewritingSet.addAll(currentRewriteSet);
@@ -144,7 +159,7 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	 */
 	private void clean(Set<DatalogRule> dlg) {
 		for(DatalogRule r : dlg) {
-			
+			if(!this.rtd.exists(r)) dlg.remove(r);				
 		}
 	}
 	
@@ -233,5 +248,37 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	 */
 	private class Rtd {
 		private Map<ConjunctiveQuery, RuleRewPair> rtd;
+		private Map<DatalogRule, Integer> count;
+		
+		public Rtd() {
+			rtd = new HashMap<>();
+			count = new HashMap<>();
+		}
+		
+		public RuleRewPair get(ConjunctiveQuery q) {
+			return this.rtd.get(q);
+		}
+		
+		public void add(ConjunctiveQuery q, RuleRewPair rp) {
+			Collection<DatalogRule> rs = rp.getRules();
+			rtd.put(q, rp);
+			for(DatalogRule r : rs) {
+				count.merge(r, 1, (old, one) -> old + one);
+			}
+		}
+		
+		public void rm(ConjunctiveQuery q) {
+			RuleRewPair rp = rtd.get(q);
+			rtd.remove(q);
+			
+			Collection<DatalogRule> rs = rp.getRules();
+			for(DatalogRule r : rs) {
+				count.merge(r, 1, (old, one) -> old - one);
+			}
+		}
+		
+		public boolean exists(DatalogRule r) {
+			return this.count.get(r) != 0;
+		}
 	}
 }

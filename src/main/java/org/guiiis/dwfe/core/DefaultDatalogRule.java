@@ -1,8 +1,11 @@
 package org.guiiis.dwfe.core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import fr.lirmm.graphik.graal.api.core.Atom;
@@ -14,6 +17,8 @@ import fr.lirmm.graphik.graal.api.core.Variable;
 import fr.lirmm.graphik.graal.core.DefaultAtom;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomSetFactory;
 import fr.lirmm.graphik.graal.core.term.DefaultTermFactory;
+import fr.lirmm.graphik.util.stream.CloseableIterator;
+import fr.lirmm.graphik.util.stream.CloseableIteratorWithoutException;
 
 /**
  * The class for datalog rule
@@ -26,12 +31,12 @@ public class DefaultDatalogRule implements DatalogRule {
 	final private static String defaultNullPrefix = "@";
 	private static int NullStart = 0;
 	
-	private String label;
+	private String label = "";
 	private InMemoryAtomSet body;
 	private InMemoryAtomSet head;
 //	private Atom head;
 	
-	private Set<Term> terms = null;
+	private Map<Term, Integer> terms = null;
 	private Set<Variable> variables = null;
 	private Set<Constant> constants = null;
 	private Set<Variable> frontier = null;
@@ -41,8 +46,11 @@ public class DefaultDatalogRule implements DatalogRule {
 	 * By default, we assume all datalog rules have atomic head
 	 */
 	public DefaultDatalogRule(Rule r) {
+		this.label = r.getLabel();
 		this.body = r.getBody();
 		this.head = r.getHead();
+		
+		setTerms();
 	}
 	/**
 	 * By default, we assume all datalog rules have atomic head
@@ -53,11 +61,70 @@ public class DefaultDatalogRule implements DatalogRule {
 	public DefaultDatalogRule(InMemoryAtomSet body, InMemoryAtomSet head) {
 		this.body = body;
 		this.head = head;
+		
+		setTerms();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(super.equals(obj)) return true;
+		
+		String t1 = "";
+		String t2 = "";
+		
+		if(!(obj instanceof DatalogRule)) return false;
+		
+		DatalogRule r = (DatalogRule)obj;
+
+		if(!checkAtomSet(this.head, r.getHead(), r.getTerms(), t1, t2)) return false;
+		if(!checkAtomSet(this.body, r.getBody(), r.getTerms(), t1, t2)) return false;
+		
+		if(t1 != t2) return false;
+		
+		return true;
+	}
+	
+	private boolean checkAtomSet(InMemoryAtomSet as1, InMemoryAtomSet as2, Map<Term, Integer> m, String t1, String t2) {
+		CloseableIteratorWithoutException<Atom> h1 = as1.iterator();
+		CloseableIteratorWithoutException<Atom> h2 = as2.iterator();
+		
+		while(h1.hasNext() && h2.hasNext()) {
+			Atom a1 = h1.next();
+			Atom a2 = h2.next();
+			if(a1.getPredicate()!= a2.getPredicate())
+				return false;
+			
+			for(Term t : a1.getTerms()) {
+				t1.concat((this.terms.get(t)).toString());
+			}
+			
+			for(Term t : a2.getTerms()) {
+				t2.concat((m.get(t)).toString());
+			}
+		}
+		if(h1.hasNext() || h2.hasNext()) return false;
+		return true;
+	}
+	
+	@Override
+	public int hashCode() {
+		int code = 0;
+		CloseableIteratorWithoutException<Atom> hit = head.iterator();
+		CloseableIteratorWithoutException<Atom> bit = body.iterator();
+		
+		while(hit.hasNext()) {
+			Atom a = hit.next();
+			code += Math.pow(a.getPredicate().hashCode(),2);
+		}
+		while(bit.hasNext()) {
+			Atom a = bit.next();
+			code += Math.pow(a.getPredicate().hashCode(),2);
+		}
+		return code;
 	}
 	
 	@Override
 	public int compareTo(DatalogRule o) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -129,16 +196,24 @@ public class DefaultDatalogRule implements DatalogRule {
 	}
 
 	@Override
-	public Set<Term> getTerms() {
-		if(this.terms == null) {
-			this.terms = new HashSet<>();
-			this.terms.addAll(this.head.getTerms());
-			this.terms.addAll(this.body.getTerms());
-		}
-		
+	public Map<Term, Integer> getTerms() {
 		return this.terms;
 	}
-
+	
+	private void setTerms() {
+		int i = 0;
+		Set<Term> tt = new HashSet<>();
+		tt.addAll(this.head.getTerms());
+		tt.addAll(this.body.getTerms());
+		
+		this.terms = new HashMap<>();
+		
+		for(Term t: tt) {
+			this.terms.put(t, i);
+			i++;
+		}
+	}
+	
 	@Override
 	public void makeSafe() {
 		Atom ahead = this.head.iterator().next();

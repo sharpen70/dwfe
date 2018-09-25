@@ -1,5 +1,6 @@
 package org.guiiis.dwfe.core;
 
+import java.util.Map;
 import java.util.Set;
 
 import fr.lirmm.graphik.graal.api.core.Atom;
@@ -71,7 +72,7 @@ public interface DatalogRule extends Comparable<DatalogRule>, AppendableToString
 	 * 
 	 * @return a Set of all Term related to this Rule.
 	 */
-	Set<Term> getTerms();
+	Map<Term, Integer> getTerms();
 	
 	/**
 	 *  Get all free variables of this rule.

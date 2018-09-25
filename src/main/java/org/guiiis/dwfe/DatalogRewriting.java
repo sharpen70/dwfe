@@ -32,10 +32,8 @@ public class DatalogRewriting {
 		int i = 0;
 		
 		for(Rule r: rs) {
-			r.setLabel("rule_" + i);
+			r.setLabel("R" + i);
 			i++;
 		}
-	}
-	
-	
+	}	
 }

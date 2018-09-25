@@ -1,5 +1,6 @@
 package org.guiiis.dwfe.core;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import fr.lirmm.graphik.graal.core.atomset.LinkedListAtomSet;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomFactory;
 import fr.lirmm.graphik.graal.core.factory.DefaultRuleFactory;
 import fr.lirmm.graphik.graal.core.unifier.QueryUnifier;
+import fr.lirmm.graphik.graal.io.dlp.DlgpWriter;
 import fr.lirmm.graphik.util.Partition;
 
 /**
@@ -28,17 +30,20 @@ public class DatalogRewritingOperator {
 	
 	}
 	
-	public RuleRewPair getRewriteFrom(DatalogRule r, QueryUnifier u) {
+	public RuleRewPair getRewriteFrom(DatalogRule r, ExtendedQueryUnifier eu) {
+		QueryUnifier u = eu.getUnifier();
 		Rule _r = u.getRule();
 		
 		DefaultAtomFactory atomfactory = DefaultAtomFactory.instance();
 		
 		if(_r.getExistentials().isEmpty()) {
-			DatalogRule dr = new DefaultDatalogRule(_r);
+			InMemoryAtomSet nbody = u.getImageOf(_r.getBody());
+			InMemoryAtomSet nhead = u.getImageOf(_r.getHead());
+			DatalogRule dr = new DefaultDatalogRule(nbody, nhead);	
 			return new RuleRewPair(dr);
 		}
 		else {
-			Object identifier = _r.getLabel();
+			String identifier = eu.getRuleLabel() + "_AGG" + eu.getAgg();
 			int arity = _r.getFrontier().size();
 			Predicate predicate = new Predicate(identifier, arity);
 			List<Term> terms = new ArrayList<>(_r.getFrontier());
@@ -50,7 +55,23 @@ public class DatalogRewritingOperator {
 			DatalogRule r2 = new DefaultDatalogRule(mbody, mhead);
 			r2.makeSafe();
 			
-			InMemoryAtomSet nbody = u.getImageOf(AtomSetUtils.minus(r.getBody(), u.getPiece()));
+			InMemoryAtomSet nbody = u.getImageOf(r.getBody());
+			InMemoryAtomSet npiece = u.getImageOf(u.getPiece());
+			
+//			DlgpWriter writer = new DlgpWriter();
+//			try {
+//				writer.write(nbody);
+//				writer.write(u.getPiece());
+//				writer.write(npiece);
+//				writer.flush();
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			
+			nbody = AtomSetUtils.minus(nbody, npiece);
+			nbody = AtomSetUtils.union(nbody, mhead);
+			
 			InMemoryAtomSet nhead = u.getImageOf(r.getHead());
 			
 			DatalogRule r1 = new DefaultDatalogRule(nbody, nhead);
