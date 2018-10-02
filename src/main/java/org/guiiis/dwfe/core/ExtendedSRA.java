@@ -55,10 +55,13 @@ public class ExtendedSRA extends AbstractRewritingOperator {
 	protected List<ExtendedQueryUnifier> getESRUnifier(ConjunctiveQuery q, Rule r, RulesCompilation compilation) {
 		/** compute the simple unifiers **/
 		List<QueryUnifier> unifiers =  getSinglePieceUnifiers(q, r, compilation);
-
+		
+		//if(unifiers.isEmpty()) System.out.println("empty");
+		
+		LinkedList<ExtendedQueryUnifier> unifAggregated = new LinkedList<ExtendedQueryUnifier>();
+		
 		/** compute the aggregated unifier by rule **/
 		if (!unifiers.isEmpty()) {
-			LinkedList<ExtendedQueryUnifier> unifAggregated = new LinkedList<ExtendedQueryUnifier>();
 			LinkedList<QueryUnifier> restOfUnifToAggregate = new LinkedList<QueryUnifier>(unifiers);
 			Iterator<QueryUnifier> itr = unifiers.iterator();
 			QueryUnifier u;
@@ -71,11 +74,9 @@ public class ExtendedSRA extends AbstractRewritingOperator {
 					unifAggregated.add(_u);
 				}
 			}
-			return unifAggregated;
-		}		
-		else {
-			return null;
 		}
+		
+		return unifAggregated;		
 	}
 	
 	/**

@@ -15,6 +15,8 @@ import fr.lirmm.graphik.graal.core.factory.DefaultRuleFactory;
 import fr.lirmm.graphik.graal.core.unifier.QueryUnifier;
 import fr.lirmm.graphik.graal.io.dlp.DlgpWriter;
 import fr.lirmm.graphik.util.Partition;
+import fr.lirmm.graphik.util.profiler.Profilable;
+import fr.lirmm.graphik.util.profiler.Profiler;
 
 /**
  * Datalog rewriting Operator (DR)
@@ -24,7 +26,8 @@ import fr.lirmm.graphik.util.Partition;
  * 
  * @author sharpen
  */
-public class DatalogRewritingOperator {
+public class DatalogRewritingOperator implements Profilable {
+	private Profiler profiler;
 	
 	public DatalogRewritingOperator() {
 	
@@ -80,6 +83,14 @@ public class DatalogRewritingOperator {
 			return new RuleRewPair(r1, r2);
 		}
 	}
-	
-	
+
+	@Override
+	public void setProfiler(Profiler profiler) {
+		this.profiler = profiler;
+	}
+
+	@Override
+	public Profiler getProfiler() {
+		return this.profiler;
+	}
 }

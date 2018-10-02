@@ -1,0 +1,4 @@
+b(X) :- d(X,Y).
+a(X,Y) :- c(X,Y),d(Y,Z).
+d(X,Y) :- e(X,Z),f(Z).
+c(X,Y),e(Y,X) :- n(X).

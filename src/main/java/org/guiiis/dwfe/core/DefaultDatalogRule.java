@@ -129,9 +129,22 @@ public class DefaultDatalogRule implements DatalogRule {
 	}
 
 	@Override
-	public void appendTo(StringBuilder sb) {
-		// TODO Auto-generated method stub
-		
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		this.appendTo(builder);
+		return builder.toString();
+	}
+
+	@Override
+	public void appendTo(StringBuilder builder) {
+		if (!this.getLabel().isEmpty()) {
+			builder.append('[');
+			builder.append(this.getLabel());
+			builder.append("] ");
+		}
+		builder.append(this.getBody().toString());
+		builder.append(" -> ");
+		builder.append(this.getHead());
 	}
 
 	@Override

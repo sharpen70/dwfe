@@ -1,30 +1,58 @@
 package org.guiiis.dwfe;
 
-import java.util.Set;
+import java.util.Collection;
 
+import org.guiiis.dwfe.core.DatalogRewritingAlgorithm;
+import org.guiiis.dwfe.core.DatalogRewritingOperator;
 import org.guiiis.dwfe.core.DatalogRule;
-import org.guiiis.dwfe.core.DlgRewritingCloseableIterator;
+import org.guiiis.dwfe.core.ExtendedSRA;
 
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
 import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.api.core.RuleSet;
 import fr.lirmm.graphik.graal.api.kb.KnowledgeBase;
 import fr.lirmm.graphik.graal.core.Rules;
+import fr.lirmm.graphik.graal.core.ruleset.IndexedByHeadPredicatesRuleSet;
 import fr.lirmm.graphik.graal.core.ruleset.LinkedListRuleSet;
+import fr.lirmm.graphik.util.profiler.NoProfiler;
+import fr.lirmm.graphik.util.profiler.Profilable;
+import fr.lirmm.graphik.util.profiler.Profiler;
 
 /**
  * Non-recursive datalog rewriting for existential rules
  * 
  * @author Peng Xiao {sharpen70@gmail.com}
  */
-public class DatalogRewriting {
-	public DlgRewritingCloseableIterator exec(ConjunctiveQuery q, KnowledgeBase kb) {
+public class DatalogRewriting implements Profilable {
+	private Profiler profiler = NoProfiler.instance();
+	
+	private ExtendedSRA           		operator;
+	private DatalogRewritingOperator    dlgoperator;
+	
+	public DatalogRewriting() {
+		this.operator = new ExtendedSRA();
+		this.dlgoperator = new DatalogRewritingOperator();
+	}
+	
+	public Collection<DatalogRule> exec(ConjunctiveQuery q, KnowledgeBase kb) {
+		if (this.getProfiler() != null && this.getProfiler().isProfilingEnabled()) {
+			this.getProfiler().trace(q.getLabel());
+		}
+		
 		RuleSet rs = new LinkedListRuleSet(Rules.computeSinglePiece(kb.getOntology().iterator()));
 		addLabel(rs);
 		
-		DlgRewritingCloseableIterator it = new DlgRewritingCloseableIterator(q, rs);
+		IndexedByHeadPredicatesRuleSet indexedRuleSet = new IndexedByHeadPredicatesRuleSet(rs);
 
-		return it;
+		// rewriting
+		DatalogRewritingAlgorithm algo = new DatalogRewritingAlgorithm(this.dlgoperator, this.operator);
+
+		this.operator.setProfiler(this.profiler);
+		this.dlgoperator.setProfiler(this.profiler);
+		
+		algo.setProfiler(this.getProfiler());
+
+		return algo.exec(q, indexedRuleSet);
 	}
 	
 	/** Add label to each rule in the ontology if not exist **/
@@ -35,5 +63,15 @@ public class DatalogRewriting {
 			r.setLabel("R" + i);
 			i++;
 		}
+	}
+
+	@Override
+	public void setProfiler(Profiler profiler) {
+		this.profiler = profiler;	
+	}
+
+	@Override
+	public Profiler getProfiler() {
+		return this.profiler;
 	}	
 }

@@ -1,7 +1,9 @@
 package org.guiiis.dwfe;
 
 import java.io.File;
+import java.util.Collection;
 
+import org.guiiis.dwfe.core.DatalogRule;
 import org.guiiis.dwfe.core.DlgRewritingCloseableIterator;
 import org.guiiis.dwfe.core.DlgpEWriter;
 
@@ -19,7 +21,7 @@ import fr.lirmm.graphik.graal.kb.KBBuilder;
 public class App 
 {
 	private static String rootDir = "./input/";
-	
+	private static String q1 = "?():-p(Y,Z),p(Z,Y)";
 	public static void main(String[] args) throws Exception {
 //		// 0 - Create a KBBuilder
 //		KBBuilder kbb = new KBBuilder();
@@ -97,16 +99,13 @@ public class App
 		
 		DatalogRewriting dr = new DatalogRewriting();
 		
-		DlgRewritingCloseableIterator it = dr.exec(query, kb);
+		Collection<DatalogRule> result = dr.exec(query, kb);
 		
 		writer.write("\n= Rewriting results =\n");
-		if (it.hasNext()) {
-			do {
-				writer.write(it.next());
-				writer.write("\n");
-			} while (it.hasNext());
-		} else {
-			writer.write("Not Rewritable.\n");
+		
+		for(DatalogRule r : result) {
+			writer.write(r);
+			writer.write("\n");
 		}
 		// 8 - Close resources
 		kb.close();

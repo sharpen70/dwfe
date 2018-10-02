@@ -14,6 +14,7 @@ import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
 import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
 import fr.lirmm.graphik.graal.api.core.Predicate;
 import fr.lirmm.graphik.graal.api.core.RulesCompilation;
+import fr.lirmm.graphik.graal.core.atomset.AtomSetUtils;
 import fr.lirmm.graphik.graal.core.compilation.NoCompilation;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomFactory;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomSetFactory;
@@ -31,6 +32,8 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	
 	private Rtd rtd;
 	private RewTree rewtree;
+	
+	private boolean test = true;
 	
 	public DatalogRewritingAlgorithm(DatalogRewritingOperator dp, ExtendedSRA op) {
 		this.dp = dp;
@@ -84,6 +87,7 @@ public class DatalogRewritingAlgorithm implements Profilable{
 
 			/* take the first query to rewrite */
 			q = rewriteSetToExplore.poll();
+			
 			++exploredRewrites; // stats
 
 			/* compute all the rewrite from it */
@@ -109,14 +113,29 @@ public class DatalogRewritingAlgorithm implements Profilable{
 			this.rewtree.add(q, currentRewriteSet);
 			
 			for(ConjunctiveQuery _q: currentRewriteSet) {
+				if(test) {
+					this.profiler.trace("rewrites: " + _q.toString());
+				}
 				ExtendedQueryUnifier eu = op.getUnificationInfo(_q);
 				QueryUnifier u = eu.getUnifier();
+				
+				this.profiler.trace("piece: " + u.getPiece().toString());
+				
 				DatalogRule r = findRep(u.getPiece(), u.getQuery(), null);
 				RuleRewPair p = this.dp.getRewriteFrom(r, op.getUnificationInfo(_q));
 				rtd.add(_q, p);
 				finalDatalog.addAll(p.getRules());
+				if(test) {
+					this.profiler.trace("---");
+				//	this.profiler.trace(u.getPiece().toString());
+					this.profiler.trace("rep: " + r.toString());
+					for(DatalogRule _r : p.getRules()) {
+						this.profiler.trace(_r.toString());
+					}
+				}
 			}
 			
+			if(test) this.profiler.trace("===");
 			
 			// add to explore the query just computed that we keep
 			rewriteSetToExplore.addAll(currentRewriteSet);
@@ -169,6 +188,8 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	public DatalogRule findRep(InMemoryAtomSet B, ConjunctiveQuery q, DatalogRule r) {
 		RuleRewPair rp = rtd.get(q);
 		
+		this.profiler.trace(rp.toString());
+		
 		if(r != null) {
 			rp.replace(r);
 		}
@@ -179,7 +200,7 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		
 		DatalogRule uc = rp.unfold();
 		
-		if(B.isSubSetOf(uc.getBody())) return uc;
+		if(AtomSetUtils.contains(uc.getBody(), B)) return uc;
 		else {
 			return findRep(B, rewtree.getParent(q), uc);
 		}

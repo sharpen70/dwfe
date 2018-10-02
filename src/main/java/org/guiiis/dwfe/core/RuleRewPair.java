@@ -7,9 +7,15 @@ import java.util.List;
 import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
 import fr.lirmm.graphik.graal.core.atomset.AtomSetUtils;
 
+enum Type {
+	ORIGIN, SEP
+}
+
 public class RuleRewPair {
 	private DatalogRule r1;
 	private DatalogRule r2;
+	
+	private Type type;
 	
 	private boolean origin;
 	
@@ -18,10 +24,11 @@ public class RuleRewPair {
 		origin = true;
 	}
 	
-	public RuleRewPair(DatalogRule r1, DatalogRule r2) {
+	public RuleRewPair(DatalogRule r1, DatalogRule r2, Type type) {
 		this.r1 = r1;
 		this.r2 = r2;
-		origin = false;
+		this.origin = false;
+		this.type = type;
 	}
 	
 	public boolean origin() {
@@ -35,20 +42,29 @@ public class RuleRewPair {
 		
 		return rs;
 	}
-
+	
+	public String toString() {
+		String s = r1.toString();
+		if(!origin) s = "\n" + r2.toString();
+		
+		return s;
+	}
+	
 	public void replace(DatalogRule r) {
 		this.r1 = r;
 	}
 
 	public DatalogRule contains(InMemoryAtomSet b) {
-		if(b.isSubSetOf(r1.getBody())) return r1;
+		if(AtomSetUtils.contains(r1.getBody(), b)) return r1;
 		if(!this.origin)
-			if(b.isSubSetOf(r2.getBody())) return r2;
+			if(AtomSetUtils.contains(r2.getBody(), b)) return r2;
 		
 		return null;
 	}
 
 	public DatalogRule unfold() {
+		if(this.type == Type.ORIGIN) return r1;
+		
 		InMemoryAtomSet mbody = r1.getBody();
 		mbody = AtomSetUtils.minus(mbody, r2.getHead());
 		mbody = AtomSetUtils.union(mbody, r2.getBody());
