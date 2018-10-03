@@ -77,7 +77,7 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		DefaultAtomSetFactory.instance().create(Ghead);
 		DatalogRule H = new DefaultDatalogRule(pquery.getAtomSet(), DefaultAtomSetFactory.instance().create(Ghead));
 		
-		rtd.add(pquery, new RuleRewPair(H));
+		rtd.add(pquery, new RuleRewPair(H, null));
 		
 		finalDatalog.add(H);
 		
@@ -121,7 +121,9 @@ public class DatalogRewritingAlgorithm implements Profilable{
 				
 				this.profiler.trace("piece: " + u.getPiece().toString());
 				
-				DatalogRule r = findRep(u.getPiece(), u.getQuery(), null);
+				InMemoryAtomSet realPiece = u.getImageOf(u.getPiece());
+				
+				DatalogRule r = findRep(realPiece, u.getQuery(), null);
 				RuleRewPair p = this.dp.getRewriteFrom(r, op.getUnificationInfo(_q));
 				rtd.add(_q, p);
 				finalDatalog.addAll(p.getRules());
@@ -193,14 +195,10 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		if(r != null) {
 			rp.replace(r);
 		}
-		else {
-			DatalogRule c = rp.contains(B);
-			if(c != null) return c;
-		}
+
+		DatalogRule uc = rp.contains(B);
 		
-		DatalogRule uc = rp.unfold();
-		
-		if(AtomSetUtils.contains(uc.getBody(), B)) return uc;
+		if(uc != null) return uc;
 		else {
 			return findRep(B, rewtree.getParent(q), uc);
 		}

@@ -7,68 +7,56 @@ import java.util.List;
 import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
 import fr.lirmm.graphik.graal.core.atomset.AtomSetUtils;
 
-enum Type {
-	ORIGIN, SEP
-}
-
 public class RuleRewPair {
-	private DatalogRule r1;
-	private DatalogRule r2;
+	private DatalogRule r_tail;
+	private DatalogRule r_up;
+		
+//	public RuleRewPair(DatalogRule r) {
+//		 = r;
+//		origin = true;
+//	}
 	
-	private Type type;
-	
-	private boolean origin;
-	
-	public RuleRewPair(DatalogRule r) {
-		r1 = r;
-		origin = true;
-	}
-	
-	public RuleRewPair(DatalogRule r1, DatalogRule r2, Type type) {
-		this.r1 = r1;
-		this.r2 = r2;
-		this.origin = false;
-		this.type = type;
-	}
-	
-	public boolean origin() {
-		return true;
+	public RuleRewPair(DatalogRule r_tail, DatalogRule r_up) {
+		this.r_tail = r_tail;
+		this.r_up = r_up;
 	}
 	
 	public Collection<DatalogRule> getRules() {
 		List<DatalogRule> rs = new ArrayList<>();
-		rs.add(r1);
-		if(!origin) rs.add(r2);
+		rs.add(this.r_up);
+		rs.add(this.r_tail);
 		
 		return rs;
 	}
 	
 	public String toString() {
-		String s = r1.toString();
-		if(!origin) s = "\n" + r2.toString();
+		String s = "";
+		
+		if(this.r_up != null) s = this.r_up.toString() + "  ";
+		
+		s += this.r_tail.toString();
 		
 		return s;
 	}
 	
 	public void replace(DatalogRule r) {
-		this.r1 = r;
+		this.r_tail = r;
 	}
 
 	public DatalogRule contains(InMemoryAtomSet b) {
-		if(AtomSetUtils.contains(r1.getBody(), b)) return r1;
-		if(!this.origin)
-			if(AtomSetUtils.contains(r2.getBody(), b)) return r2;
-		
-		return null;
+		if(AtomSetUtils.contains(this.r_tail.getBody(), b)) return this.r_tail;
+		else {
+			DatalogRule ur = unfold();
+			if(AtomSetUtils.contains(ur.getBody(), b)) return ur;
+			else return null;
+		}
 	}
 
 	public DatalogRule unfold() {
-		if(this.type == Type.ORIGIN) return r1;
+		InMemoryAtomSet mbody = this.r_up.getBody();
+		mbody = AtomSetUtils.minus(mbody, this.r_tail.getHead());
+		mbody = AtomSetUtils.union(mbody, this.r_tail.getBody());
 		
-		InMemoryAtomSet mbody = r1.getBody();
-		mbody = AtomSetUtils.minus(mbody, r2.getHead());
-		mbody = AtomSetUtils.union(mbody, r2.getBody());
-		
-		return new DefaultDatalogRule(r1.getHead(), r2.getBody());
+		return new DefaultDatalogRule(mbody, this.r_up.getHead());
 	}
 }
