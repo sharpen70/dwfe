@@ -6,16 +6,12 @@ import java.util.List;
 
 import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
 import fr.lirmm.graphik.graal.core.atomset.AtomSetUtils;
+import fr.lirmm.graphik.graal.core.unifier.QueryUnifier;
 
 public class RuleRewPair {
 	private DatalogRule r_tail;
 	private DatalogRule r_up;
 		
-//	public RuleRewPair(DatalogRule r) {
-//		 = r;
-//		origin = true;
-//	}
-	
 	public RuleRewPair(DatalogRule r_tail, DatalogRule r_up) {
 		this.r_tail = r_tail;
 		this.r_up = r_up;
@@ -43,11 +39,13 @@ public class RuleRewPair {
 		this.r_tail = r;
 	}
 
-	public DatalogRule contains(InMemoryAtomSet b) {
-		if(AtomSetUtils.contains(this.r_tail.getBody(), b)) return this.r_tail;
+	public DatalogRule suits(QueryUnifier u) {
+		InMemoryAtomSet b = u.getImageOf(u.getPiece());
+		
+		if(AtomSetUtils.contains(u.getImageOf(this.r_tail.getBody()), b)) return this.r_tail;
 		else {
 			DatalogRule ur = unfold();
-			if(AtomSetUtils.contains(ur.getBody(), b)) return ur;
+			if(AtomSetUtils.contains(u.getImageOf(ur.getBody()), b)) return ur;
 			else return null;
 		}
 	}

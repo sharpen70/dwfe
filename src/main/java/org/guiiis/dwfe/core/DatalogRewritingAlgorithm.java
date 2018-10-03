@@ -33,7 +33,7 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	private Rtd rtd;
 	private RewTree rewtree;
 	
-	private boolean test = true;
+	private boolean test = false;
 	
 	public DatalogRewritingAlgorithm(DatalogRewritingOperator dp, ExtendedSRA op) {
 		this.dp = dp;
@@ -116,17 +116,16 @@ public class DatalogRewritingAlgorithm implements Profilable{
 				if(test) {
 					this.profiler.trace("rewrites: " + _q.toString());
 				}
+				
 				ExtendedQueryUnifier eu = op.getUnificationInfo(_q);
 				QueryUnifier u = eu.getUnifier();
+							
+				DatalogRule r = findRep(u, u.getQuery(), null);
 				
-				this.profiler.trace("piece: " + u.getPiece().toString());
-				
-				InMemoryAtomSet realPiece = u.getImageOf(u.getPiece());
-				
-				DatalogRule r = findRep(realPiece, u.getQuery(), null);
-				RuleRewPair p = this.dp.getRewriteFrom(r, op.getUnificationInfo(_q));
+				RuleRewPair p = this.dp.getRewriteFrom(r, eu);
 				rtd.add(_q, p);
 				finalDatalog.addAll(p.getRules());
+				
 				if(test) {
 					this.profiler.trace("---");
 				//	this.profiler.trace(u.getPiece().toString());
@@ -187,20 +186,20 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	/**
 	 * @return The representative of the current rewriting
 	 */
-	public DatalogRule findRep(InMemoryAtomSet B, ConjunctiveQuery q, DatalogRule r) {
+	public DatalogRule findRep(QueryUnifier u, ConjunctiveQuery q, DatalogRule r) {
 		RuleRewPair rp = rtd.get(q);
 		
-		this.profiler.trace(rp.toString());
+	//	this.profiler.trace(rp.toString());
 		
 		if(r != null) {
 			rp.replace(r);
 		}
 
-		DatalogRule uc = rp.contains(B);
+		DatalogRule uc = rp.suits(u);
 		
 		if(uc != null) return uc;
 		else {
-			return findRep(B, rewtree.getParent(q), uc);
+			return findRep(u, rewtree.getParent(q), uc);
 		}
 	}
 	
