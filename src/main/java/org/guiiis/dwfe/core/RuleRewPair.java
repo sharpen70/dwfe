@@ -11,15 +11,18 @@ import fr.lirmm.graphik.graal.core.unifier.QueryUnifier;
 public class RuleRewPair {
 	private DatalogRule r_tail;
 	private DatalogRule r_up;
-		
-	public RuleRewPair(DatalogRule r_tail, DatalogRule r_up) {
+	private boolean origin;
+	
+	public RuleRewPair(DatalogRule r_tail, DatalogRule r_up, boolean origin) {
 		this.r_tail = r_tail;
 		this.r_up = r_up;
+		this.origin = origin;
 	}
 	
 	public Collection<DatalogRule> getRules() {
 		List<DatalogRule> rs = new ArrayList<>();
-		rs.add(this.r_up);
+		
+		if(!this.origin) rs.add(this.r_up);
 		rs.add(this.r_tail);
 		
 		return rs;

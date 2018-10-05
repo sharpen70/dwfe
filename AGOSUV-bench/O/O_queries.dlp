@@ -1,0 +1,7 @@
+@prefix : <http://purl.obolibrary.org/obo/pr#>
+
+[Q1] ? (X) :- :has_part(X, Y), :CHEBI_23367(Y). 
+[Q2] ? (X) :- :lacks_part(X, Y), :SO_0000418(Y).
+[Q3] ? (X) :- :PR_000000001(X).
+[Q4] ? (X) :- :derives_from(X, Y), :PR_000000001(Y). 
+[Q5] ? (X) :- :has_part(X, Y), :CHEBI_23367(Y) , :lacks_part(X, Z), :SO_0000418(Z).

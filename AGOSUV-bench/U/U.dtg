@@ -1,0 +1,94 @@
+Q1(?A, ?B) :- worksfor(?A,?B), affiliatedorganizationof(?B,?C).
+?- person(?A), teacherof(?A,?B), course(?B).
+?- student(?A), advisor(?A,?B), facultystaff(?B), takescourse(?A,?C), teacherof(?B,?C), course(?C).
+?- person(?A), worksfor(?A,?B), organization(?B).
+?- person(?A), worksfor(?A,?B), university(?B), hasalumnus(?B,?A).
+
+Professor(?X) :- AssociateProfessor(?X).
+FacultyStaff(?X) :- Professor(?X).
+Professor(?X) :- AssistantProfessor(?X).
+aux_0(?X,?Y) :- Student(?X).
+Organization(?X) :- Faculty(?X).
+Course(?Y) :- teacherOf(?X, ?Y).
+ExamRecord(?Y) :- hasExamRecord(?X, ?Y).
+Person(?X) :- GraduateStudent(?X).
+Person(?X) :- Student(?X).
+Work(?X) :- ExamRecord(?X).
+Organization(?X) :- Program(?X).
+University(?X) :- hasFaculty(?X, ?Y).
+Person(?X) :- Director(?X).
+Organization(?X) :- College(?X).
+Professor(?Y) :- advisor(?X, ?Y).
+degreeFrom(?X, ?Y) :- mastersDegreeFrom(?X, ?Y).
+worksFor(?X, ?Y) :- headOf(?X, ?Y).
+Employee(?X) :- FacultyStaff(?X).
+Work(?X) :- Career(?X).
+memberOf(?X, ?Y) :- worksFor(?X, ?Y).
+Professor(?X) :- Chair(?X).
+aux_1(?X,?Y) :- Dean(?X).
+degreeFrom(?X, ?Y) :- undergraduateDegreeFrom(?X, ?Y).
+Person(?Y) :- hasAlumnus(?X, ?Y).
+Professor(?X) :- FullProfessor(?X).
+Person(?Y) :- member(?X, ?Y).
+hasFaculty(?X, ?Y) :- isPartOfUniversity(?Y, ?X).
+isPartOfUniversity(?Y, ?X) :- hasFaculty(?X, ?Y).
+Course(?Y) :- teachingAssistantOf(?X, ?Y).
+Exam(?X) :- BachelorExam(?X).
+AdministrativeStaff(?X) :- SystemsStaff(?X).
+Faculty(?X) :- isPartOfUniversity(?X, ?Y).
+Person(?X) :- undergraduateDegreeFrom(?X, ?Y).
+Person(?X) :- degreeFrom(?X, ?Y).
+Organization(?X) :- member(?X, ?Y).
+University(?X) :- hasAlumnus(?X, ?Y).
+Professor(?X) :- Dean(?X).
+Student(?X) :- ResearchAssistant(?X).
+Professor(?X) :- VisitingProfessor(?X).
+aux_2(?X,?Y) :- Employee(?X).
+aux_3(?X,?Y) :- GraduateStudent(?X).
+member(?X, ?Y) :- memberOf(?Y, ?X).
+memberOf(?Y, ?X) :- member(?X, ?Y).
+degreeFrom(?X, ?Y) :- doctoralDegreeFrom(?X, ?Y).
+Organization(?X) :- affiliatedOrganizationOf(?X, ?Y).
+Work(?X) :- Course(?X).
+AdministrativeStaff(?X) :- ClericalStaff(?X).
+Organization(?X) :- affiliateOf(?X, ?Y).
+Person(?X) :- mastersDegreeFrom(?X, ?Y).
+Course(?X) :- GraduateCourse(?X).
+degreeFrom(?X, ?Y) :- hasAlumnus(?Y, ?X).
+hasAlumnus(?Y, ?X) :- degreeFrom(?X, ?Y).
+Person(?X) :- doctoralDegreeFrom(?X, ?Y).
+aux_4(?X,?Y) :- Director(?X).
+Student(?X) :- UndergraduateStudent(?X).
+University(?Y) :- isPartOfUniversity(?X, ?Y).
+Organization(?X) :- University(?X).
+Person(?X) :- advisor(?X, ?Y).
+FacultyStaff(?X) :- Lecturer(?X).
+University(?Y) :- doctoralDegreeFrom(?X, ?Y).
+Work(?X) :- Exam(?X).
+Employee(?X) :- AdministrativeStaff(?X).
+FacultyStaff(?X) :- teacherOf(?X, ?Y).
+Student(?X) :- hasExamRecord(?X, ?Y).
+Person(?X) :- Employee(?X).
+FacultyStaff(?X) :- PostDoc(?X).
+Professor(?X) :- ExDean(?X).
+Work(?X) :- Degree(?X).
+Faculty(?Y) :- hasFaculty(?X, ?Y).
+Person(?Y) :- publicationAuthor(?X, ?Y).
+Person(?Y) :- affiliateOf(?X, ?Y).
+University(?Y) :- degreeFrom(?X, ?Y).
+University(?Y) :- undergraduateDegreeFrom(?X, ?Y).
+Organization(?Y) :- affiliatedOrganizationOf(?X, ?Y).
+University(?Y) :- mastersDegreeFrom(?X, ?Y).
+Organization(?X) :- orgPublication(?X, ?Y).
+Professor(?X) :- tenured(?X, ?Y).
+headOf(?X,?Y) :- aux_1(?X,?Y).
+College(?Y) :- aux_1(?X,?Y).
+worksFor(?X,?Y) :- aux_2(?X,?Y).
+Organization(?Y) :- aux_2(?X,?Y).
+takesCourse(?X,?Y) :- aux_0(?X,?Y).
+Course(?Y) :- aux_0(?X,?Y).
+takesCourse(?X,?Y) :- aux_3(?X,?Y).
+GraduateCourse(?Y) :- aux_3(?X,?Y).
+headOf(?X,?Y) :- aux_4(?X,?Y).
+Program(?Y) :- aux_4(?X,?Y).
+

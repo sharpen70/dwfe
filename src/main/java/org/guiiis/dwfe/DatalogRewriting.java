@@ -34,12 +34,12 @@ public class DatalogRewriting implements Profilable {
 		this.dlgoperator = new DatalogRewritingOperator();
 	}
 	
-	public Collection<DatalogRule> exec(ConjunctiveQuery q, KnowledgeBase kb) {
+	public Collection<DatalogRule> exec(ConjunctiveQuery q, RuleSet onto) {
 		if (this.getProfiler() != null && this.getProfiler().isProfilingEnabled()) {
 			this.getProfiler().trace(q.getLabel());
 		}
 		
-		RuleSet rs = new LinkedListRuleSet(Rules.computeSinglePiece(kb.getOntology().iterator()));
+		RuleSet rs = new LinkedListRuleSet(Rules.computeSinglePiece(onto.iterator()));
 		addLabel(rs);
 		
 		IndexedByHeadPredicatesRuleSet indexedRuleSet = new IndexedByHeadPredicatesRuleSet(rs);

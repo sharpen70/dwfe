@@ -1,0 +1,6 @@
+
+Q(?0) <- Heme(?0)
+Q(?0) <- BodyProcess(?0)
+Q(?0) <- isConsequenceOf(?0, ?1), Hypertension(?1)
+Q(?0) <- Protein(?0)
+Q(?0) <- isSpecificConsequenceOf(?0, ?1), InfectionProcess(?1)

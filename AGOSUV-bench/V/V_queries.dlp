@@ -1,0 +1,10 @@
+@prefix : <http://vicodi.org/ontology#>
+
+[Q1] ?(A) :- :Location(A).
+[Q2] ?(A,B) :- :Military-Person(A), :hasRole(B,A), :related(A,C).
+[Q3] ?(A,B) :- :Time-Dependant-Relation(A), :hasRelationMember(A,B), :Event(B).
+[Q4] ?(A,B) :- :Object(A), :hasRole(A,B), :Symbol(B).
+[Q5] ?(A) :- :Individual(A), :hasRole(A,B), :Scientist(B), :hasRole(A,C), :Discoverer(C), :hasRole(A,D), :Inventor(D).
+
+
+

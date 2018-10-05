@@ -1,0 +1,8 @@
+@prefix : <http://ksg.meraka.co.za/adolena.owl#>
+@prefix NAP: <file:///home/aurona/0AlleWerk/Navorsing/Ontologies/NAP/NAP#>
+
+[Q1] ?(X0) :- NAP:Device(X0), :assistsWith(X0, X1).
+[Q2] ?(X0) :- NAP:Device(X0), :assistsWith(X0, X1), NAP:UpperLimbMobility(X1).
+[Q3] ?(X0) :- NAP:Device(X0), :assistsWith(X0, X1), NAP:Hear(X1), :affects(X2, X1), NAP:Autism(X2).
+[Q4] ?(X0) :- NAP:Device(X0), :assistsWith(X0, X1), NAP:PhysicalAbility(X1).
+[Q5] ?(X0) :- NAP:Device(X0), :assistsWith(X0, X1), NAP:PhysicalAbility(X1), :affects(X2, X1), NAP:Quadriplegia(X2).

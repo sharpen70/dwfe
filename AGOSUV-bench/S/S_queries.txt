@@ -1,0 +1,5 @@
+Q(?0) <- StockExchangeMember(?0)
+Q(?0,?1) <- Person(?0), hasStock(?0,?1), Stock(?1)
+Q(?0,?1,?2) <- FinantialInstrument(?0), belongsToCompany(?0,?1), Company(?1), hasStock(?1,?2), Stock(?2)
+Q(?0,?1,?2) <- Person(?0), hasStock(?0,?1), Stock(?1), isListedIn(?1,?2), StockExchangeList(?2)
+Q(?0,?1,?2,?3) <- FinantialInstrument(?0), belongsToCompany(?0,?1), Company(?1), hasStock(?1,?2), Stock(?2), isListedIn(?1,?3), StockExchangeList(?3)

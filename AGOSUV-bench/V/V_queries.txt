@@ -1,0 +1,5 @@
+Q(?0) <- Location(?0)
+Q(?0,?1) <- Military-Person(?0), hasRole(?1,?0), related(?0,?2)
+Q(?0,?1) <- Time-Dependent-Relation(?0), hasRelationMember(?0,?1), Event(?1)
+Q(?0,?1) <- Object(?0), hasRole(?0,?1), Symbol(?1)
+Q(?0) <- Individual(?0), hasRole(?0,?1), Scientist(?1), hasRole(?0,?2), Discoverer(?2), hasRole(?0,?3), Inventor(?3)

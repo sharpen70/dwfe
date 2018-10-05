@@ -1,0 +1,9 @@
+@prefix : <http://www.owl-ontologies.com/Ontology1207768242.owl#>
+
+[Q1] ? (A) :- :StockExchangeMember(A).
+[Q2] ? (A, B) :- :Person(A), :hasStock(A, B), :Stock(B).
+[Q3] ? (A,B,C) :- :FinantialInstrument(A), :belongsToCompany(A,B), :Company(B), :hasStock(B,C), :Stock(C).
+[Q4] ? (A, B, C) :- :Person(A), :hasStock(A, B), :Stock(B), :isListedIn(B, C), :StockeEchangeList(C).
+[Q5] ? (A, B, C, D) :- :FinantialInstrument(A), :belongsToCompany(A,B), :Company(B), :hasStock(B,C), :Stock(C), :isListedIn(B,D), :StockExchangeList(D).
+
+

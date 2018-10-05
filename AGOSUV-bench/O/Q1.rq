@@ -1,0 +1,8 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <http://purl.obolibrary.org/obo/pr#>
+SELECT DISTINCT ?0 
+WHERE
+{
+	?0  :has_part ?1  .
+	?1  rdf:type :CHEBI_23367
+}

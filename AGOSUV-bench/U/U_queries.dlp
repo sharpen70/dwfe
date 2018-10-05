@@ -1,0 +1,12 @@
+@prefix : <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>
+
+[Q1] ?(A) :- :worksFor(A,B), :affiliatedOrganizationOf(B,C).
+[Q2] ?(A,B) :- :Person(A), :teacherOf(A,B), :Course(B).
+[Q3] ?(A,B,C):- :Student(A), :Advisor(A,B), :FacultyStaff(B), :takesCourse(A,C), :teacherOf(B,C), :Course(C).
+[Q4] ?(A,B) :- :Person(A), :worksFor(A,B), :Organization(B).
+[Q5] ?(A) :- :Person(A), :worksFor(A,B), :University(B), :hasAlumnus(B,A).
+
+
+
+
+

@@ -59,7 +59,7 @@ public class AppTest
     {	
     	DlgpEWriter writer = new DlgpEWriter();
     	
-    	for(int i = 4; i < caseNum; i++) {
+    	for(int i = 0; i < caseNum; i++) {
     		test(dlgs[i], queries[i], writer);
     	}
     	
@@ -84,14 +84,14 @@ public class AppTest
 		
 		dr.setProfiler(new RealTimeProfiler(System.out));
 		
-		Collection<DatalogRule> result = dr.exec(query, kb);
+		Collection<DatalogRule> result = dr.exec(query, kb.getOntology());
 		
-		writer.write("\n= Testcase " + dlgFile + " Rewriting results =\n");
-		
-		for(DatalogRule r : result) {
-			writer.write(r);
-			writer.write("\n");
-		}
+//		writer.write("\n= Testcase " + dlgFile + " Rewriting results =\n");
+//		
+//		for(DatalogRule r : result) {
+//			writer.write(r);
+//			writer.write("\n");
+//		}
 		// 8 - Close resources
 		kb.close();
     }

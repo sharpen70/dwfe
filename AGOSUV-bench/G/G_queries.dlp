@@ -1,0 +1,7 @@
+@prefix : <file:///c:/tmp/OpenGALEN2_FULL_WithPropertyChains.owl#>
+
+[Q1] ?(X0) :- :Heme(X0).
+[Q2] ?(X0) :- :BodyProcess(X0).
+[Q3] ?(X0) :- :isConsequenceOf(X0, X1), :Hypertension(X1).
+[Q4] ?(X0) :- :Protein(X0).
+[Q5] ?(X0) :- :isSpecificConsequenceOf(X0, X1), :InfectionProcess(X1).

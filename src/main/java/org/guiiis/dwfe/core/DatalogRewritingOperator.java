@@ -47,7 +47,7 @@ public class DatalogRewritingOperator implements Profilable {
 			InMemoryAtomSet nbody = u.getImageOf(_r.getBody());
 			InMemoryAtomSet nhead = u.getImageOf(_r.getHead());
 			DatalogRule dr = new DefaultDatalogRule(nbody, nhead);	
-			return new RuleRewPair(dr, nr);
+			return new RuleRewPair(dr, nr, true);
 		}
 		else {
 			String identifier = eu.getRuleLabel() + "_AGG" + eu.getAgg();
@@ -84,7 +84,7 @@ public class DatalogRewritingOperator implements Profilable {
 			DatalogRule r1 = new DefaultDatalogRule(nbody, nhead);
 			r1.makeSafe();
 		
-			return new RuleRewPair(r2, r1);
+			return new RuleRewPair(r2, r1, false);
 		}
 	}
 

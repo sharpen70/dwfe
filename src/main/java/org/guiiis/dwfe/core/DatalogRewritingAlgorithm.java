@@ -48,7 +48,7 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		
 		if(this.verbose) {
 			this.profiler.trace(query.toString());
-			this.profiler.put("CONFIG", op.getClass().getSimpleName());
+		//	this.profiler.put("CONFIG", op.getClass().getSimpleName());
 		}
 		LinkedList<ConjunctiveQuery> finalRewritingSet = new LinkedList<ConjunctiveQuery>();
 		Queue<ConjunctiveQuery> rewriteSetToExplore = new LinkedList<ConjunctiveQuery>();
@@ -72,12 +72,12 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		finalRewritingSet.add(pquery);
 		
 		// Construct the initial DatalogRule
-		Predicate G = new Predicate("Goal", 0);
+		Predicate G = new Predicate("ANS", 0);
 		Atom Ghead = DefaultAtomFactory.instance().create(G);
 		DefaultAtomSetFactory.instance().create(Ghead);
 		DatalogRule H = new DefaultDatalogRule(pquery.getAtomSet(), DefaultAtomSetFactory.instance().create(Ghead));
 		
-		rtd.add(pquery, new RuleRewPair(H, null));
+		rtd.add(pquery, new RuleRewPair(H, null, true));
 		
 		finalDatalog.add(H);
 		
@@ -158,16 +158,17 @@ public class DatalogRewritingAlgorithm implements Profilable{
 
 //		/* clean the rewrites to return */
 //		Utils.computeCover(finalRewritingSet);
-
+		
+		/* clean the datalog rule */
+		clean(finalDatalog);
+		
 		if(this.verbose) {
 			this.profiler.stop("Rewriting time");
 			this.profiler.put("Generated rewritings", generatedRewrites);
 			this.profiler.put("Explored rewritings", exploredRewrites);
 			this.profiler.put("Pivotal rewritings", finalRewritingSet.size());
+			this.profiler.put("Datalog rewritings", finalDatalog.size());
 		}
-		
-		/* clean the datalog rule */
-		clean(finalDatalog);
 		
 		return finalDatalog;
 	}
@@ -287,6 +288,8 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		
 		public void rm(ConjunctiveQuery q) {
 			RuleRewPair rp = rtd.get(q);
+			if(rp == null) return;
+			
 			rtd.remove(q);
 			
 			Collection<DatalogRule> rs = rp.getRules();
