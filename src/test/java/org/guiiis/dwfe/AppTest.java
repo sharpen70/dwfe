@@ -26,7 +26,7 @@ public class AppTest
 	
 	private static String[] dlgs = {"dlg1", "dlg2", "dlg3", "dlg4", "dlg_o"};
 	private static String[] queries = {
-			"?() :- a(X).",
+			"?(X) :- a(X).",
 			"?() :- p(Y,Z),p(Z,Y).",
 			"?() :- q(U,V),r(V,W),q(T,W).",
 			"?() :- r(U,V),r(V,W),p(U,Z),p(V,Z),p(V,T),p(W,T),p1(U),p2(W).",
@@ -59,7 +59,7 @@ public class AppTest
     {	
     	DlgpEWriter writer = new DlgpEWriter();
     	
-    	for(int i = 0; i < caseNum; i++) {
+    	for(int i = 4; i < caseNum; i++) {
     		test(dlgs[i], queries[i], writer);
     	}
     	
@@ -86,12 +86,12 @@ public class AppTest
 		
 		Collection<DatalogRule> result = dr.exec(query, kb.getOntology());
 		
-//		writer.write("\n= Testcase " + dlgFile + " Rewriting results =\n");
-//		
-//		for(DatalogRule r : result) {
-//			writer.write(r);
-//			writer.write("\n");
-//		}
+		writer.write("\n= Testcase " + dlgFile + " Rewriting results =\n");
+		
+		for(DatalogRule r : result) {
+			writer.write(r);
+			writer.write("\n");
+		}
 		// 8 - Close resources
 		kb.close();
     }

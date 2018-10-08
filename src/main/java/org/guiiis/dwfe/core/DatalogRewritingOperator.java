@@ -59,8 +59,7 @@ public class DatalogRewritingOperator implements Profilable {
 			InMemoryAtomSet mbody = u.getImageOf(_r.getBody());
 			InMemoryAtomSet mhead = u.getImageOf(head);
 			
-			DatalogRule r2 = new DefaultDatalogRule(mbody, mhead);
-			r2.makeSafe();
+			DatalogRule r2 = new DefaultDatalogRule(mbody, mhead, true);
 			
 			InMemoryAtomSet nbody = u.getImageOf(r.getBody());
 			InMemoryAtomSet npiece = u.getImageOf(u.getPiece());
@@ -81,8 +80,7 @@ public class DatalogRewritingOperator implements Profilable {
 			
 			InMemoryAtomSet nhead = u.getImageOf(r.getHead());
 			
-			DatalogRule r1 = new DefaultDatalogRule(nbody, nhead);
-			r1.makeSafe();
+			DatalogRule r1 = new DefaultDatalogRule(nbody, nhead, true);
 		
 			return new RuleRewPair(r2, r1, false);
 		}

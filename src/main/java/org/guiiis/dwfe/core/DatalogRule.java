@@ -46,12 +46,12 @@ public interface DatalogRule extends Comparable<DatalogRule>, AppendableToString
 	 */
 	InMemoryAtomSet getHead();
 
-	/**
-	 * Compute and return the set of frontier variables of this rule.
-	 * 
-	 * @return a Set containing the frontier variables of this rule.
-	 */
-	Set<Variable> getFrontier();
+//	/**
+//	 * Compute and return the set of frontier variables of this rule.
+//	 * 
+//	 * @return a Set containing the frontier variables of this rule.
+//	 */
+//	Set<Variable> getFrontier();
 
 	/**
 	 * Get all variables of this rule.
@@ -68,11 +68,11 @@ public interface DatalogRule extends Comparable<DatalogRule>, AppendableToString
 	Set<Constant> getConstants();
 	
 	/**
-	 * Get all terms of this rule.
+	 * Get the relative map of the variables in this rule
 	 * 
-	 * @return a Set of all Term related to this Rule.
+	 * @return a map records the relative coding of variables
 	 */
-	Map<Term, Integer> getTerms();
+	Map<Variable, Integer> getVarMap();
 	
 	/**
 	 *  Get all free variables of this rule.
@@ -80,9 +80,4 @@ public interface DatalogRule extends Comparable<DatalogRule>, AppendableToString
 	 *  @return a Set of all variables related to this Rule.
 	 */
 	Set<Variable> getFree();
-	
-	/**
-	 * Make the rule safe by replacing free variables with fresh constant
-	 */
-	void makeSafe();
 }

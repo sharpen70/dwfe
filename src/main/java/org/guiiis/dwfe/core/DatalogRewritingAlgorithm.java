@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
@@ -14,7 +15,7 @@ import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
 import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
 import fr.lirmm.graphik.graal.api.core.Predicate;
 import fr.lirmm.graphik.graal.api.core.RulesCompilation;
-import fr.lirmm.graphik.graal.core.atomset.AtomSetUtils;
+import fr.lirmm.graphik.graal.api.core.Term;
 import fr.lirmm.graphik.graal.core.compilation.NoCompilation;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomFactory;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomSetFactory;
@@ -72,10 +73,11 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		finalRewritingSet.add(pquery);
 		
 		// Construct the initial DatalogRule
-		Predicate G = new Predicate("ANS", 0);
-		Atom Ghead = DefaultAtomFactory.instance().create(G);
+		List<Term> ansVar = query.getAnswerVariables();
+		Predicate G = new Predicate("ANS", ansVar.size());
+		Atom Ghead = DefaultAtomFactory.instance().create(G, ansVar);
 		DefaultAtomSetFactory.instance().create(Ghead);
-		DatalogRule H = new DefaultDatalogRule(pquery.getAtomSet(), DefaultAtomSetFactory.instance().create(Ghead));
+		DatalogRule H = new DefaultDatalogRule(query.getAtomSet(), DefaultAtomSetFactory.instance().create(Ghead));
 		
 		rtd.add(pquery, new RuleRewPair(H, null, true));
 		
@@ -179,8 +181,11 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	 * deletion in UCQ rewriting
 	 */
 	private void clean(Set<DatalogRule> dlg) {
-		for(DatalogRule r : dlg) {
-			if(!this.rtd.exists(r)) dlg.remove(r);				
+		Iterator<DatalogRule> it = dlg.iterator();
+		
+		while(it.hasNext()) {
+			DatalogRule r = it.next();
+			if(!this.rtd.exists(r)) it.remove();
 		}
 	}
 	
@@ -189,9 +194,7 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	 */
 	public DatalogRule findRep(QueryUnifier u, ConjunctiveQuery q, DatalogRule r) {
 		RuleRewPair rp = rtd.get(q);
-		
-	//	this.profiler.trace(rp.toString());
-		
+			
 		if(r != null) {
 			rp.replace(r);
 		}
@@ -282,7 +285,12 @@ public class DatalogRewritingAlgorithm implements Profilable{
 			Collection<DatalogRule> rs = rp.getRules();
 			rtd.put(q, rp);
 			for(DatalogRule r : rs) {
-				count.merge(r, 1, (old, one) -> old + one);
+				try {
+					count.merge(r, 1, (old, one) -> old + one);
+				}
+				catch(Exception e) {
+					System.out.println("Merge Error " + r.toString());
+				}
 			}
 		}
 		

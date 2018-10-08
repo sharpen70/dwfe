@@ -36,7 +36,7 @@ public class DefaultDatalogRule implements DatalogRule {
 	private InMemoryAtomSet head;
 //	private Atom head;
 	
-	private Map<Term, Integer> terms = null;
+	private Map<Variable, Integer> varMap = null;
 	private Set<Variable> variables = null;
 	private Set<Constant> constants = null;
 	private Set<Variable> frontier = null;
@@ -49,8 +49,6 @@ public class DefaultDatalogRule implements DatalogRule {
 		this.label = r.getLabel();
 		this.body = r.getBody();
 		this.head = r.getHead();
-		
-		setTerms();
 	}
 	/**
 	 * By default, we assume all datalog rules have atomic head
@@ -61,8 +59,20 @@ public class DefaultDatalogRule implements DatalogRule {
 	public DefaultDatalogRule(InMemoryAtomSet body, InMemoryAtomSet head) {
 		this.body = body;
 		this.head = head;
+	}
+	
+	/**
+	 * If required, create a safe datalog rule by replace free variables with fresh constants
+	 * 
+	 * @param body
+	 * @param head
+	 * @param safe require safe or not
+	 */
+	public DefaultDatalogRule(InMemoryAtomSet body, InMemoryAtomSet head, boolean safe) {
+		this.body = body;
+		this.head = head;
 		
-		setTerms();
+		if(safe) this.makeSafe();
 	}
 	
 	@Override
@@ -76,30 +86,32 @@ public class DefaultDatalogRule implements DatalogRule {
 		
 		DatalogRule r = (DatalogRule)obj;
 
-		if(!checkAtomSet(this.head, r.getHead(), r.getTerms(), t1, t2)) return false;
-		if(!checkAtomSet(this.body, r.getBody(), r.getTerms(), t1, t2)) return false;
+		if(!checkAtomSet(this.head, r.getHead(), r.getVarMap(), t1, t2)) return false;
+		if(!checkAtomSet(this.body, r.getBody(), r.getVarMap(), t1, t2)) return false;
 		
 		if(t1 != t2) return false;
 		
 		return true;
 	}
 	
-	private boolean checkAtomSet(InMemoryAtomSet as1, InMemoryAtomSet as2, Map<Term, Integer> m, String t1, String t2) {
+	private boolean checkAtomSet(InMemoryAtomSet as1, InMemoryAtomSet as2, Map<Variable, Integer> m, String t1, String t2) {
 		CloseableIteratorWithoutException<Atom> h1 = as1.iterator();
 		CloseableIteratorWithoutException<Atom> h2 = as2.iterator();
 		
 		while(h1.hasNext() && h2.hasNext()) {
 			Atom a1 = h1.next();
 			Atom a2 = h2.next();
-			if(a1.getPredicate()!= a2.getPredicate())
-				return false;
+			
+			if(a1.getPredicate()!= a2.getPredicate()) return false;
 			
 			for(Term t : a1.getTerms()) {
-				t1.concat((this.terms.get(t)).toString());
+				if(t.isConstant()) t1.concat(t.getLabel());
+				else t1.concat((this.getVarMap().get(t)).toString());
 			}
 			
 			for(Term t : a2.getTerms()) {
-				t2.concat((m.get(t)).toString());
+				if(t.isConstant()) t2.concat(t.getLabel());
+				else t2.concat((m.get(t)).toString());
 			}
 		}
 		if(h1.hasNext() || h2.hasNext()) return false;
@@ -108,19 +120,22 @@ public class DefaultDatalogRule implements DatalogRule {
 	
 	@Override
 	public int hashCode() {
-		int code = 0;
+		int prime = 31;
+		int result = 1;
+	
 		CloseableIteratorWithoutException<Atom> hit = head.iterator();
 		CloseableIteratorWithoutException<Atom> bit = body.iterator();
 		
 		while(hit.hasNext()) {
 			Atom a = hit.next();
-			code += Math.pow(a.getPredicate().hashCode(),2);
+			result = prime * result + a.getPredicate().hashCode();
 		}
 		while(bit.hasNext()) {
 			Atom a = bit.next();
-			code += Math.pow(a.getPredicate().hashCode(),2);
+			result = prime * result + a.getPredicate().hashCode();
 		}
-		return code;
+		
+		return result;
 	}
 	
 	@Override
@@ -169,69 +184,75 @@ public class DefaultDatalogRule implements DatalogRule {
 	
 	@Override
 	public Set<Variable> getFree() {
-		if(this.free == null) {
-			this.free = new HashSet<>();
-			this.free.addAll(this.head.getVariables());
-			this.free.removeAll(this.getVariables());
-		}
-			
+		if(this.free == null) setFree();
 		return this.free;
 	}	
 	
-	@Override
-	public Set<Variable> getFrontier() {
-		if(this.frontier == null) {
-			this.frontier = new HashSet<>();
-			this.frontier.addAll(this.head.getVariables());
-			this.frontier.removeAll(this.getFree());
-		}
-		return this.frontier;
+	private void setFree() {
+		this.free = new HashSet<>();
+		this.free.addAll(this.head.getVariables());
+		this.free.removeAll(this.body.getVariables());
 	}
+	
+//	@Override
+//	public Set<Variable> getFrontier() {
+//		if(this.frontier == null) {
+//			this.frontier = new HashSet<>();
+//			this.frontier.addAll(this.head.getVariables());
+//			this.frontier.removeAll(this.getFree());
+//		}
+//		return this.frontier;
+//	}
 
 	@Override
 	public Set<Variable> getVariables() {
-		if(this.variables == null) {
-			this.variables = new HashSet<>();
-			this.variables.addAll(this.head.getVariables());
-			this.variables.addAll(this.body.getVariables());
-		}
+		if(this.variables == null) setVariables();
 		return this.variables;
 	}
-
+	
+	private void setVariables() {
+		this.variables = new HashSet<>();
+		this.variables.addAll(this.head.getVariables());
+		this.variables.addAll(this.body.getVariables());
+	}
+	
 	@Override
 	public Set<Constant> getConstants() {
-		if(this.constants == null) {
-			this.constants = new HashSet<>();
-			this.constants.addAll(this.head.getConstants());
-			this.constants.addAll(this.body.getConstants());
-		}
+		if(this.constants == null) setConstants();
 		return this.constants;
 	}
 
-	@Override
-	public Map<Term, Integer> getTerms() {
-		return this.terms;
+	private void setConstants() {
+		this.constants = new HashSet<>();
+		this.constants.addAll(this.head.getConstants());
+		this.constants.addAll(this.body.getConstants());
 	}
 	
-	private void setTerms() {
+	@Override
+	public Map<Variable, Integer> getVarMap() {
+		if(this.varMap == null) setVarMap();
+		return this.varMap;
+	}
+	
+	private void setVarMap() {
 		int i = 0;
-		Set<Term> tt = new HashSet<>();
-		tt.addAll(this.head.getTerms());
-		tt.addAll(this.body.getTerms());
+		Set<Variable> tt = new HashSet<>();
+		tt.addAll(this.head.getVariables());
+		tt.addAll(this.body.getVariables());
 		
-		this.terms = new HashMap<>();
+		this.varMap = new HashMap<>();
 		
-		for(Term t: tt) {
-			this.terms.put(t, i);
+		for(Variable t: tt) {
+			this.varMap.put(t, i);
 			i++;
 		}
 	}
 	
-	@Override
-	public void makeSafe() {
+	private void makeSafe() {
 		Atom ahead = this.head.iterator().next();
 		
 		if(!this.getFree().isEmpty()) {
+		//	System.out.println("free exits");
 			List<Term> newterms = new ArrayList<>();
 			
 			for(Term t : ahead.getTerms()) {
@@ -244,8 +265,7 @@ public class DefaultDatalogRule implements DatalogRule {
 				}
 			}
 			
-			InMemoryAtomSet _head = DefaultAtomSetFactory.instance().create(new DefaultAtom(ahead.getPredicate(), newterms)); 
-			this.head = _head;
+			this.head = DefaultAtomSetFactory.instance().create(new DefaultAtom(ahead.getPredicate(), newterms)); 
 		}
 	}
 }
