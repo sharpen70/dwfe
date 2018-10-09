@@ -1,6 +1,5 @@
 package org.guiiis.dwfe.core;
 
-import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.core.unifier.QueryUnifier;
 
 public class ExtendedQueryUnifier {

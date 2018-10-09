@@ -8,14 +8,11 @@ import java.util.List;
 import java.util.Map;
 
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
-import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
 import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.api.core.RulesCompilation;
-import fr.lirmm.graphik.graal.api.core.Term;
 import fr.lirmm.graphik.graal.backward_chaining.pure.AbstractRewritingOperator;
 import fr.lirmm.graphik.graal.core.ruleset.IndexedByHeadPredicatesRuleSet;
 import fr.lirmm.graphik.graal.core.unifier.QueryUnifier;
-import fr.lirmm.graphik.util.Partition;
 
 public class ExtendedSRA extends AbstractRewritingOperator {
 	private Map<ConjunctiveQuery, ExtendedQueryUnifier> info;

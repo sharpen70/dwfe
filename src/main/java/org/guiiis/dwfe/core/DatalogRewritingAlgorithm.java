@@ -16,6 +16,7 @@ import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
 import fr.lirmm.graphik.graal.api.core.Predicate;
 import fr.lirmm.graphik.graal.api.core.RulesCompilation;
 import fr.lirmm.graphik.graal.api.core.Term;
+import fr.lirmm.graphik.graal.core.atomset.AtomSetUtils;
 import fr.lirmm.graphik.graal.core.compilation.NoCompilation;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomFactory;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomSetFactory;
@@ -54,6 +55,8 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		LinkedList<ConjunctiveQuery> finalRewritingSet = new LinkedList<ConjunctiveQuery>();
 		Queue<ConjunctiveQuery> rewriteSetToExplore = new LinkedList<ConjunctiveQuery>();
 		Collection<ConjunctiveQuery> currentRewriteSet;
+		
+		Set<ConjunctiveQuery> rmSet = new HashSet<>();
 		
 		Set<DatalogRule> finalDatalog = new HashSet<DatalogRule>();
 		
@@ -115,27 +118,18 @@ public class DatalogRewritingAlgorithm implements Profilable{
 			this.rewtree.add(q, currentRewriteSet);
 			
 			for(ConjunctiveQuery _q: currentRewriteSet) {
-				if(test) {
-					this.profiler.trace("rewrites: " + _q.toString());
-				}
-				
 				ExtendedQueryUnifier eu = op.getUnificationInfo(_q);
 				QueryUnifier u = eu.getUnifier();
-							
+				
+				if(test) {
+					this.profiler.trace("rewrites: " + _q.toString());
+					this.profiler.trace("Piece: " + u.getPiece().toString() + "\n");					
+				}
 				DatalogRule r = findRep(u, u.getQuery(), null);
 				
 				RuleRewPair p = this.dp.getRewriteFrom(r, eu);
 				rtd.add(_q, p);
 				finalDatalog.addAll(p.getRules());
-				
-				if(test) {
-					this.profiler.trace("---");
-				//	this.profiler.trace(u.getPiece().toString());
-					this.profiler.trace("rep: " + r.toString());
-					for(DatalogRule _r : p.getRules()) {
-						this.profiler.trace(_r.toString());
-					}
-				}
 			}
 			
 			if(test) this.profiler.trace("===");
@@ -147,11 +141,8 @@ public class DatalogRewritingAlgorithm implements Profilable{
 			 * keep in final rewrite set only query more general than query just
 			 * computed
 			 */
-			Set<ConjunctiveQuery> rm = selectMostGeneralFromRelativeTo(finalRewritingSet,
-					currentRewriteSet, compilation);
-			
-			//Remove from rtd those redundant rewritings
-			for(ConjunctiveQuery rq : rm) rtd.rm(rq);
+			rmSet.addAll(selectMostGeneralFromRelativeTo(finalRewritingSet,
+					currentRewriteSet, compilation));
 			
 			// add in final rewrite set the query just compute that we keep
 			finalRewritingSet.addAll(currentRewriteSet);
@@ -162,6 +153,8 @@ public class DatalogRewritingAlgorithm implements Profilable{
 //		Utils.computeCover(finalRewritingSet);
 		
 		/* clean the datalog rule */
+		for(ConjunctiveQuery rq : rmSet) rtd.rm(rq);
+		
 		clean(finalDatalog);
 		
 		if(this.verbose) {
@@ -194,16 +187,27 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	 */
 	public DatalogRule findRep(QueryUnifier u, ConjunctiveQuery q, DatalogRule r) {
 		RuleRewPair rp = rtd.get(q);
+		
+		if(test) {
+			this.profiler.trace("From " + q.toString() + "\n");
+		//	this.profiler.trace("Previous: " + (r != null ? r.toString() : "null") + "\n");
+			this.profiler.trace("Rtd: " + rp.toString() + "\n");
+		}
 			
 		if(r != null) {
-			rp.replace(r);
+			rp.setTail(r);
 		}
-
-		DatalogRule uc = rp.suits(u);
 		
-		if(uc != null) return uc;
+		DatalogRule tail = rp.getTail();
+		DatalogRule unfolding = rp.getUnfold();
+		InMemoryAtomSet b = u.getImageOf(u.getPiece());
+		
+		if(AtomSetUtils.contains(u.getImageOf(tail.getBody()), b)) return tail;
 		else {
-			return findRep(u, rewtree.getParent(q), uc);
+	//		System.out.println("unfold: " + unfolding.toString() + "\n");
+	//		System.out.println("unfold body: " + u.getImageOf(unfolding.getBody()) + " piece: " + b + "\n");
+			if(AtomSetUtils.contains(u.getImageOf(unfolding.getBody()), b)) return unfolding;
+			else return findRep(u, rewtree.getParent(q), unfolding);
 		}
 	}
 	

@@ -1,6 +1,5 @@
 package org.guiiis.dwfe.core;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,10 +10,7 @@ import fr.lirmm.graphik.graal.api.core.Term;
 import fr.lirmm.graphik.graal.core.atomset.AtomSetUtils;
 import fr.lirmm.graphik.graal.core.atomset.LinkedListAtomSet;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomFactory;
-import fr.lirmm.graphik.graal.core.factory.DefaultRuleFactory;
 import fr.lirmm.graphik.graal.core.unifier.QueryUnifier;
-import fr.lirmm.graphik.graal.io.dlp.DlgpWriter;
-import fr.lirmm.graphik.util.Partition;
 import fr.lirmm.graphik.util.profiler.Profilable;
 import fr.lirmm.graphik.util.profiler.Profiler;
 

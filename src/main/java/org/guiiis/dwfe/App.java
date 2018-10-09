@@ -3,7 +3,7 @@ package org.guiiis.dwfe;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.util.Collection;
+import java.util.ArrayList;
 
 import org.guiiis.dwfe.utils.SimpleQueryFileReader;
 
@@ -45,18 +45,22 @@ public class App
 		
 		RuleSet ontology = kb.getOntology();
 		
-		Collection<String> qs = SimpleQueryFileReader.read(new File(queriesfile));
+		ArrayList<String> qs = SimpleQueryFileReader.read(new File(queriesfile));
 		
 		DatalogRewriting dr = new DatalogRewriting();
 		
 		dr.setProfiler(new RealTimeProfiler(output));
 		
 		for(String s : qs) {
-			System.out.println(s);
+//			System.out.println(s);
 			ConjunctiveQuery query = DlgpParser.parseQuery(s);
 			output.println(query.toString());
 			dr.exec(query, ontology);			
 		}
+		
+//		ConjunctiveQuery query = DlgpParser.parseQuery(qs.get(3));
+//		output.println(query.toString());
+//		dr.exec(query, ontology);			
 		// 8 - Close resources
 		kb.close();
 	}

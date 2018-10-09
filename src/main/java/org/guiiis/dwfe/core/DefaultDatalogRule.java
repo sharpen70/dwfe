@@ -3,7 +3,6 @@ package org.guiiis.dwfe.core;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -17,7 +16,6 @@ import fr.lirmm.graphik.graal.api.core.Variable;
 import fr.lirmm.graphik.graal.core.DefaultAtom;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomSetFactory;
 import fr.lirmm.graphik.graal.core.term.DefaultTermFactory;
-import fr.lirmm.graphik.util.stream.CloseableIterator;
 import fr.lirmm.graphik.util.stream.CloseableIteratorWithoutException;
 
 /**
@@ -39,7 +37,7 @@ public class DefaultDatalogRule implements DatalogRule {
 	private Map<Variable, Integer> varMap = null;
 	private Set<Variable> variables = null;
 	private Set<Constant> constants = null;
-	private Set<Variable> frontier = null;
+//	private Set<Variable> frontier = null;
 	private Set<Variable> free = null;
 	
 	/**
