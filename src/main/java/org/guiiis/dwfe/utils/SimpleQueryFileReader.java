@@ -30,4 +30,26 @@ public class SimpleQueryFileReader {
 		
 		return re;
 	}
+	
+	public static ArrayList<String> read2(File f) throws FileNotFoundException {
+		Scanner scanner = new Scanner(f);
+		ArrayList<String> re = new ArrayList<>();
+		String s = "";
+		
+		while(scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+			
+			if(line.isEmpty()) continue;
+			if(line.startsWith("^")) {
+				if(!s.isEmpty()) re.add(s);
+				s = "";
+			}
+			else {
+				s += line + "\n";
+			}
+		}
+		
+		scanner.close();	
+		return re;
+	}
 }
