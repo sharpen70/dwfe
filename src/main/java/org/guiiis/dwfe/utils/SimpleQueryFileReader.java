@@ -49,6 +49,8 @@ public class SimpleQueryFileReader {
 			}
 		}
 		
+		re.add(s);
+		
 		scanner.close();	
 		return re;
 	}

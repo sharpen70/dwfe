@@ -1,11 +1,6 @@
-package org.guiiis.dwfe;
+package org.guiiis.dwfe.core;
 
 import java.util.Collection;
-
-import org.guiiis.dwfe.core.DatalogRewritingAlgorithm;
-import org.guiiis.dwfe.core.DatalogRewritingOperator;
-import org.guiiis.dwfe.core.DatalogRule;
-import org.guiiis.dwfe.core.ExtendedSRA;
 
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
 import fr.lirmm.graphik.graal.api.core.Rule;

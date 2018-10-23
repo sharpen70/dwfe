@@ -3,6 +3,7 @@ package org.guiiis.dwfe;
 import java.io.File;
 import java.util.Collection;
 
+import org.guiiis.dwfe.core.DatalogRewriting;
 import org.guiiis.dwfe.core.DatalogRule;
 import org.guiiis.dwfe.core.DlgpEWriter;
 

@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.guiiis.dwfe.DatalogRewriting;
-
 import fr.lirmm.graphik.graal.api.core.Atom;
 import fr.lirmm.graphik.graal.api.core.AtomSet;
 import fr.lirmm.graphik.graal.api.core.AtomSetException;
@@ -39,7 +37,7 @@ public class DlgKnowledgeBase {
 	private AnalyserRuleSet alyrs = null;
 	private Analyser analyzer = null;
 	
-	private boolean force_rewriting = true;
+	private boolean force_rewriting = false;
 	
 	public DlgKnowledgeBase(Parser<Object> parser) throws AtomSetException {
 		this.ruleset = new DefaultOntology();
@@ -85,6 +83,7 @@ public class DlgKnowledgeBase {
 			this.fusRuleSet = new LinkedListRuleSet();
 
 			int[] combine = this.analyzer.combineFUS();
+			System.out.println(combine);
 			List<AnalyserRuleSet> scc = this.alyrs.getSCC();
 			for (int i = 0; i < combine.length; ++i) {
 				if ((combine[i] & Analyser.COMBINE_FUS) != 0) {

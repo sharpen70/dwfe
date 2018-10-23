@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
+import org.guiiis.dwfe.core.DatalogRewriting;
 import org.guiiis.dwfe.core.RewritingAlgorithm;
 import org.guiiis.dwfe.utils.SimpleQueryFileReader;
 
