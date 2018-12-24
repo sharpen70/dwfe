@@ -111,7 +111,7 @@ public class RewritingAlgorithm implements Profilable {
 		pquery.addAnswerPredicate();
 		rewriteSetToExplore.add(pquery);
 		finalRewritingSet.add(pquery);
-
+		
 		ConjunctiveQuery q;
 		while (!Thread.currentThread().isInterrupted() && !rewriteSetToExplore.isEmpty()) {
 
@@ -156,7 +156,11 @@ public class RewritingAlgorithm implements Profilable {
 
 		/* clean the rewrites to return */
 		Utils.computeCover(finalRewritingSet);
-
+		
+		for(ConjunctiveQuery _q : finalRewritingSet) {
+			PureQuery.removeAnswerPredicate(_q);
+		}
+		
 		if(this.verbose) {
 			this.profiler.stop("Rewriting time");
 			this.profiler.put("Generated rewritings", generatedRewrites);

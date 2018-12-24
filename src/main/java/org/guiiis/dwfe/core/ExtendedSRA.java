@@ -64,7 +64,7 @@ public class ExtendedSRA extends AbstractRewritingOperator {
 			QueryUnifier u;
 			while (itr.hasNext()) {
 				u = itr.next();
-				restOfUnifToAggregate.remove(u);
+				restOfUnifToAggregate.remove(itr);
 				
 				for(ExtendedQueryUnifier _u : aggregate(u, restOfUnifToAggregate, 1)) {
 					_u.setLabel(r.getLabel());

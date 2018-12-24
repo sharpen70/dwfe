@@ -33,10 +33,9 @@ public class DatalogRewriting implements Profilable {
 			this.getProfiler().trace(q.getLabel());
 		}
 		
-		RuleSet rs = new LinkedListRuleSet(Rules.computeSinglePiece(onto.iterator()));
-		addLabel(rs);
+		addLabel(onto);
 		
-		IndexedByHeadPredicatesRuleSet indexedRuleSet = new IndexedByHeadPredicatesRuleSet(rs);
+		IndexedByHeadPredicatesRuleSet indexedRuleSet = new IndexedByHeadPredicatesRuleSet(onto);
 
 		// rewriting
 		DatalogRewritingAlgorithm algo = new DatalogRewritingAlgorithm(this.dlgoperator, this.operator);

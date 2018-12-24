@@ -4,17 +4,14 @@ import java.io.File;
 import java.util.List;
 
 import org.guiiis.dwfe.core.DlgKnowledgeBase;
-import org.guiiis.dwfe.utils.FUSAnalyser;
 import org.guiiis.dwfe.utils.SimpleQueryFileReader;
 
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
-import fr.lirmm.graphik.graal.api.core.RuleSet;
 import fr.lirmm.graphik.graal.io.owl.OWL2Parser;
 import fr.lirmm.graphik.graal.io.sparql.SparqlConjunctiveQueryParser;
-import fr.lirmm.graphik.graal.rulesetanalyser.util.AnalyserRuleSet;
 
 public class OwlData {
 	private static final String rootDir = "/home/sharpen/projects/evaluations/dwfe/";
@@ -42,10 +39,11 @@ public class OwlData {
 		
 		for(String s : qs) {
 			ConjunctiveQuery q = new SparqlConjunctiveQueryParser(s).getConjunctiveQuery();
-			System.out.println(q);			
-						
-			kb.rewriteToDlg(q);
 			
+			System.out.println("UCQ rewriting:");
+			kb.rewriteToUCQ(q);			
+			System.out.println("Datalog rewriting:");
+			kb.rewriteToDlg(q);
 		}		
 	}
 }
