@@ -87,11 +87,10 @@ public class AppTest
 		
 		Collection<DatalogRule> result = dr.exec(query, kb.getOntology());
 		
-		writer.write("\n= Testcase " + dlgFile + " Rewriting results =\n");
+	//	writer.write("\n= Testcase " + dlgFile + " Rewriting results =\n");
 		
 		for(DatalogRule r : result) {
-			writer.write(r);
-			writer.write("\n");
+			System.out.println(r + "\n");
 		}
 		// 8 - Close resources
 		kb.close();

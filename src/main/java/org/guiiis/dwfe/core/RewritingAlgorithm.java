@@ -67,7 +67,8 @@ public class RewritingAlgorithm implements Profilable {
 	private Profiler          profiler;
 	
 	private RewritingOperator operator;
-
+	private boolean test = true;
+	
 	// /////////////////////////////////////////////////////////////////////////
 	// CONSTRUCTORS
 	// /////////////////////////////////////////////////////////////////////////
@@ -122,7 +123,7 @@ public class RewritingAlgorithm implements Profilable {
 			/* compute all the rewrite from it */
 			currentRewriteSet = this.operator.getRewritesFrom(q, ruleSet, compilation);
 			generatedRewrites += currentRewriteSet.size(); // stats
-
+			
 			/* keep only the most general among query just computed */
 			Utils.computeCover(currentRewriteSet, compilation);
 

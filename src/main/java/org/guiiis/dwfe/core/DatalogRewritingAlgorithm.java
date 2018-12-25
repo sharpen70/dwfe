@@ -35,7 +35,7 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	private Rtd rtd;
 	private RewTree rewtree;
 	
-	private boolean test = false;
+	private boolean test = true;
 	
 	public DatalogRewritingAlgorithm(DatalogRewritingOperator dp, ExtendedSRA op) {
 		this.dp = dp;
@@ -121,18 +121,18 @@ public class DatalogRewritingAlgorithm implements Profilable{
 				ExtendedQueryUnifier eu = op.getUnificationInfo(_q);
 				QueryUnifier u = eu.getUnifier();
 				
-				if(test) {
-					this.profiler.trace("rewrites: " + _q.toString());
-					this.profiler.trace("Piece: " + u.getPiece().toString() + "\n");					
-				}
+//				if(test) {
+//					this.profiler.trace("rewrites: " + _q.toString());
+//					this.profiler.trace("Piece: " + u.getPiece().toString() + "\n");					
+//				}
 				DatalogRule r = findRep(u, u.getQuery(), null);
 				
 				RuleRewPair p = this.dp.getRewriteFrom(r, eu);
 				rtd.add(_q, p);
 				finalDatalog.addAll(p.getRules());
+				
+				if(test) this.profiler.trace("Rule added:\n" + p.getRules());
 			}
-			
-			if(test) this.profiler.trace("===");
 			
 			// add to explore the query just computed that we keep
 			rewriteSetToExplore.addAll(currentRewriteSet);
@@ -155,6 +155,7 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		/* clean the datalog rule */
 		for(ConjunctiveQuery rq : rmSet) rtd.rm(rq);
 		
+		if(test) this.profiler.trace("Rule cleaned:\n");
 		clean(finalDatalog);
 		
 		if(this.verbose) {
@@ -178,7 +179,10 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		
 		while(it.hasNext()) {
 			DatalogRule r = it.next();
-			if(!this.rtd.exists(r)) it.remove();
+			if(!this.rtd.exists(r)) {
+				if(test) this.profiler.trace(r.toString() + "\n");
+				it.remove();
+			}
 		}
 	}
 	
@@ -188,11 +192,11 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	public DatalogRule findRep(QueryUnifier u, ConjunctiveQuery q, DatalogRule r) {
 		RuleRewPair rp = rtd.get(q);
 		
-		if(test) {
-			this.profiler.trace("From " + q.toString() + "\n");
-		//	this.profiler.trace("Previous: " + (r != null ? r.toString() : "null") + "\n");
-			this.profiler.trace("Rtd: " + rp.toString() + "\n");
-		}
+//		if(test) {
+//			this.profiler.trace("From " + q.toString() + "\n");
+//		//	this.profiler.trace("Previous: " + (r != null ? r.toString() : "null") + "\n");
+//			this.profiler.trace("Rtd: " + rp.toString() + "\n");
+//		}
 			
 		if(r != null) {
 			rp.setTail(r);

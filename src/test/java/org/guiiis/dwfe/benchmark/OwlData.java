@@ -41,9 +41,9 @@ public class OwlData {
 			ConjunctiveQuery q = new SparqlConjunctiveQueryParser(s).getConjunctiveQuery();
 			
 			System.out.println("UCQ rewriting:");
-			kb.rewriteToUCQ(q);			
+			kb.rewriteToUCQ(q, System.out);			
 			System.out.println("Datalog rewriting:");
-			kb.rewriteToDlg(q);
+			kb.rewriteToDlg(q, System.out);
 		}		
 	}
 }
