@@ -85,12 +85,12 @@ public class DlgKnowledgeBase {
 		DatalogRewriting dr = new DatalogRewriting();			
 		dr.setProfiler(new RealTimeProfiler(profileSteam));
 		
-		outputStream.println("Query:\n" + q);
-		outputStream.println("\nRewriting Result:\n");
+	//	outputStream.println("Query:\n" + q);
+	//	outputStream.println("\nRewriting Result:\n");
 		
 		if(this.isDecidable()) {
 			Collection<DatalogRule> re = dr.exec(q, this.ruleset);
-			for(DatalogRule r : re) outputStream.println(r);
+			for(DatalogRule r : re) outputStream.println(r.toRDFox());
 		}		
 		else if(this.force_rewriting) {
 			if(this.fusComponent == null) {
@@ -119,8 +119,8 @@ public class DlgKnowledgeBase {
 		
 		SparqlUnionOfConjunctiveQueryWriter writer = new SparqlUnionOfConjunctiveQueryWriter(outputStream);
 		
-		outputStream.println("Query:\n" + q);
-		outputStream.println("\nRewriting Result:\n");
+//		outputStream.println("Query:\n" + q);
+//		outputStream.println("\nRewriting Result:\n");
 		
 		if(this.isDecidable()) {	
 			UnionOfConjunctiveQueries ucq = new DefaultUnionOfConjunctiveQueries(q.getAnswerVariables(), 

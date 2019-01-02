@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import fr.lirmm.graphik.graal.api.core.Atom;
+import fr.lirmm.graphik.graal.api.core.AtomSet;
 import fr.lirmm.graphik.graal.api.core.Constant;
 import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
 import fr.lirmm.graphik.graal.api.core.Rule;
@@ -16,7 +17,9 @@ import fr.lirmm.graphik.graal.api.core.Variable;
 import fr.lirmm.graphik.graal.core.DefaultAtom;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomSetFactory;
 import fr.lirmm.graphik.graal.core.term.DefaultTermFactory;
+import fr.lirmm.graphik.util.stream.CloseableIterator;
 import fr.lirmm.graphik.util.stream.CloseableIteratorWithoutException;
+import fr.lirmm.graphik.util.stream.IteratorException;
 
 /**
  * The class for datalog rule
@@ -147,7 +150,62 @@ public class DefaultDatalogRule implements DatalogRule {
 		this.appendTo(builder);
 		return builder.toString();
 	}
-
+	
+	@Override
+	public String toRDFox() {
+		StringBuilder builder = new StringBuilder();
+		
+		builder.append(toRDFox(this.getHead()));
+		builder.append(" :- ");
+		builder.append(toRDFox(this.getBody()));
+		builder.append(" .");
+		
+		return builder.toString();
+	}
+	
+	private String toRDFox(AtomSet atomset) {
+		StringBuilder builder = new StringBuilder();
+		
+		boolean first = true;
+		CloseableIterator<Atom> it = atomset.iterator();
+		
+		try {
+			while(it.hasNext()) {
+				if(!first) {
+					builder.append(", ");
+					first = false;
+				}
+				builder.append(toRDFox(it.next()));
+			}
+		} catch (IteratorException e) {
+			builder.append("ERROR: " + e.toString());
+		}
+		
+		return builder.toString();
+	}
+	
+	private String toRDFox(Atom a) {
+		StringBuilder builder = new StringBuilder();
+		
+		builder.append("<");
+		builder.append(a.getPredicate().getIdentifier());
+		builder.append(">(");
+		
+		boolean first = true;
+		for(Term t : a.getTerms()) {
+			if(!first) {
+				builder.append(", ");
+				first = false;
+			}
+			builder.append("?");
+			builder.append(t.toString());
+		}
+		
+		builder.append(")");
+		
+		return builder.toString();
+	}
+	
 	@Override
 	public void appendTo(StringBuilder builder) {
 		if (!this.getLabel().isEmpty()) {

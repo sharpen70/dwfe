@@ -77,4 +77,9 @@ public interface DatalogRule extends Comparable<DatalogRule>, AppendableToString
 	 *  @return a Set of all variables related to this Rule.
 	 */
 	Set<Variable> getFree();
+	
+	/**
+	 * Output the rule in RDFox syntax
+	 */
+	String toRDFox();
 }

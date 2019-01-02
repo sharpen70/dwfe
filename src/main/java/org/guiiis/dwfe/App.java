@@ -9,9 +9,11 @@ import org.guiiis.dwfe.core.DlgKnowledgeBase;
 import org.guiiis.dwfe.utils.SimpleQueryFileReader;
 
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
+import fr.lirmm.graphik.graal.api.kb.KnowledgeBase;
 import fr.lirmm.graphik.graal.io.dlp.DlgpParser;
 import fr.lirmm.graphik.graal.io.owl.OWL2Parser;
 import fr.lirmm.graphik.graal.io.sparql.SparqlConjunctiveQueryParser;
+import fr.lirmm.graphik.graal.kb.DefaultKnowledgeBase;
 
 /**
  * Hello world!

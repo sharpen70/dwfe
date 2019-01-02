@@ -13,8 +13,6 @@ public class RuleRewPair {
 	private DatalogRule r_up;
 	private boolean origin;
 	
-	private DatalogRule unfolding = null;
-	
 	public RuleRewPair(DatalogRule r_tail, DatalogRule r_up, boolean origin) {
 		this.r_tail = r_tail;
 		this.r_up = r_up;
@@ -24,6 +22,7 @@ public class RuleRewPair {
 	public Collection<DatalogRule> getRules() {
 		List<DatalogRule> rs = new ArrayList<>();
 		
+	//	rs.add(this.r_up);
 		if(!this.origin) rs.add(this.r_up);
 		rs.add(this.r_tail);
 		
@@ -48,24 +47,42 @@ public class RuleRewPair {
 		return this.r_tail;
 	}
 	
-	public DatalogRule suits(QueryUnifier u) {
-		InMemoryAtomSet b = u.getImageOf(u.getPiece());
-		
-		if(AtomSetUtils.contains(u.getImageOf(this.r_tail.getBody()), b)) return this.r_tail;
-		else {
-			System.out.println("unfold: " + this.unfolding.toString() + "\n");
-			System.out.println("unfold body: " + u.getImageOf(this.unfolding.getBody()) + " piece: " + b + "\n");
-			if(AtomSetUtils.contains(u.getImageOf(this.unfolding.getBody()), b)) return this.unfolding;
-			else return null;
-		}
+	public DatalogRule getUp() {
+		return this.r_up;
 	}
 	
+//	public DatalogRule suits(QueryUnifier u) {
+//		InMemoryAtomSet b = u.getImageOf(u.getPiece());
+//		
+//		if(AtomSetUtils.contains(u.getImageOf(this.r_tail.getBody()), b)) return this.r_tail;
+//		else {
+//			System.out.println("unfold: " + this.unfolding.toString() + "\n");
+//			System.out.println("unfold body: " + u.getImageOf(this.unfolding.getBody()) + " piece: " + b + "\n");
+//			if(AtomSetUtils.contains(u.getImageOf(this.unfolding.getBody()), b)) return this.unfolding;
+//			else return null;
+//		}
+//	}
+	
 	public DatalogRule getUnfold() {
-		if(this.r_up == null) return this.r_tail;
+		return unfold(this.r_tail);
+//		if(this.r_up == null) return this.r_tail;
+//		
+//		InMemoryAtomSet mbody = this.r_up.getBody();
+//		mbody = AtomSetUtils.minus(mbody, this.r_tail.getHead());
+//		mbody = AtomSetUtils.union(mbody, this.r_tail.getBody());
+//		return new DefaultDatalogRule(mbody, this.r_up.getHead());
+	}
+	
+	public DatalogRule unfold(DatalogRule r) {
+		if(this.r_up == null) return r;
 		
 		InMemoryAtomSet mbody = this.r_up.getBody();
-		mbody = AtomSetUtils.minus(mbody, this.r_tail.getHead());
-		mbody = AtomSetUtils.union(mbody, this.r_tail.getBody());
-		return this.unfolding = new DefaultDatalogRule(mbody, this.r_up.getHead());
+		mbody = AtomSetUtils.minus(mbody, r.getHead());
+		mbody = AtomSetUtils.union(mbody, r.getBody());
+		return new DefaultDatalogRule(mbody, this.r_up.getHead());
+	}
+	
+	public boolean isOrigin() {
+		return this.origin;
 	}
 }

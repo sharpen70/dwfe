@@ -54,6 +54,7 @@ import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
 import fr.lirmm.graphik.graal.api.core.RulesCompilation;
 import fr.lirmm.graphik.graal.backward_chaining.pure.RewritingOperator;
 import fr.lirmm.graphik.graal.core.ruleset.IndexedByHeadPredicatesRuleSet;
+import fr.lirmm.graphik.graal.homomorphism.AtomicQueryHomomorphism;
 import fr.lirmm.graphik.util.profiler.Profilable;
 import fr.lirmm.graphik.util.profiler.Profiler;
 
@@ -67,7 +68,7 @@ public class RewritingAlgorithm implements Profilable {
 	private Profiler          profiler;
 	
 	private RewritingOperator operator;
-	private boolean test = true;
+	private boolean test = false;
 	
 	// /////////////////////////////////////////////////////////////////////////
 	// CONSTRUCTORS
@@ -113,6 +114,8 @@ public class RewritingAlgorithm implements Profilable {
 		rewriteSetToExplore.add(pquery);
 		finalRewritingSet.add(pquery);
 		
+		int i = 0;
+		
 		ConjunctiveQuery q;
 		while (!Thread.currentThread().isInterrupted() && !rewriteSetToExplore.isEmpty()) {
 
@@ -124,16 +127,34 @@ public class RewritingAlgorithm implements Profilable {
 			currentRewriteSet = this.operator.getRewritesFrom(q, ruleSet, compilation);
 			generatedRewrites += currentRewriteSet.size(); // stats
 			
+			int s1 = currentRewriteSet.size();
+			
+			if(test) {
+				System.out.println("\nIteration " + (i++) + "\n");
+				System.out.println("Current: " + q + "\n");
+				for(ConjunctiveQuery _q : currentRewriteSet) System.out.println(_q + "\n");
+			}
+			
 			/* keep only the most general among query just computed */
 			Utils.computeCover(currentRewriteSet, compilation);
-
+			
+			int s2 = currentRewriteSet.size();
+			
+			if(test) {
+				System.out.println("\nCover remove Current rewriting set\n" + s1 + " " + s2);
+			}
 			/*
 			 * keep only the query just computed that are more general than
 			 * query already compute
 			 */
 			selectMostGeneralFromRelativeTo(currentRewriteSet,
 					finalRewritingSet, compilation);
-
+			
+			int s3 = currentRewriteSet.size();
+			
+			if(test) {
+				System.out.println("\nCover remove Current rewriting set from final \n" + s2  + " " + s3);
+			}
 			
 			// keep to explore only most general query
 			selectMostGeneralFromRelativeTo(rewriteSetToExplore,
@@ -142,7 +163,7 @@ public class RewritingAlgorithm implements Profilable {
 			// add to explore the query just computed that we keep
 			rewriteSetToExplore.addAll(currentRewriteSet);
 
-			
+			int fs = finalRewritingSet.size();
 			/*
 			 * keep in final rewrite set only query more general than query just
 			 * computed
@@ -150,13 +171,17 @@ public class RewritingAlgorithm implements Profilable {
 			selectMostGeneralFromRelativeTo(finalRewritingSet,
 					currentRewriteSet, compilation);
 			
+			if(test) {
+				System.out.println("\nFinal rewriting size \n" + fs + " " + finalRewritingSet.size());
+			}
+			
 			// add in final rewrite set the query just compute that we keep
 			finalRewritingSet.addAll(currentRewriteSet);
 
 		}
 
 		/* clean the rewrites to return */
-		Utils.computeCover(finalRewritingSet);
+	//	Utils.computeCover(finalRewritingSet);
 		
 		for(ConjunctiveQuery _q : finalRewritingSet) {
 			PureQuery.removeAnswerPredicate(_q);
@@ -203,8 +228,9 @@ public class RewritingAlgorithm implements Profilable {
 			Collection<ConjunctiveQuery> rewriteSet, RulesCompilation compilation) {
 		for(ConjunctiveQuery q : rewriteSet) {
 			InMemoryAtomSet a = q.getAtomSet();
-			if (Utils.isMoreGeneralThan(a, f, compilation))
+			if (Utils.isMoreGeneralThan(a, f, compilation)) {
 				return true;
+			}
 		}
 		return false;
 	}

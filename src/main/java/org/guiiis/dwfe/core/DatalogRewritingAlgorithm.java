@@ -35,7 +35,7 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	private Rtd rtd;
 	private RewTree rewtree;
 	
-	private boolean test = true;
+	private boolean test = false;
 	
 	public DatalogRewritingAlgorithm(DatalogRewritingOperator dp, ExtendedSRA op) {
 		this.dp = dp;
@@ -88,6 +88,8 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		
 		ConjunctiveQuery q;
 		
+		int i = 0;
+		
 		while (!Thread.currentThread().isInterrupted() && !rewriteSetToExplore.isEmpty()) {
 
 			/* take the first query to rewrite */
@@ -98,17 +100,35 @@ public class DatalogRewritingAlgorithm implements Profilable{
 			/* compute all the rewrite from it */
 			currentRewriteSet = this.op.getRewritesFrom(q, ruleSet, compilation);
 			generatedRewrites += currentRewriteSet.size(); // stats
-
+			
+			int s1 = currentRewriteSet.size();
+			
+			if(test) {
+				System.out.println("\nIteration " + (i++) + "\n");
+				System.out.println("Current: " + q + "\n");
+	//			for(ConjunctiveQuery _q : currentRewriteSet) System.out.println(_q + "\n");
+			}
+			
 			/* keep only the most general among query just computed */
 			Utils.computeCover(currentRewriteSet, compilation);
-
+			
+			int s2 = currentRewriteSet.size();
+			
+			if(test) {
+				System.out.println("\nCover remove Current rewriting set\n" + s1 + " " + s2);
+			}
 			/*
 			 * keep only the query just computed that are more general than
 			 * query already compute
 			 */
 			selectMostGeneralFromRelativeTo(currentRewriteSet,
 					finalRewritingSet, compilation);
-
+			
+			int s3 = currentRewriteSet.size();
+			
+			if(test) {
+				System.out.println("\nCover remove Current rewriting set from final \n" + s2  + " " + s3);
+			}
 			
 			// keep to explore only most general query
 			selectMostGeneralFromRelativeTo(rewriteSetToExplore,
@@ -128,21 +148,40 @@ public class DatalogRewritingAlgorithm implements Profilable{
 				DatalogRule r = findRep(u, u.getQuery(), null);
 				
 				RuleRewPair p = this.dp.getRewriteFrom(r, eu);
+				
 				rtd.add(_q, p);
+				
 				finalDatalog.addAll(p.getRules());
 				
-				if(test) this.profiler.trace("Rule added:\n" + p.getRules());
+				if(test) System.out.println("\n Query to add:\n" + p.getRules());
 			}
 			
 			// add to explore the query just computed that we keep
 			rewriteSetToExplore.addAll(currentRewriteSet);
 			
+			int fs = finalRewritingSet.size();
 			/*
 			 * keep in final rewrite set only query more general than query just
 			 * computed
 			 */
-			rmSet.addAll(selectMostGeneralFromRelativeTo(finalRewritingSet,
-					currentRewriteSet, compilation));
+			Set<ConjunctiveQuery> toremove = selectMostGeneralFromRelativeTo(finalRewritingSet,
+					currentRewriteSet, compilation);
+			
+			if(test) {
+				for(ConjunctiveQuery _q : toremove) {
+					System.out.println("\nQuery to be removed:\n" + _q + "\n\nRelated DatalogRule:\n" + rtd.get(_q));
+				}
+			}
+			
+//			for(ConjunctiveQuery _q : toremove) rtd.rm(_q);
+			
+			if(test) rtd.show();
+			
+			rmSet.addAll(toremove);
+			
+			if(test) {
+				System.out.println("\nFinal rewriting size \n" + fs + " " + finalRewritingSet.size());
+			}
 			
 			// add in final rewrite set the query just compute that we keep
 			finalRewritingSet.addAll(currentRewriteSet);
@@ -155,7 +194,11 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		/* clean the datalog rule */
 		for(ConjunctiveQuery rq : rmSet) rtd.rm(rq);
 		
-		if(test) this.profiler.trace("Rule cleaned:\n");
+		if(test) {
+			rtd.show();
+			System.out.println("\nFinal size before remove:" + finalDatalog.size() + "\n");
+			this.profiler.trace("Rule cleaned:\n");
+		}
 		clean(finalDatalog);
 		
 		if(this.verbose) {
@@ -197,19 +240,25 @@ public class DatalogRewritingAlgorithm implements Profilable{
 //		//	this.profiler.trace("Previous: " + (r != null ? r.toString() : "null") + "\n");
 //			this.profiler.trace("Rtd: " + rp.toString() + "\n");
 //		}
-			
-		if(r != null) {
-			rp.setTail(r);
-		}
 		
-		DatalogRule tail = rp.getTail();
-		DatalogRule unfolding = rp.getUnfold();
+//		if(r != null) {
+//			rp.setTail(r);
+//		}
+//		
+//		DatalogRule tail = rp.getTail();
+//		DatalogRule unfolding = rp.getUnfold();
+		DatalogRule unfolding;
+		
+		if(r == null) unfolding = rp.getUnfold();
+		else unfolding = rp.unfold(r);
+		
 		InMemoryAtomSet b = u.getImageOf(u.getPiece());
 		
-		if(AtomSetUtils.contains(u.getImageOf(tail.getBody()), b)) return tail;
+		if(AtomSetUtils.contains(u.getImageOf(rp.getTail().getBody()), b)) return rp.getTail();
 		else {
-	//		System.out.println("unfold: " + unfolding.toString() + "\n");
-	//		System.out.println("unfold body: " + u.getImageOf(unfolding.getBody()) + " piece: " + b + "\n");
+//			System.out.println("Pair: " + rp);
+//			System.out.println("unfold: " + unfolding.toString() + "\n");
+//			System.out.println("unfold body: " + u.getImageOf(unfolding.getBody()) + " piece: " + b + "\n");
 			if(AtomSetUtils.contains(u.getImageOf(unfolding.getBody()), b)) return unfolding;
 			else return findRep(u, rewtree.getParent(q), unfolding);
 		}
@@ -290,32 +339,39 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		}
 		
 		public void add(ConjunctiveQuery q, RuleRewPair rp) {
-			Collection<DatalogRule> rs = rp.getRules();
 			rtd.put(q, rp);
-			for(DatalogRule r : rs) {
-				try {
-					count.merge(r, 1, (old, one) -> old + one);
-				}
-				catch(Exception e) {
-					System.out.println("Merge Error " + r.toString());
-				}
-			}
+			
+			backtrack(q, 1);
 		}
 		
 		public void rm(ConjunctiveQuery q) {
-			RuleRewPair rp = rtd.get(q);
-			if(rp == null) return;
-			
-			rtd.remove(q);
-			
-			Collection<DatalogRule> rs = rp.getRules();
-			for(DatalogRule r : rs) {
-				count.merge(r, 1, (old, one) -> old - one);
-			}
+			backtrack(q, -1);
 		}
 		
 		public boolean exists(DatalogRule r) {
-			return this.count.get(r) != 0;
+			return this.count.get(r) > 0;
+		}
+		
+		public void show() {
+			System.out.println("\nRtd Count:\n");
+			for(DatalogRule r: this.count.keySet()) {
+				System.out.println(r + " : " + count.get(r));
+			}
+		}
+		
+		private void backtrack(ConjunctiveQuery q, int v) {
+			while(q != null) {
+				RuleRewPair rp = rtd.get(q);
+				
+				if(!rp.isOrigin()) changeCount(rp.getUp(), v);
+				changeCount(rp.getTail(), v);
+				q = rewtree.getParent(q);
+			}
+		}
+		
+		private void changeCount(DatalogRule r, int v) {
+			int c = count.getOrDefault(r, 0);
+			count.put(r, c + v);
 		}
 	}
 }
