@@ -35,6 +35,8 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	private Rtd rtd;
 	private RewTree rewtree;
 	
+	public final static String ANSPredicateIdentifier = "GUIIIS.DWFE:ANS";
+	
 	private boolean test = false;
 	
 	public DatalogRewritingAlgorithm(DatalogRewritingOperator dp, ExtendedSRA op) {
@@ -77,7 +79,7 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		
 		// Construct the initial DatalogRule
 		List<Term> ansVar = query.getAnswerVariables();
-		Predicate G = new Predicate("ANS", ansVar.size());
+		Predicate G = new Predicate(ANSPredicateIdentifier, ansVar.size());
 		Atom Ghead = DefaultAtomFactory.instance().create(G, ansVar);
 		DefaultAtomSetFactory.instance().create(Ghead);
 		DatalogRule H = new DefaultDatalogRule(query.getAtomSet(), DefaultAtomSetFactory.instance().create(Ghead));

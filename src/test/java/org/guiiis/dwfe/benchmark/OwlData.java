@@ -43,7 +43,7 @@ public class OwlData {
 			System.out.println("UCQ rewriting:");
 			kb.rewriteToUCQ(q, System.out);			
 			System.out.println("Datalog rewriting:");
-			kb.rewriteToDlg(q, System.out);
+	//		kb.rewriteToDlg(q, System.out);
 		}		
 	}
 }

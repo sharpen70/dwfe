@@ -73,7 +73,12 @@ public class App
 			if(query_syntax == 1) query =  new SparqlConjunctiveQueryParser(s).getConjunctiveQuery();  
 			else query = DlgpParser.parseQuery(s);
 			
-			if(mode == 0) kb.rewriteToDlg(query, new PrintStream(outputfile));
+			if(mode == 0) {
+				File outputQueryFile = new File(fdir.getAbsolutePath() + "/" + ontofile.getName() + "_q" + i + "_" 
+						+ mode + "-q");
+				outputQueryFile.createNewFile();
+				kb.rewriteToDlg(query, new PrintStream(outputfile), new PrintStream(outputQueryFile));
+			}
 			if(mode == 1) kb.rewriteToUCQ(query, new PrintStream(outputfile));
 		}
 		
