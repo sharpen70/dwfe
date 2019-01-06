@@ -171,10 +171,9 @@ public class DefaultDatalogRule implements DatalogRule {
 		
 		try {
 			while(it.hasNext()) {
-				if(!first) {
-					builder.append(", ");
-					first = false;
-				}
+				if(first) first = false;
+				else builder.append(", ");
+				
 				builder.append(toRDFox(it.next()));
 			}
 		} catch (IteratorException e) {
@@ -193,10 +192,8 @@ public class DefaultDatalogRule implements DatalogRule {
 		
 		boolean first = true;
 		for(Term t : a.getTerms()) {
-			if(!first) {
-				builder.append(", ");
-				first = false;
-			}
+			if(first) first = false;
+			else builder.append(", ");
 			builder.append("?");
 			builder.append(t.toString());
 		}

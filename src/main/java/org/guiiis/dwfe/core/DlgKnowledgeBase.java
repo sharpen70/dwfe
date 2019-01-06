@@ -89,24 +89,16 @@ public class DlgKnowledgeBase {
 		this.fusAnalyzer = new FUSAnalyser(this.analyzerRuleSet);
 	}
 	
-	public void rewriteToDlg(ConjunctiveQuery q, PrintStream outputStream, PrintStream queryStream) throws IOException {
+	public void rewriteToDlg(ConjunctiveQuery q, PrintStream outputStream) throws IOException {
 		DatalogRewriting dr = new DatalogRewriting();			
 		dr.setProfiler(new RealTimeProfiler(profileSteam));
 		
 	//	outputStream.println("Query:\n" + q);
 	//	outputStream.println("\nRewriting Result:\n");
 		
-		List<Term> ansVar = q.getAnswerVariables();
-		Predicate ANS = new Predicate(DatalogRewritingAlgorithm.ANSPredicateIdentifier, ansVar.size());
-		Atom a = DefaultAtomFactory.instance().create(ANS, ansVar);
-		ConjunctiveQuery ansQuery = new DefaultConjunctiveQuery(DefaultAtomSetFactory.instance().create(a));
-		
-		SparqlConjunctiveQueryWriter writer = new SparqlConjunctiveQueryWriter(queryStream);
-		
 		if(this.isDecidable()) {
 			Collection<DatalogRule> re = dr.exec(q, this.ruleset);
 			for(DatalogRule r : re) outputStream.println(r.toRDFox());
-			writer.write(ansQuery);
 		}		
 		else if(this.force_rewriting) {
 			if(this.fusComponent == null) {
@@ -115,14 +107,46 @@ public class DlgKnowledgeBase {
 			}
 			Collection<DatalogRule> re = dr.exec(q, this.fusComponent);
 			for(DatalogRule r : re) outputStream.println(r);
-			writer.write(ansQuery);
 		}
 		else {
 			System.out.println("The ontology is not fus, not suitable for current rewritng approach.");
 		}
-		
-		writer.close();
 	}
+	
+//	public void rewriteToDlg(ConjunctiveQuery q, PrintStream outputStream, PrintStream queryStream) throws IOException {
+//		DatalogRewriting dr = new DatalogRewriting();			
+//		dr.setProfiler(new RealTimeProfiler(profileSteam));
+//		
+//	//	outputStream.println("Query:\n" + q);
+//	//	outputStream.println("\nRewriting Result:\n");
+//		
+//		List<Term> ansVar = q.getAnswerVariables();
+//		Predicate ANS = new Predicate(DatalogRewritingAlgorithm.ANSPredicateIdentifier, ansVar.size());
+//		Atom a = DefaultAtomFactory.instance().create(ANS, ansVar);
+//		ConjunctiveQuery ansQuery = new DefaultConjunctiveQuery(DefaultAtomSetFactory.instance().create(a));
+//		
+//		SparqlConjunctiveQueryWriter writer = new SparqlConjunctiveQueryWriter(queryStream);
+//		
+//		if(this.isDecidable()) {
+//			Collection<DatalogRule> re = dr.exec(q, this.ruleset);
+//			for(DatalogRule r : re) outputStream.println(r.toRDFox());
+//			writer.write(ansQuery);
+//		}		
+//		else if(this.force_rewriting) {
+//			if(this.fusComponent == null) {
+//				this.fusComponent = this.fusAnalyzer.maximalFusComponent();
+//			//	System.out.println(this.fusComponent);
+//			}
+//			Collection<DatalogRule> re = dr.exec(q, this.fusComponent);
+//			for(DatalogRule r : re) outputStream.println(r);
+//			writer.write(ansQuery);
+//		}
+//		else {
+//			System.out.println("The ontology is not fus, not suitable for current rewritng approach.");
+//		}
+//		
+//		writer.close();
+//	}
 	
 	public void rewriteToUCQ(ConjunctiveQuery q, PrintStream outputStream) throws IOException {
 //		RulesCompilation compilation = new IDCompilation();

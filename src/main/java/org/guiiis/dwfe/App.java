@@ -59,7 +59,10 @@ public class App
 		if(input_syntax == 1) kb = new DlgKnowledgeBase(new OWL2Parser(ontofile));
 		else kb = new DlgKnowledgeBase(new DlgpParser(ontofile));
 
-		ArrayList<String> qs = SimpleQueryFileReader.read(new File(queriesfile));
+		ArrayList<String> qs;
+		
+		if(query_syntax == 1) qs = SimpleQueryFileReader.read2(new File(queriesfile));
+		else qs = SimpleQueryFileReader.read(new File(queriesfile));
 		
 		for(int i = 0; i < qs.size(); i++) {
 			ConjunctiveQuery query;
@@ -73,13 +76,15 @@ public class App
 			if(query_syntax == 1) query =  new SparqlConjunctiveQueryParser(s).getConjunctiveQuery();  
 			else query = DlgpParser.parseQuery(s);
 			
-			if(mode == 0) {
-				File outputQueryFile = new File(fdir.getAbsolutePath() + "/" + ontofile.getName() + "_q" + i + "_" 
-						+ mode + "-q");
-				outputQueryFile.createNewFile();
-				kb.rewriteToDlg(query, new PrintStream(outputfile), new PrintStream(outputQueryFile));
-			}
-			if(mode == 1) kb.rewriteToUCQ(query, new PrintStream(outputfile));
+//			if(mode == 0) {
+//				File outputQueryFile = new File(fdir.getAbsolutePath() + "/" + ontofile.getName() + "_q" + i + "_" 
+//						+ mode + "-q");
+//				outputQueryFile.createNewFile();
+//				kb.rewriteToDlg(query, new PrintStream(outputfile), new PrintStream(outputQueryFile));
+//			}
+//			if(mode == 1) kb.rewriteToUCQ(query, new PrintStream(outputfile));
+			if(mode == 0) kb.rewriteToDlg(query, new PrintStream(outputfile));
+			if(mode == 1) kb.rewriteToUCQ(query, new PrintStream(outputfile));			
 		}
 		
 		kb.close();

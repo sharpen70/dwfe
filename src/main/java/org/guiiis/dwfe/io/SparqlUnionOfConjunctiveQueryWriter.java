@@ -7,6 +7,7 @@ import fr.lirmm.graphik.graal.api.core.Atom;
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
 import fr.lirmm.graphik.graal.api.core.Term;
 import fr.lirmm.graphik.graal.api.core.UnionOfConjunctiveQueries;
+import fr.lirmm.graphik.graal.api.io.WriterException;
 import fr.lirmm.graphik.graal.io.sparql.SparqlConjunctiveQueryWriter;
 import fr.lirmm.graphik.util.stream.CloseableIterator;
 import fr.lirmm.graphik.util.stream.CloseableIteratorWithoutException;
@@ -17,6 +18,8 @@ public class SparqlUnionOfConjunctiveQueryWriter extends SparqlConjunctiveQueryW
 	}
 	
 	public SparqlUnionOfConjunctiveQueryWriter write(UnionOfConjunctiveQueries ucq) throws IOException {
+		this.write("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n");
+		
 		this.write("SELECT DISTINCT ");
 		
 		for(Term t : ucq.getAnswerVariables()) {
@@ -53,5 +56,23 @@ public class SparqlUnionOfConjunctiveQueryWriter extends SparqlConjunctiveQueryW
 		this.write("\n}\n");
 
 		return this;
+	}
+	
+	@Override
+	protected void writeAtom(Atom a) throws IOException {
+		this.write("\t");
+		this.write(a.getTerm(0));
+		this.write(' ');
+
+		if (a.getPredicate().getArity() == 1) {
+			this.write("rdf:type ");
+			this.write(a.getPredicate());
+		} else if (a.getPredicate().getArity() == 2) {
+			this.write(a.getPredicate());
+			this.write(' ');
+			this.write(a.getTerm(1));
+		} else {
+			throw new WriterException("Unsupported predicate arity");
+		}
 	}
 }
