@@ -26,6 +26,8 @@ import fr.lirmm.graphik.graal.api.core.Term;
 import fr.lirmm.graphik.graal.api.core.UnionOfConjunctiveQueries;
 import fr.lirmm.graphik.graal.api.io.Parser;
 import fr.lirmm.graphik.graal.backward_chaining.pure.AggregAllRulesOperator;
+import fr.lirmm.graphik.graal.backward_chaining.pure.AggregSingleRuleOperator;
+import fr.lirmm.graphik.graal.backward_chaining.pure.BasicAggregAllRulesOperator;
 import fr.lirmm.graphik.graal.backward_chaining.pure.RewritingOperator;
 import fr.lirmm.graphik.graal.core.DefaultConjunctiveQuery;
 import fr.lirmm.graphik.graal.core.DefaultUnionOfConjunctiveQueries;
@@ -62,7 +64,7 @@ public class DlgKnowledgeBase {
 	private FUSAnalyser fusAnalyzer = null;
 	
 	private RuleSet fusComponent = null;
-	private boolean force_rewriting = false;
+	private boolean force_rewriting = true;
 	
 	public DlgKnowledgeBase(Parser<Object> parser) throws AtomSetException {
 		this.store = new DefaultInMemoryGraphStore();
@@ -201,6 +203,16 @@ public class DlgKnowledgeBase {
 	
 	public RuleSet getOntology() {
 		return this.ruleset;
+	}
+	
+	public RuleSet getFusComponent() {
+		if(this.isDecidable()) return this.ruleset;
+		
+		if(this.fusComponent == null) {
+			this.fusComponent = this.fusAnalyzer.maximalFusComponent();
+		}
+		
+		return this.fusComponent;
 	}
 	
 	public void setProfiling(PrintStream o) {

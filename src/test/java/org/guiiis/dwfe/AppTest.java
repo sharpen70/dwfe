@@ -1,13 +1,17 @@
 package org.guiiis.dwfe;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Collection;
 
 import org.guiiis.dwfe.core.DatalogRewriting;
 import org.guiiis.dwfe.core.DatalogRule;
+import org.guiiis.dwfe.core.DlgKnowledgeBase;
 import org.guiiis.dwfe.core.DlgpEWriter;
 
+import fr.lirmm.graphik.graal.api.core.AtomSetException;
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
+import fr.lirmm.graphik.graal.api.io.ParseException;
 import fr.lirmm.graphik.graal.api.kb.KnowledgeBase;
 import fr.lirmm.graphik.graal.io.dlp.DlgpParser;
 import fr.lirmm.graphik.graal.kb.KBBuilder;
@@ -27,7 +31,7 @@ public class AppTest
 	
 	private static String[] dlgs = {"dlg1", "dlg2", "dlg3", "dlg4", "dlg_o"};
 	private static String[] queries = {
-			"?(X) :- a(X).",
+			"?(X) :- a(X), c(X), e(X).",
 			"?() :- p(Y,Z),p(Z,Y).",
 			"?() :- q(U,V),r(V,W),q(T,W).",
 			"?() :- r(U,V),r(V,W),p(U,Z),p(V,Z),p(V,T),p(W,T),p1(U),p2(W).",
@@ -57,20 +61,27 @@ public class AppTest
      * Rigourous Test :-)
      */
     public void testApp() throws Exception
-    {	
-    	DlgpEWriter writer = new DlgpEWriter();
+    {	   	
+//    	for(int i = 4; i < caseNum; i++) {
+//    		test(dlgs[i], queries[i], writer);
+//    	}
     	
-    	for(int i = 4; i < caseNum; i++) {
-    		test(dlgs[i], queries[i], writer);
-    	}
-    	
-    	writer.close();
+    	newtest(dlgs[0], queries[0]);
+
         assertTrue( true );
     }
     
 //    public void test1() throws Exception {
 //    	test(dlgs[1], queries[1]);
 //    }
+    
+    private void newtest(String dlgFile, String q) throws Exception {
+    	DlgKnowledgeBase kb = new DlgKnowledgeBase(new DlgpParser(new File(rootDir, dlgFile)));
+    	
+    	ConjunctiveQuery query = DlgpParser.parseQuery(q);
+    	
+    	kb.rewriteToUCQ(query, System.out);
+    }
     
     private void test(String dlgFile, String q, DlgpEWriter writer) throws Exception {
     	KBBuilder kbb = new KBBuilder();
