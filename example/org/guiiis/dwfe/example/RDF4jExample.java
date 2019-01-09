@@ -27,7 +27,7 @@ public class RDF4jExample {
 	public static void main(String[] args) throws Exception {
 		//String data = "/home/sharpen/projects/evaluations/dwfe/data/Reactome/reactome010.ttl";
 		//String owl = "/home/sharpen/projects/evaluations/dwfe/pagoda-bench/Reactome/Reactome_m.dlp";
-		String data = "/home/sharpen/projects/evaluations/dwfe/data/U/lubm1.ttl";
+		String data = "/home/sharpen/projects/evaluations/dwfe/LUBM/lubm1.ttl";
 		String owl = "/home/sharpen/projects/evaluations/dwfe/AGOSUV-bench/U/U.dlp";
 		
 //		String query = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" 
@@ -39,6 +39,8 @@ public class RDF4jExample {
 		String query = "@prefix : <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>"
 					+ "?(A,B) :- :Person(A), :teacherOf(A,B), :Course(B).";
 		String baseURI = "";
+		
+		long t1 = System.currentTimeMillis();
 		
 		File file = new File(data);
 		Repository repo = new SailRepository(new MemoryStore());
@@ -77,19 +79,27 @@ public class RDF4jExample {
 		
 		KnowledgeBase kb = kbb.build();
 		
+		long t2 = System.currentTimeMillis();
+		
+		System.out.println("BuildTime cost: " + (t2 - t1) + "ms");
+		
 		ConjunctiveQuery q = DlgpParser.parseQuery(query);
 		
 		DlgpEWriter writer = new DlgpEWriter();
 		
 		writer.write("\n= Answers =\n");
 		CloseableIterator<Substitution> results = kb.query(q);
-		if (results.hasNext()) {
-			do {
-		  		writer.write(results.next());
-		  	} while (results.hasNext());
-		} else {
-		  	writer.write("No answers.\n");
-		}
+		
+		long t3 = System.currentTimeMillis();
+		
+		System.out.println("QueryTime cost: " + (t3 - t2) + "ms");
+//		if (results.hasNext()) {
+//			do {
+//		  		writer.write(results.next());
+//		  	} while (results.hasNext());
+//		} else {
+//		  	writer.write("No answers.\n");
+//		}
 		
 		results.close();
 		writer.close();
