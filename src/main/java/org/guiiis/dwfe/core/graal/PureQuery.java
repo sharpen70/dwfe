@@ -1,4 +1,4 @@
-package org.guiiis.dwfe.core;
+package org.guiiis.dwfe.core.graal;
 
 /*
  * Copyright (C) Inria Sophia Antipolis - Méditerranée / LIRMM
@@ -61,7 +61,7 @@ import fr.lirmm.graphik.util.stream.CloseableIteratorWithoutException;
  * @author Clément Sipieter (INRIA) {@literal <clement@6pi.fr>}
  * 
  */
-class PureQuery extends DefaultConjunctiveQuery {
+public class PureQuery extends DefaultConjunctiveQuery {
 
 	// /////////////////////////////////////////////////////////////////////////
 	// CONSTRUCTORS

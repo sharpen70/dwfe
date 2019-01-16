@@ -81,7 +81,5 @@ public class App
 			if(mode == 0) kb.rewriteToDlg(query, new PrintStream(outputfile));
 			if(mode == 1) kb.rewriteToUCQ(query, new PrintStream(outputfile));			
 		}
-		
-		kb.close();
 	}
 }

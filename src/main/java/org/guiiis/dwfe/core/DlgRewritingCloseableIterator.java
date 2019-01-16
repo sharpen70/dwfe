@@ -1,5 +1,7 @@
 package org.guiiis.dwfe.core;
 
+import org.guiiis.dwfe.core.graal.PureQuery;
+
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
 import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.core.ruleset.IndexedByHeadPredicatesRuleSet;

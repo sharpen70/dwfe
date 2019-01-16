@@ -1,42 +1,47 @@
 package org.guiiis.dwfe;
 
 import java.io.File;
-import java.io.IOException;
-import java.sql.SQLException;
+import java.io.FileInputStream;
 import java.util.List;
+import java.util.Map;
 
-import org.eclipse.rdf4j.RDF4JException;
-import org.eclipse.rdf4j.repository.Repository;
-import org.eclipse.rdf4j.repository.RepositoryConnection;
-import org.eclipse.rdf4j.repository.sail.SailRepository;
+import org.apache.commons.collections4.map.HashedMap;
+import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.rio.RDFFormat;
-import org.eclipse.rdf4j.rio.RDFParser;
-import org.eclipse.rdf4j.sail.memory.MemoryStore;
+import org.eclipse.rdf4j.rio.Rio;
+import org.guiiis.dwfe.core.graal.NaiveMapper;
 import org.guiiis.dwfe.utils.SimpleQueryFileReader;
 
+import fr.lirmm.graphik.graal.api.core.Atom;
 import fr.lirmm.graphik.graal.api.core.AtomSetException;
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
+import fr.lirmm.graphik.graal.api.core.Predicate;
 import fr.lirmm.graphik.graal.api.core.Substitution;
+import fr.lirmm.graphik.graal.api.core.Term;
+import fr.lirmm.graphik.graal.api.factory.AtomFactory;
 import fr.lirmm.graphik.graal.api.kb.Approach;
 import fr.lirmm.graphik.graal.api.kb.KnowledgeBase;
 import fr.lirmm.graphik.graal.api.store.Store;
+import fr.lirmm.graphik.graal.core.factory.DefaultAtomFactory;
+import fr.lirmm.graphik.graal.core.factory.DefaultPredicateFactory;
 import fr.lirmm.graphik.graal.core.mapper.MappedStore;
-import fr.lirmm.graphik.graal.core.mapper.PrefixMapper;
-import fr.lirmm.graphik.graal.homomorphism.AtomicQueryHomomorphism;
+import fr.lirmm.graphik.graal.core.stream.filter.AtomFilterIterator;
+import fr.lirmm.graphik.graal.core.term.DefaultTermFactory;
 import fr.lirmm.graphik.graal.io.dlp.DlgpParser;
 import fr.lirmm.graphik.graal.io.owl.OWL2Parser;
 import fr.lirmm.graphik.graal.io.sparql.SparqlConjunctiveQueryParser;
 import fr.lirmm.graphik.graal.kb.KBBuilder;
 import fr.lirmm.graphik.graal.store.rdbms.driver.SqliteDriver;
 import fr.lirmm.graphik.graal.store.rdbms.natural.NaturalRDBMSStore;
-import fr.lirmm.graphik.graal.store.triplestore.rdf4j.RDF4jStore;
 import fr.lirmm.graphik.util.stream.CloseableIterator;
 
-public class Origin {
+public class Origin_rdbms {
 	public static void main(String[] args) throws Exception {		
 		String ontologyfile = null;		
 		String queriesfile = null;
 		String datafile = null;
+		
+		String rdbmsDir = "RDBMS/";
 		
 		int input_syntax = 0; 	/* 0: DlgP syntax;  1: OWL syntax */
 		int query_syntax = 0;	/* 0: DlgP syntax;  1: Sparql syntax */
@@ -57,41 +62,20 @@ public class Origin {
 		}		
 		
 		List<String> qs = SimpleQueryFileReader.read(new File(queriesfile), query_syntax);
-
-		String baseURI = "";
 		
-		long t1 = System.currentTimeMillis();
-		
-		File file = new File(datafile);
-		Repository repo = new SailRepository(new MemoryStore());
-		repo.initialize();
-		
-		try {
-			RepositoryConnection con = repo.getConnection();
-			try {
-				con.add(file, baseURI, RDFFormat.TURTLE);
-				
-				System.out.println("Size of the Repo: " + con.size());
-			}
-			finally {
-				con.close();
-			}
-		}
-		catch (RDF4JException e) {
-		   // handle exception. This catch-clause is
-		   // optional since RDF4JException is an unchecked exception
-		}
-		catch (IOException e) {
-		   // handle io exception
-		}
+		long t1 = System.currentTimeMillis();		
 		
 		KBBuilder kbb = new KBBuilder();
 		
-		try {
-			kbb.setStore(new RDF4jStore(repo));
-		} catch (AtomSetException e) {
-			e.printStackTrace();
-		}
+		String dataName = new File(datafile).getName();
+		String dname = dataName.indexOf(".") != -1 ? dataName.substring(0, dataName.indexOf(".")) : dataName;
+		String dbpath = rdbmsDir + dname + ".db";
+		
+		if(!(new File(dbpath).exists())) init(datafile, dbpath);
+		
+		Store naturalRDBMSStore = new NaturalRDBMSStore(new SqliteDriver(new File(dbpath)));
+		
+		kbb.setStore(naturalRDBMSStore);
 		
 		if(input_syntax == 0) kbb.addRules(new DlgpParser(new File(ontologyfile)));
 		else kbb.addRules(new OWL2Parser(new File(ontologyfile)));
@@ -102,15 +86,14 @@ public class Origin {
 		
 		long t2 = System.currentTimeMillis();
 		
-		System.out.println("BuildTime cost: " + (t2 - t1) + "ms");		
-
+		System.out.println("BuildTime cost: " + (t2 - t1) + "ms");
+		
 		for(String query : qs) {
 			ConjunctiveQuery q;
 			
 			if(query_syntax == 0) q = DlgpParser.parseQuery(query);
 			else q = new SparqlConjunctiveQueryParser(query).getConjunctiveQuery();
 			
-//			writer.write("\n= Answers =\n");
 			CloseableIterator<Substitution> results = kb.query(q);
 			
 			int ansNum = 0;
@@ -135,5 +118,17 @@ public class Origin {
 		}	
 		
 		kb.close();
+	}
+	
+	private static void init(String datafile, String dbfile) throws Exception {
+		System.out.println("initializing db for " + datafile + " ...");
+		Store naturalRDBMSStore = new NaturalRDBMSStore(new SqliteDriver(new File(dbfile)));
+		naturalRDBMSStore = new MappedStore(naturalRDBMSStore, new NaiveMapper().inverse());
+		
+		DlgpParser parser = new DlgpParser(new File(datafile));
+		naturalRDBMSStore.addAll(new AtomFilterIterator(parser));
+		parser.close();
+		naturalRDBMSStore.close();
+		System.out.println("finished.");
 	}
 }

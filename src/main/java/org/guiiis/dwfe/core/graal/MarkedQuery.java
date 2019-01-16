@@ -1,4 +1,4 @@
-package org.guiiis.dwfe.core;
+package org.guiiis.dwfe.core.graal;
 
 /*
  * Copyright (C) Inria Sophia Antipolis - Méditerranée / LIRMM
@@ -54,7 +54,7 @@ import fr.lirmm.graphik.graal.core.DefaultAtom;
 import fr.lirmm.graphik.graal.core.DefaultConjunctiveQuery;
 import fr.lirmm.graphik.util.stream.CloseableIteratorWithoutException;
 
-class MarkedQuery extends DefaultConjunctiveQuery {
+public class MarkedQuery extends DefaultConjunctiveQuery {
 
 	private List<Atom> markedAtoms;
 

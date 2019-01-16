@@ -7,7 +7,6 @@ import java.util.Collection;
 import org.guiiis.dwfe.core.DatalogRewriting;
 import org.guiiis.dwfe.core.DatalogRule;
 import org.guiiis.dwfe.core.DlgKnowledgeBase;
-import org.guiiis.dwfe.core.DlgpEWriter;
 
 import fr.lirmm.graphik.graal.api.core.AtomSetException;
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
@@ -81,29 +80,5 @@ public class AppTest
     	ConjunctiveQuery query = DlgpParser.parseQuery(q);
     	
     	kb.rewriteToUCQ(query, System.out);
-    }
-    
-    private void test(String dlgFile, String q, DlgpEWriter writer) throws Exception {
-    	KBBuilder kbb = new KBBuilder();
-    	
-		kbb.addAll(new DlgpParser(new File(rootDir, dlgFile)));
-
-		KnowledgeBase kb = kbb.build();
-
-		ConjunctiveQuery query = DlgpParser.parseQuery(q);
-		
-		DatalogRewriting dr = new DatalogRewriting();
-		
-		dr.setProfiler(new RealTimeProfiler(System.out));
-		
-		Collection<DatalogRule> result = dr.exec(query, kb.getOntology());
-		
-	//	writer.write("\n= Testcase " + dlgFile + " Rewriting results =\n");
-		
-		for(DatalogRule r : result) {
-			System.out.println(r + "\n");
-		}
-		// 8 - Close resources
-		kb.close();
     }
 }

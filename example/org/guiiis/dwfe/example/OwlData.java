@@ -1,4 +1,4 @@
-package org.guiiis.dwfe.benchmark;
+package org.guiiis.dwfe.example;
 
 import java.io.File;
 import java.util.List;

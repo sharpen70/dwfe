@@ -43,7 +43,7 @@
  /**
  * 
  */
-package org.guiiis.dwfe.core;
+package org.guiiis.dwfe.core.graal;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;

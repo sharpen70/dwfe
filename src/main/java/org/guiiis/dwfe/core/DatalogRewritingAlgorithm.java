@@ -10,6 +10,9 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
+import org.guiiis.dwfe.core.graal.PureQuery;
+import org.guiiis.dwfe.core.graal.Utils;
+
 import fr.lirmm.graphik.graal.api.core.Atom;
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
 import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;

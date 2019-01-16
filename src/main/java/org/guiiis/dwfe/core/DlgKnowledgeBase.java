@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.guiiis.dwfe.core.graal.RewritingAlgorithm;
 import org.guiiis.dwfe.io.SparqlUnionOfConjunctiveQueryWriter;
 import org.guiiis.dwfe.utils.FUSAnalyser;
 import org.slf4j.Logger;
@@ -56,8 +57,8 @@ public class DlgKnowledgeBase {
 	
 	private Boolean decidable = null;
 	
-	private final RuleSet ruleset;
-	private final AtomSet store;
+	private RuleSet ruleset;
+//	private final AtomSet store;
 	
 	private AnalyserRuleSet analyzerRuleSet = null;
 	private Analyser analyzer = null;
@@ -67,25 +68,33 @@ public class DlgKnowledgeBase {
 	private boolean force_rewriting = true;
 	
 	public DlgKnowledgeBase(Parser<Object> parser) throws AtomSetException {
-		this.store = new DefaultInMemoryGraphStore();
-		
-		RuleSet rs = new LinkedListRuleSet();
-		
+//		this.store = new DefaultInMemoryGraphStore();
+		this.ruleset = new LinkedListRuleSet();
 		Object o;
 		try {
 			while (parser.hasNext()) {
 				o = parser.next();
 				if (o instanceof Rule) {
-					rs.add((Rule) o);
-				} else if (o instanceof Atom) {
-					this.store.add((Atom) o);
-				}
+					this.ruleset.add((Rule) o);
+				} 
+//				else if (o instanceof Atom) {
+//					this.store.add((Atom) o);
+//				}
 			}
 		} catch (IteratorException e) {
 			throw new AtomSetException(e);
 		}
 		
-		this.ruleset = new LinkedListRuleSet(Rules.computeSinglePiece(rs.iterator()));
+		this.init();
+	}
+	
+	public DlgKnowledgeBase(RuleSet rs) {
+		this.ruleset = rs;
+		this.init();
+	}
+	
+	public void init() {
+		this.ruleset = new LinkedListRuleSet(Rules.computeSinglePiece(this.ruleset.iterator()));
 		this.analyzerRuleSet = new AnalyserRuleSet(this.ruleset);
 		this.analyzer = new Analyser(this.analyzerRuleSet);
 		this.fusAnalyzer = new FUSAnalyser(this.analyzerRuleSet);
@@ -108,7 +117,7 @@ public class DlgKnowledgeBase {
 			//	System.out.println(this.fusComponent);
 			}
 			Collection<DatalogRule> re = dr.exec(q, this.fusComponent);
-			for(DatalogRule r : re) outputStream.println(r);
+			for(DatalogRule r : re) outputStream.println(r.toRDFox());
 		}
 		else {
 			System.out.println("The ontology is not fus, not suitable for current rewritng approach.");
@@ -220,13 +229,13 @@ public class DlgKnowledgeBase {
 
 	}
 	
-	public void close() {
-		if (this.store instanceof Closeable) {
-			try {
-				((Closeable) this.store).close();
-			} catch (IOException e) {
-				LOGGER.warn("Error while closing KnowledgeBase: ", e);
-			}
-		}
-	}
+//	public void close() {
+//		if (this.store instanceof Closeable) {
+//			try {
+//				((Closeable) this.store).close();
+//			} catch (IOException e) {
+//				LOGGER.warn("Error while closing KnowledgeBase: ", e);
+//			}
+//		}
+//	}
 }

@@ -1,4 +1,4 @@
-package org.guiiis.dwfe.core;
+package org.guiiis.dwfe.core.graal;
 /*
  * Copyright (C) Inria Sophia Antipolis - Méditerranée / LIRMM
  * (Université de Montpellier & CNRS) (2014 - 2017)
@@ -79,7 +79,7 @@ import fr.lirmm.graphik.util.stream.CloseableIteratorWithoutException;
  * @author Clément Sipieter (INRIA) {@literal <clement@6pi.fr>}
  * 
  */
-final class Utils {
+public final class Utils {
 
 	private static DefaultVariableGenerator varGen = new DefaultVariableGenerator("X"
 	                                                                              + Integer.toString(
