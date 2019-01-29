@@ -38,7 +38,7 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	private Rtd rtd;
 	private RewTree rewtree;
 	
-	public final static String ANSPredicateIdentifier = "GUIIIS.DWFE:ANS";
+	public final static String ANSPredicateIdentifier = "guiiis.dwfe#ANS";
 	
 	private boolean test = false;
 	

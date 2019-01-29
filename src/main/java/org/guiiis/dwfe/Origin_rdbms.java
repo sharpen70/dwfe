@@ -11,7 +11,10 @@ import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.Rio;
 import org.guiiis.dwfe.core.graal.NaiveMapper;
 import org.guiiis.dwfe.utils.SimpleQueryFileReader;
+import org.slf4j.LoggerFactory;
 
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
 import fr.lirmm.graphik.graal.api.core.Atom;
 import fr.lirmm.graphik.graal.api.core.AtomSetException;
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
@@ -25,6 +28,7 @@ import fr.lirmm.graphik.graal.api.store.Store;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomFactory;
 import fr.lirmm.graphik.graal.core.factory.DefaultPredicateFactory;
 import fr.lirmm.graphik.graal.core.mapper.MappedStore;
+import fr.lirmm.graphik.graal.core.mapper.PrefixMapper;
 import fr.lirmm.graphik.graal.core.stream.filter.AtomFilterIterator;
 import fr.lirmm.graphik.graal.core.term.DefaultTermFactory;
 import fr.lirmm.graphik.graal.io.dlp.DlgpParser;
@@ -37,6 +41,9 @@ import fr.lirmm.graphik.util.stream.CloseableIterator;
 
 public class Origin_rdbms {
 	public static void main(String[] args) throws Exception {		
+		Logger root = (Logger)LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+		root.setLevel(Level.OFF);
+		
 		String ontologyfile = null;		
 		String queriesfile = null;
 		String datafile = null;
@@ -73,7 +80,8 @@ public class Origin_rdbms {
 		
 		if(!(new File(dbpath).exists())) init(datafile, dbpath);
 		
-		Store naturalRDBMSStore = new NaturalRDBMSStore(new SqliteDriver(new File(dbpath)));
+		Store naturalRDBMSStore = new MappedStore(new NaturalRDBMSStore(new SqliteDriver(new File(dbpath))),
+				new PrefixMapper("http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#").inverse());
 		
 		kbb.setStore(naturalRDBMSStore);
 		
@@ -123,7 +131,8 @@ public class Origin_rdbms {
 	private static void init(String datafile, String dbfile) throws Exception {
 		System.out.println("initializing db for " + datafile + " ...");
 		Store naturalRDBMSStore = new NaturalRDBMSStore(new SqliteDriver(new File(dbfile)));
-		naturalRDBMSStore = new MappedStore(naturalRDBMSStore, new NaiveMapper().inverse());
+	//	naturalRDBMSStore = new MappedStore(naturalRDBMSStore, new NaiveMapper().inverse());
+		naturalRDBMSStore = new MappedStore(naturalRDBMSStore, new PrefixMapper("http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#").inverse());
 		
 		DlgpParser parser = new DlgpParser(new File(datafile));
 		naturalRDBMSStore.addAll(new AtomFilterIterator(parser));

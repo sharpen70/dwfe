@@ -65,7 +65,7 @@ public class AppTest
 //    		test(dlgs[i], queries[i], writer);
 //    	}
     	
-    	newtest(dlgs[0], queries[0]);
+    	newtest(dlgs[4], queries[4]);
 
         assertTrue( true );
     }
@@ -79,6 +79,6 @@ public class AppTest
     	
     	ConjunctiveQuery query = DlgpParser.parseQuery(q);
     	
-    	kb.rewriteToUCQ(query, System.out);
+    	kb.rewriteToDlg(query, System.out);
     }
 }
