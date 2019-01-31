@@ -35,13 +35,12 @@ public class ComplibilityChecker {
 		
 	}
 	
-	private boolean check(Rule r) throws IteratorException, AtomSetException {
-		clearMark();
-		
+	private boolean check(Rule r) throws IteratorException, AtomSetException {	
 		Set<Variable> e = r.getExistentials();
 		Queue<PredicatePosition> queue = new LinkedList<>();
 		
 		for(Variable v : e) {
+			clearMark();
 			queue.clear();
 			List<PredicatePosition> pos = Utils.getPositionByVar(r.getHead(), v);
 			queue.addAll(pos);
@@ -57,10 +56,10 @@ public class ComplibilityChecker {
 					if(flag == 0) affectedRule.add(_mk);
 				}
 			}
-		}
-		
-		for(MarkedRule _r : affectedRule) {
-			if(!_r.isShy()) return false;
+			
+			for(MarkedRule _r : affectedRule) {
+				if(!_r.isShy()) return false;
+			}
 		}
 		
 		return true;
@@ -70,5 +69,6 @@ public class ComplibilityChecker {
 		for(MarkedRule r : affectedRule) {
 			r.clearMark();
 		}
+		affectedRule.clear();
 	}
 }

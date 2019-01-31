@@ -33,6 +33,21 @@ public class Utils {
 		return pos;
 	}
 	
+	public static Set<Variable> getVarByPosition(AtomSet atomset, PredicatePosition p) throws IteratorException {
+		Set<Variable> vs = new HashSet<>();
+		
+		CloseableIterator<Atom> it = atomset.iterator();
+		
+		while(it.hasNext()) {
+			Atom a = it.next();
+			if(a.getPredicate().equals(p.predicate)) {
+				Term t = a.getTerm(p.position);
+				if(t.isVariable()) vs.add((Variable)t);					
+			}
+		}
+		return vs;
+	}
+	
 	public static List<PredicatePosition> getAffectedPosition(Rule r, PredicatePosition p) throws IteratorException {
 		AtomSet body = r.getBody();
 		
