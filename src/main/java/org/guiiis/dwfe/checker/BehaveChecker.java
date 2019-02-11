@@ -18,12 +18,12 @@ import fr.lirmm.graphik.graal.core.ruleset.LinkedListRuleSet;
 import fr.lirmm.graphik.graal.rulesetanalyser.util.PredicatePosition;
 import fr.lirmm.graphik.util.stream.IteratorException;
 
-public class ComplibilityChecker {
+public class BehaveChecker {
 	private RuleSet markedruleset;
 	private IndexedByBodyPredicatesRuleSet indexedmarkedruleset;
 	private List<MarkedRule> affectedRule = null;
 	
-	public ComplibilityChecker(RuleSet rs) {
+	public BehaveChecker(RuleSet rs) {
 		this.markedruleset = new LinkedListRuleSet();
 		for(Rule r : rs) this.markedruleset.add(new MarkedRule(r));
 		this.indexedmarkedruleset = new IndexedByBodyPredicatesRuleSet(this.markedruleset);
@@ -32,6 +32,10 @@ public class ComplibilityChecker {
 	}
 	
 	public void checkAndNote() {
+		
+	}
+	
+	public void fmark(Rule r) {
 		
 	}
 	
