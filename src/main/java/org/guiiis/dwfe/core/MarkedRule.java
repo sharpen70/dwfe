@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.guiiis.dwfe.utils.Utils;
@@ -14,6 +15,7 @@ import fr.lirmm.graphik.graal.api.core.Atom;
 import fr.lirmm.graphik.graal.api.core.AtomSet;
 import fr.lirmm.graphik.graal.api.core.Predicate;
 import fr.lirmm.graphik.graal.api.core.Rule;
+import fr.lirmm.graphik.graal.api.core.Term;
 import fr.lirmm.graphik.graal.api.core.Variable;
 import fr.lirmm.graphik.graal.core.DefaultRule;
 import fr.lirmm.graphik.graal.rulesetanalyser.util.PredicatePosition;
@@ -24,6 +26,7 @@ public class MarkedRule extends DefaultRule {
 	private boolean isMarked = false;
 	
 	private List<Map<Atom, Set<Integer>>> bodymap;
+	private ArrayList<Map<Atom, Set<Integer>>> headmap;
 	private Set<PredicatePosition> markset;
 	private Map<Variable, Boolean> shymap;
 	
@@ -33,19 +36,25 @@ public class MarkedRule extends DefaultRule {
 		bodymap = new ArrayList<>();
 		Map<Atom, Set<Integer>> first = new HashMap<>();
 		bodymap.add(first);
+		
+		headmap = new ArrayList<>();
 	}
 	
 	/**
 	 * @param position the position used the marked the rule body
-	 * @return  0  the rule is firstly marked
-	 *          1  the rule is marked with the new position
-	 *         -1  the rule is not marked with any position
+	 * @return  true     no marking is changed in this rule
+	 * 	        false    otherwise
 	 * @throws IteratorException 
 	 */
-	public int mark(Predicate pred, Set<Integer> indice) throws IteratorException {
+	public boolean mark(Predicate pred, Set<Integer> indice) throws IteratorException {
 		AtomSet body = this.getBody();
 		
-		for(int i = 0; i < this.bodymap.size(); i++) {
+		int size = this.bodymap.size();
+		int add = 0;
+		List<Integer> changed = new ArrayList<>();
+		
+		//mark body
+		for(int i = 0; i < size; i++) {
 			Map<Atom, Set<Integer>> m = this.bodymap.get(i);
 			
 			boolean newcopy = false;			
@@ -53,11 +62,15 @@ public class MarkedRule extends DefaultRule {
 			
 			while(it.hasNext()) {
 				Atom a = it.next();
-
+				
 				if(a.getPredicate().equals(pred)) {
 					Set<Integer> spp = m.getOrDefault(a, new TreeSet<>());
+					
+					if(spp.containsAll(indice)) continue;
+					
 					if(indice.containsAll(spp)) {
 						m.put(a, indice);
+						changed.add(i);
 					}
 					else newcopy = true;
 				}
@@ -74,15 +87,47 @@ public class MarkedRule extends DefaultRule {
 					}
 				}
 				this.bodymap.add(_m);
+				changed.add(size + (add++));
 			}
 		}
-
-
-		return -1;
-	}
-	
-	private void markhead() {
 		
+		boolean fixed = true;
+		
+		//mark head
+		for(Integer i : changed) {
+			Map<Atom, Set<Integer>> m = bodymap.get(i);
+			AtomSet head = this.getHead();
+			Set<Variable> markedv = new HashSet<>();
+			
+			for(Atom a : m.keySet()) {
+				Set<Integer> idx = m.get(a);
+				for(Integer j : idx) {
+					Term t = a.getTerm(j);
+					if(t.isVariable()) markedv.add((Variable)t);
+				}
+			}
+			
+			if(fixed && !markedv.isEmpty()) fixed = false;
+			
+			CloseableIterator<Atom> it = head.iterator();
+			
+			Map<Atom, Set<Integer>> _m = new TreeMap<>();
+			
+			while(it.hasNext()) {
+				Atom a = it.next();
+				Set<Integer> hid = new HashSet<>();
+				
+				for(Variable v : markedv) {
+					int vid = a.indexOf(v);
+					if(vid != -1) hid.add(vid);
+				}
+				_m.put(a, hid);
+			}
+			
+			headmap.set(i, _m);
+		}
+		
+		return fixed;
 	}
 	
 	public boolean isShy() throws IteratorException {
