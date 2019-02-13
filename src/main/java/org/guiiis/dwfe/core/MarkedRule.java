@@ -3,41 +3,42 @@ package org.guiiis.dwfe.core;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 
-import org.guiiis.dwfe.utils.Utils;
+import org.apache.commons.collections4.SetUtils;
+import org.apache.commons.lang3.tuple.Pair;
 
 import fr.lirmm.graphik.graal.api.core.Atom;
 import fr.lirmm.graphik.graal.api.core.AtomSet;
 import fr.lirmm.graphik.graal.api.core.Predicate;
 import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.api.core.Term;
-import fr.lirmm.graphik.graal.api.core.Variable;
 import fr.lirmm.graphik.graal.core.DefaultRule;
-import fr.lirmm.graphik.graal.rulesetanalyser.util.PredicatePosition;
 import fr.lirmm.graphik.util.stream.CloseableIterator;
 import fr.lirmm.graphik.util.stream.IteratorException;
 
 public class MarkedRule extends DefaultRule {
-	private boolean isMarked = false;
+	private boolean isMarked;
 	
 	private List<Map<Atom, Set<Integer>>> bodymap;
-	private ArrayList<Map<Atom, Set<Integer>>> headmap;
-	private Set<PredicatePosition> markset;
-	private Map<Variable, Boolean> shymap;
 	
-	public MarkedRule(Rule r) {
+	private boolean dominated;   
+	
+	public MarkedRule(Rule r) throws IteratorException {
 		super(r);
 		
-		bodymap = new ArrayList<>();
-		Map<Atom, Set<Integer>> first = new HashMap<>();
-		bodymap.add(first);
+		reset();
+	}
+	
+	public void reset() throws IteratorException {
+		this.isMarked = false;
+		this.dominated = false;
 		
-		headmap = new ArrayList<>();
+		bodymap = new ArrayList<>();
+		bodymap.add(newbodymap());
 	}
 	
 	/**
@@ -46,7 +47,7 @@ public class MarkedRule extends DefaultRule {
 	 * 	        false    otherwise
 	 * @throws IteratorException 
 	 */
-	public boolean mark(Predicate pred, Set<Integer> indice) throws IteratorException {
+	public List<Pair<Predicate, Set<Integer>>> mark(Predicate pred, Set<Integer> indice) throws IteratorException {
 		AtomSet body = this.getBody();
 		
 		int size = this.bodymap.size();
@@ -64,7 +65,7 @@ public class MarkedRule extends DefaultRule {
 				Atom a = it.next();
 				
 				if(a.getPredicate().equals(pred)) {
-					Set<Integer> spp = m.getOrDefault(a, new TreeSet<>());
+					Set<Integer> spp = m.get(a);
 					
 					if(spp.containsAll(indice)) continue;
 					
@@ -77,7 +78,7 @@ public class MarkedRule extends DefaultRule {
 			}
 			
 			if(newcopy) {
-				Map<Atom, Set<Integer>> _m = new HashMap<>();
+				Map<Atom, Set<Integer>> _m = newbodymap();
 				for(Atom a : m.keySet()) {
 					if(a.getPredicate().equals(pred)) {
 						_m.put(a, indice);
@@ -91,61 +92,90 @@ public class MarkedRule extends DefaultRule {
 			}
 		}
 		
-		boolean fixed = true;
+		List<Pair<Predicate, Set<Integer>>> fhead = new LinkedList<>();
 		
 		//mark head
 		for(Integer i : changed) {
 			Map<Atom, Set<Integer>> m = bodymap.get(i);
 			AtomSet head = this.getHead();
-			Set<Variable> markedv = new HashSet<>();
+			Set<Term> markedv = new HashSet<>();
+			
 			
 			for(Atom a : m.keySet()) {
 				Set<Integer> idx = m.get(a);
 				for(Integer j : idx) {
 					Term t = a.getTerm(j);
-					if(t.isVariable()) markedv.add((Variable)t);
+					if(t.isVariable()) markedv.add(t);
+					else m.remove(a);
 				}
 			}
 			
-			if(fixed && !markedv.isEmpty()) fixed = false;
+			boolean through = true;
 			
-			CloseableIterator<Atom> it = head.iterator();
+			CloseableIterator<Atom> it = body.iterator();
+			Map<Term, Atom> va = new HashMap<>();
 			
-			Map<Atom, Set<Integer>> _m = new TreeMap<>();
+			while(it.hasNext()) {
+				Atom a = it.next();
+				List<Term> lt = a.getTerms();
+				
+				for(int ti = 0; ti < lt.size(); ti++) {
+					Term t = lt.get(ti);
+					if(markedv.contains(t)) {
+						if(!m.get(a).contains(ti)) through = false;
+						else {
+							Atom ta = va.get(t);
+							if(ta != null && !ta.equals(a)) this.dominated = true;
+							else va.put(t, ta);
+						}
+					}
+				}
+			}
+			
+			if(!through) continue;
+			
+			it = head.iterator();
+			
+			List<Pair<Predicate, Set<Integer>>> _fhead = new LinkedList<>();
 			
 			while(it.hasNext()) {
 				Atom a = it.next();
 				Set<Integer> hid = new HashSet<>();
 				
-				for(Variable v : markedv) {
-					int vid = a.indexOf(v);
-					if(vid != -1) hid.add(vid);
+				for(Term v : markedv) {
+					List<Term> terms = a.getTerms();
+					for(int ai = 0; ai < terms.size(); ai++) {
+						if(terms.get(ai).equals(v)) hid.add(ai);
+					}
 				}
-				_m.put(a, hid);
+				_fhead.add(Pair.of(a.getPredicate(), hid));
 			}
 			
-			headmap.set(i, _m);
+			fhead.addAll(_fhead);
 		}
 		
-		return fixed;
+		return fhead;
 	}
 	
-	public boolean isShy() throws IteratorException {
-		Set<Variable> markvariable = new HashSet<>();
+	private Map<Atom, Set<Integer>> newbodymap() throws IteratorException {
+		CloseableIterator<Atom> it = this.getBody().iterator();
 		
-		for(PredicatePosition pp : markset) {
-			markvariable.addAll(Utils.getVarByPosition(this.getBody(), pp));
-		}
+		Map<Atom, Set<Integer>> re = new HashMap<>();
 		
-		for(Variable v : markvariable) {
+		while(it.hasNext()) {
+			Atom a = it.next();
 			
+			re.put(a, SetUtils.<Integer>emptySet());
 		}
 		
-		return true;
+		return re;
 	}
 	
-	public void clearMark() {
-		this.isMarked = false;
-
+	public boolean isDominated() {
+		return this.dominated;
+	}
+	
+	public boolean isMarked() {
+		return this.isMarked;
 	}
 }
