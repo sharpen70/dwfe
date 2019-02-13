@@ -1,9 +1,11 @@
-package org.guiiis.dwfe.checker;
+package org.guiiis.dwfe.vareliminate;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
@@ -27,11 +29,13 @@ public class BehaveChecker {
 	private RuleSet markedruleset;
 	private IndexedByBodyPredicatesRuleSet indexedmarkedruleset;
 	private List<MarkedRule> affectedRule = null;
+	private Map<Rule, Boolean> checked = null;
 	
 	public BehaveChecker(RuleSet rs) throws IteratorException {
 		this.markedruleset = new LinkedListRuleSet();
 		for(Rule r : rs) this.markedruleset.add(new MarkedRule(r));
 		this.indexedmarkedruleset = new IndexedByBodyPredicatesRuleSet(this.markedruleset);
+		checked = new HashMap<>();
 		
 		affectedRule = new ArrayList<>();
 	}
@@ -83,6 +87,19 @@ public class BehaveChecker {
 		
 		for(MarkedRule _r : affectedRule) {
 			if(!_r.isDominated()) return false;
+		}
+		
+		return true;
+	}
+	
+	public boolean isBehaveRule(Rule r) throws IteratorException, AtomSetException {
+		if(checked.containsKey(r)) return checked.get(r);
+		
+		for(Variable v : r.getExistentials()) {
+			if(!check(r, v)) {
+				checked.put(r, false);
+				return false;
+			}
 		}
 		
 		return true;
