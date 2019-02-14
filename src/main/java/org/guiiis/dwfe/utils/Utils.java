@@ -7,11 +7,13 @@ import java.util.Set;
 
 import fr.lirmm.graphik.graal.api.core.Atom;
 import fr.lirmm.graphik.graal.api.core.AtomSet;
+import fr.lirmm.graphik.graal.api.core.AtomSetException;
 import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.api.core.Term;
 import fr.lirmm.graphik.graal.api.core.Variable;
 import fr.lirmm.graphik.graal.rulesetanalyser.util.PredicatePosition;
 import fr.lirmm.graphik.util.stream.CloseableIterator;
+import fr.lirmm.graphik.util.stream.CloseableIteratorWithoutException;
 import fr.lirmm.graphik.util.stream.IteratorException;
 
 public class Utils {
@@ -66,5 +68,15 @@ public class Utils {
 		for(Variable v : affectedVariable) affectedPosition.addAll(getPositionByVar(r.getHead(), v));
 		
 		return affectedPosition;
+	}
+	
+	public static Set<Variable> getJoinVar(AtomSet atomset) throws AtomSetException {
+		CloseableIterator<Atom> it = atomset.iterator();
+		Set<Variable> re = new HashSet<>();
+		Set<Variable> vars = atomset.getVariables();
+		
+		int count = 0;
+		
+		
 	}
 }
