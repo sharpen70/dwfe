@@ -69,14 +69,4 @@ public class Utils {
 		
 		return affectedPosition;
 	}
-	
-	public static Set<Variable> getJoinVar(AtomSet atomset) throws AtomSetException {
-		CloseableIterator<Atom> it = atomset.iterator();
-		Set<Variable> re = new HashSet<>();
-		Set<Variable> vars = atomset.getVariables();
-		
-		int count = 0;
-		
-		
-	}
 }

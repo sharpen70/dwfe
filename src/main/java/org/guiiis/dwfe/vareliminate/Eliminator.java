@@ -9,12 +9,14 @@ import java.util.Set;
 import org.apache.commons.lang3.tuple.Pair;
 
 import fr.lirmm.graphik.graal.api.core.Atom;
+import fr.lirmm.graphik.graal.api.core.AtomSet;
 import fr.lirmm.graphik.graal.api.core.AtomSetException;
 import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
 import fr.lirmm.graphik.graal.api.core.Predicate;
 import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.api.core.RuleSet;
 import fr.lirmm.graphik.graal.api.core.Term;
+import fr.lirmm.graphik.graal.api.core.Variable;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomFactory;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomSetFactory;
 import fr.lirmm.graphik.graal.core.factory.DefaultRuleFactory;
@@ -75,10 +77,23 @@ public class Eliminator {
 		head.add(newhead);
 	}
 	
-	private void _elim(Rule r, Predicate np, Atom origin_head, List<Integer> reserved) {
+	private boolean join(AtomSet atomset, Atom a, Variable v) throws IteratorException {
+		CloseableIterator<Atom> it = atomset.iterator();
+		
+		while(it.hasNext()) {
+			Atom _a = it.next();
+			
+			if(!_a.equals(a)) {
+				if(_a.getTerms().contains(v)) return false;
+			}
+		}
+		
+		return true;
+	}
+		
+	private void _elim(Rule r, Predicate np, Atom origin_head, List<Integer> reserved) throws IteratorException {
 		Predicate p = origin_head.getPredicate();
 		CloseableIteratorWithoutException<Atom> it = r.getBody().atomsByPredicate(p);
-		InMemoryAtomSet body = r.getBody();
 		InMemoryAtomSet newbody = DefaultAtomSetFactory.instance().create();
 		Set<Term> rmd = new HashSet<>();
 		boolean replaced = false;
@@ -97,14 +112,20 @@ public class Eliminator {
 					Term t = ori.get(i);
 					if(i == reserved.get(c)) {
 						c++;
-						if(t.isConstant() && !t.equals(origin_head.getTerm(i))) {
+						terms.add(t);
+					}
+					else {
+						if(t.isVariable()) {
+							if(join(r.getBody(), a, (Variable)t)) {
+								replacable = false;
+								break;
+							}
+							rmd.add(t);
+						}
+						else {
 							replacable = false;
 							break;
 						}
-						else terms.add(t);
-					}
-					else {
-						if(t.isVariable()) rmd.add(t);
 					}
 				}
 				
