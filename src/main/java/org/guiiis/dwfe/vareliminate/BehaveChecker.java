@@ -1,6 +1,5 @@
 package org.guiiis.dwfe.vareliminate;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -28,7 +27,7 @@ import fr.lirmm.graphik.util.stream.IteratorException;
 public class BehaveChecker {
 	private RuleSet markedruleset;
 	private IndexedByBodyPredicatesRuleSet indexedmarkedruleset;
-	private List<MarkedRule> affectedRule = null;
+	private Set<MarkedRule> affectedRule = null;
 	private Map<Rule, Boolean> checked = null;
 	
 	public BehaveChecker(RuleSet rs) throws IteratorException {
@@ -37,7 +36,7 @@ public class BehaveChecker {
 		this.indexedmarkedruleset = new IndexedByBodyPredicatesRuleSet(this.markedruleset);
 		checked = new HashMap<>();
 		
-		affectedRule = new ArrayList<>();
+		affectedRule = new HashSet<>();
 	}
 	
 	private List<Pair<Predicate, Set<Integer>>> getHV(Rule r, Variable v) throws IteratorException {
@@ -85,9 +84,9 @@ public class BehaveChecker {
 			}
 		}
 		
-		for(MarkedRule _r : affectedRule) {
-			if(!_r.isDominated()) return false;
-		}
+//		for(MarkedRule _r : affectedRule) {
+//			if(_r.isDominated()) return false;
+//		}
 		
 		return true;
 	}
@@ -102,6 +101,7 @@ public class BehaveChecker {
 			}
 		}
 		
+		checked.put(r, true);
 		return true;
 	}
 	
@@ -110,5 +110,11 @@ public class BehaveChecker {
 			r.reset();
 		}
 		affectedRule.clear();
+	}
+	
+	public void printMark() {
+		for(MarkedRule r : affectedRule) {
+			r.printMark();
+		}
 	}
 }

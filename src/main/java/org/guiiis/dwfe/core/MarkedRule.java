@@ -6,7 +6,9 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 
 import org.apache.commons.collections4.SetUtils;
 import org.apache.commons.lang3.tuple.Pair;
@@ -54,12 +56,16 @@ public class MarkedRule extends DefaultRule {
 		int add = 0;
 		List<Integer> changed = new ArrayList<>();
 		
+		List<Integer> newcopy = new ArrayList<>();
+		boolean fixed = false;
+		
 		//mark body
 		for(int i = 0; i < size; i++) {
 			Map<Atom, Set<Integer>> m = this.bodymap.get(i);
-			
-			boolean newcopy = false;			
+						
 			CloseableIterator<Atom> it = body.iterator();
+			
+			boolean same = true;
 			
 			while(it.hasNext()) {
 				Atom a = it.next();
@@ -68,16 +74,22 @@ public class MarkedRule extends DefaultRule {
 					Set<Integer> spp = m.get(a);
 					
 					if(spp.containsAll(indice)) continue;
-					
+					else same = false;
+						
 					if(indice.containsAll(spp)) {
 						m.put(a, indice);
 						changed.add(i);
 					}
-					else newcopy = true;
+					else newcopy.add(i);
 				}
 			}
 			
-			if(newcopy) {
+			if(same) fixed = true;
+		}
+		
+		if(!fixed) {
+			for(int i : newcopy) {
+				Map<Atom, Set<Integer>> m = this.bodymap.get(i);
 				Map<Atom, Set<Integer>> _m = newbodymap();
 				for(Atom a : m.keySet()) {
 					if(a.getPredicate().equals(pred)) {
@@ -100,15 +112,17 @@ public class MarkedRule extends DefaultRule {
 			AtomSet head = this.getHead();
 			Set<Term> markedv = new HashSet<>();
 			
-			
-			for(Atom a : m.keySet()) {
-				Set<Integer> idx = m.get(a);
+			for(Entry<Atom, Set<Integer>> entry : m.entrySet()) {
+				Set<Integer> idx = entry.getValue();
+//				System.out.println(entry.getKey() + " " + idx);
 				for(Integer j : idx) {
-					Term t = a.getTerm(j);
+					Term t = entry.getKey().getTerm(j);
 					if(t.isVariable()) markedv.add(t);
-					else m.remove(a);
+					else m.remove(entry.getKey());
 				}
 			}
+			
+//			System.out.println(this.getLabel() + " " + markedv);
 			
 			boolean through = true;
 			
@@ -125,8 +139,10 @@ public class MarkedRule extends DefaultRule {
 						if(!m.get(a).contains(ti)) through = false;
 						else {
 							Atom ta = va.get(t);
+							
+//							System.out.println(this.getLabel() + " " +  t + " " + ta + " " + a);
 							if(ta != null && !ta.equals(a)) this.dominated = true;
-							else va.put(t, ta);
+							else va.put(t, a);
 						}
 					}
 				}
@@ -177,5 +193,17 @@ public class MarkedRule extends DefaultRule {
 	
 	public boolean isMarked() {
 		return this.isMarked;
+	}
+	
+	public void printMark() {
+		System.out.print("[" + this.getLabel() + "] ");
+		for(Map<Atom, Set<Integer>> m : this.bodymap) {
+			for(Entry<Atom, Set<Integer>> entry : m.entrySet()) {
+				System.out.print(entry.getKey() + ": " + entry.getValue() + "  ");
+			}
+			
+			System.out.print(" | ");
+		}
+		System.out.println("");
 	}
 }
