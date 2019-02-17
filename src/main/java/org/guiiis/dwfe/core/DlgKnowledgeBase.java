@@ -101,24 +101,24 @@ public class DlgKnowledgeBase {
 	}
 	
 	public void rewriteToDlg(ConjunctiveQuery q, PrintStream outputStream) throws IOException {
-		DatalogRewriting dr = new DatalogRewriting();			
+		DatalogRewriting dr = new DatalogRewriting(this.ruleset);			
 		dr.setProfiler(new RealTimeProfiler(profileSteam));
 		
 	//	outputStream.println("Query:\n" + q);
 	//	outputStream.println("\nRewriting Result:\n");
 		
 		if(this.isDecidable()) {
-			Collection<DatalogRule> re = dr.exec(q, this.ruleset);
+			Collection<DatalogRule> re = dr.exec(q);
 			for(DatalogRule r : re) outputStream.println(r.toRDFox());
 		}		
-		else if(this.force_rewriting) {
-			if(this.fusComponent == null) {
-				this.fusComponent = this.fusAnalyzer.maximalFusComponent();
-			//	System.out.println(this.fusComponent);
-			}
-			Collection<DatalogRule> re = dr.exec(q, this.fusComponent);
-			for(DatalogRule r : re) outputStream.println(r.toRDFox());
-		}
+//		else if(this.force_rewriting) {
+//			if(this.fusComponent == null) {
+//				this.fusComponent = this.fusAnalyzer.maximalFusComponent();
+//			//	System.out.println(this.fusComponent);
+//			}
+//			Collection<DatalogRule> re = dr.exec(q, this.fusComponent);
+//			for(DatalogRule r : re) outputStream.println(r.toRDFox());
+//		}
 		else {
 			System.out.println("The ontology is not fus, not suitable for current rewritng approach.");
 		}
