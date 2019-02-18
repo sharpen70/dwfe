@@ -31,8 +31,8 @@ public class Optimizier {
 	private PureQuery q;
 	private Rule H;
 	private GraphOfRuleDependencies grd;
-	private IndexedByHeadPredicatesRuleSet unsolved;
-	private IndexedByHeadPredicatesRuleSet solved;
+	private IndexedByHeadPredicatesRuleSet unsolved = null;
+	private IndexedByHeadPredicatesRuleSet solved = null;
 	
 	public Optimizier(PureQuery _q, RuleSet _rs) throws IteratorException {
 		this.rs = _rs;
@@ -42,21 +42,27 @@ public class Optimizier {
 		Predicate G = new Predicate(ANSPredicateIdentifier, 0);
 		Atom Ghead = DefaultAtomFactory.instance().create(G, ansVar);
 		this.H = DefaultRuleFactory.instance().create(q.getAtomSet(), DefaultAtomSetFactory.instance().create(Ghead));
+		this.H.setLabel(String.valueOf(this.rs.size()));
 		this.rs.add(this.H);
 		
-		this.elim = new Eliminator(rs);
-		
-		this.unsolved = new IndexedByHeadPredicatesRuleSet();
-		this.solved = new IndexedByHeadPredicatesRuleSet();
+		this.elim = new Eliminator(rs);	
 	}
 	
 	public IndexedByHeadPredicatesRuleSet getUnsolved() throws Exception {
-		if(this.unsolved == null) sep();
+		if(this.unsolved == null) {
+			this.unsolved = new IndexedByHeadPredicatesRuleSet();
+			this.solved = new IndexedByHeadPredicatesRuleSet();
+			sep();
+		}
 		return this.unsolved;
 	}
 	
 	public IndexedByHeadPredicatesRuleSet getSolved() throws Exception {
-		if(this.solved == null) sep();
+		if(this.solved == null) {
+			this.unsolved = new IndexedByHeadPredicatesRuleSet();
+			this.solved = new IndexedByHeadPredicatesRuleSet();
+			sep();
+		}
 		return this.solved;
 	}
 	
@@ -68,14 +74,14 @@ public class Optimizier {
 		StronglyConnectedComponentsGraph<Rule> sccg = grd.getStronglyConnectedComponentsGraph();
 		
 		Set<Integer> roots = sccg.getSinks();
-		List<Rule> tmp = new LinkedList<>();
+		Set<Rule> tmp = new HashSet<>();
 		
 		for(int i : roots) {
 			dfs(i, sccg, tmp);
 		}
 	}
 	
-	private void dfs(int i, StronglyConnectedComponentsGraph<Rule> sccg, List<Rule> tmp) {
+	private void dfs(int i, StronglyConnectedComponentsGraph<Rule> sccg, Set<Rule> tmp) {
 		Set<Rule> scc = sccg.getComponent(i);
 		
 		boolean exfree = true;
@@ -98,7 +104,7 @@ public class Optimizier {
 			tmp.clear();
 		}
 		else {
-			for(int n : next) dfs(n, sccg, tmp);
+			for(int n : next) dfs(sccg.getEdgeSource(n), sccg, tmp);
 		}
 	}
 }
