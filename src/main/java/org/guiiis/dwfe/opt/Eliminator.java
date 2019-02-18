@@ -1,4 +1,4 @@
-package org.guiiis.dwfe.vareliminate;
+package org.guiiis.dwfe.opt;
 
 import java.util.ArrayList;
 import java.util.HashSet;

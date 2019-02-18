@@ -3,12 +3,15 @@ package org.guiiis.dwfe;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import org.guiiis.dwfe.opt.BehaveChecker;
+import org.guiiis.dwfe.core.graal.PureQuery;
 import org.guiiis.dwfe.opt.Eliminator;
+import org.guiiis.dwfe.opt.Optimizier;
 
+import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
 import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.api.core.RuleSet;
 import fr.lirmm.graphik.graal.api.kb.KnowledgeBase;
+import fr.lirmm.graphik.graal.core.ruleset.IndexedByHeadPredicatesRuleSet;
 import fr.lirmm.graphik.graal.io.dlp.DlgpParser;
 import fr.lirmm.graphik.graal.kb.KBBuilder;
 import fr.lirmm.graphik.graal.kb.KBBuilderException;
@@ -17,7 +20,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-public class TestEliminator extends TestCase {
+public class TestOptimizier extends TestCase {
 	private static String rootDir = "./input/";
 	
 	/**
@@ -25,7 +28,7 @@ public class TestEliminator extends TestCase {
      *
      * @param testName name of the test case
      */
-    public TestEliminator( String testName )
+    public TestOptimizier( String testName )
     {
         super( testName );
     }
@@ -35,42 +38,23 @@ public class TestEliminator extends TestCase {
      */
     public static Test suite()
     {
-        return new TestSuite( TestEliminator.class );
+        return new TestSuite( TestOptimizier.class );
     }
     
     public void test1() throws Exception {
-    	KBBuilder builder = new KBBuilder();
-    	builder.addRules(new DlgpParser(new File(rootDir, "ex2")));
-    	KnowledgeBase kb = builder.build();
-    	RuleSet rs = kb.getOntology();
-    	
-    	Eliminator eliminator = new Eliminator(rs);
-    	
-    //	System.out.println(r + "\n");
-    	eliminator.elim();
-    //	checker.printMark();
-    	RuleSet re = eliminator.getRuleSet();
-    	
-    	for(Rule r : re) System.out.println(r);
-    	
-    	Assert.assertTrue(eliminator.getRuleSet().size() == 12);
-    }
-    
-    public void test2() throws Exception {
     	KBBuilder builder = new KBBuilder();
     	builder.addRules(new DlgpParser(new File(rootDir, "ex1")));
     	KnowledgeBase kb = builder.build();
     	RuleSet rs = kb.getOntology();
     	
-    	Eliminator eliminator = new Eliminator(rs);
+    	ConjunctiveQuery query = DlgpParser.parseQuery("?() :- e(X,Y).");
     	
-    //	System.out.println(r + "\n");
-    	eliminator.elim();
-    //	checker.printMark();
-    	RuleSet re = eliminator.getRuleSet();
+    	Optimizier opt = new Optimizier(new PureQuery(query), rs);
     	
-    	for(Rule r : re) System.out.println(r);
+    	IndexedByHeadPredicatesRuleSet irs = opt.getUnsolved();
     	
-    	Assert.assertTrue(eliminator.getRuleSet().size() == 9);
+    	for(Rule r : irs) System.out.println(r);
+    	
+    	Assert.assertTrue(irs.size() == 5);
     }
 }

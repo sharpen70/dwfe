@@ -84,7 +84,6 @@ public class DatalogRewritingAlgorithm implements Profilable{
 		List<Term> ansVar = query.getAnswerVariables();
 		Predicate G = new Predicate(ANSPredicateIdentifier, ansVar.size());
 		Atom Ghead = DefaultAtomFactory.instance().create(G, ansVar);
-		DefaultAtomSetFactory.instance().create(Ghead);
 		DatalogRule H = new DefaultDatalogRule(query.getAtomSet(), DefaultAtomSetFactory.instance().create(Ghead));
 		
 		rtd.add(pquery, new RuleRewPair(H, null, true));

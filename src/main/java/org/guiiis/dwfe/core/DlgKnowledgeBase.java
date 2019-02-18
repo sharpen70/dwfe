@@ -100,7 +100,7 @@ public class DlgKnowledgeBase {
 		this.fusAnalyzer = new FUSAnalyser(this.analyzerRuleSet);
 	}
 	
-	public void rewriteToDlg(ConjunctiveQuery q, PrintStream outputStream) throws IOException {
+	public void rewriteToDlg(ConjunctiveQuery q, PrintStream outputStream) throws Exception {
 		DatalogRewriting dr = new DatalogRewriting(this.ruleset);			
 		dr.setProfiler(new RealTimeProfiler(profileSteam));
 		

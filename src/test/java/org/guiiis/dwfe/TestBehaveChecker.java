@@ -2,7 +2,7 @@ package org.guiiis.dwfe;
 
 import java.io.File;
 
-import org.guiiis.dwfe.vareliminate.BehaveChecker;
+import org.guiiis.dwfe.opt.BehaveChecker;
 
 import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.api.core.RuleSet;
