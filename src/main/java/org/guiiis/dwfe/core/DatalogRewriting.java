@@ -9,14 +9,21 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
+import org.apache.commons.collections4.ListUtils;
 import org.guiiis.dwfe.core.graal.PureQuery;
 import org.guiiis.dwfe.opt.Optimizier;
 
 import fr.lirmm.graphik.graal.api.core.Atom;
 import fr.lirmm.graphik.graal.api.core.AtomSet;
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
+import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
+import fr.lirmm.graphik.graal.api.core.Predicate;
 import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.api.core.RuleSet;
+import fr.lirmm.graphik.graal.api.core.Term;
+import fr.lirmm.graphik.graal.core.factory.DefaultAtomFactory;
+import fr.lirmm.graphik.graal.core.factory.DefaultAtomSetFactory;
+import fr.lirmm.graphik.graal.core.factory.DefaultRuleFactory;
 import fr.lirmm.graphik.graal.core.ruleset.IndexedByHeadPredicatesRuleSet;
 import fr.lirmm.graphik.graal.core.ruleset.LinkedListRuleSet;
 import fr.lirmm.graphik.graal.rulesetanalyser.Analyser;
@@ -37,6 +44,8 @@ import fr.lirmm.graphik.util.stream.CloseableIteratorWithoutException;
  */
 public class DatalogRewriting implements Profilable {
 	private Profiler profiler = NoProfiler.instance();
+	
+	public final static String ANSPredicateIdentifier = "guiiis.dwfe:ANS";
 	
 	private ExtendedSRA           		operator;
 	private DatalogRewritingOperator    dlgoperator;
@@ -59,7 +68,15 @@ public class DatalogRewriting implements Profilable {
 		
 		RuleSet re = this.focus(pquery);
 		
-		Optimizier opt = new Optimizier(pquery, re);
+		List<Term> ansVar = new LinkedList<>();
+		Predicate G = new Predicate(ANSPredicateIdentifier, 0);
+		Atom Ghead = DefaultAtomFactory.instance().create(G, ansVar);
+		InMemoryAtomSet Gheads = DefaultAtomSetFactory.instance().create(Ghead);
+		Rule H = DefaultRuleFactory.instance().create(q.getAtomSet(), Gheads);
+		H.setLabel(String.valueOf(re.size() + 1));
+		re.add(H);
+		
+		Optimizier opt = new Optimizier(re);
 		
 		IndexedByHeadPredicatesRuleSet unsolved = opt.getUnsolved();
 		
@@ -75,12 +92,14 @@ public class DatalogRewriting implements Profilable {
 			return null;
 		}
 		
+		PureQuery newq = new PureQuery(Gheads, new LinkedList<>());
+		
 		// further rewriting
 		DatalogRewritingAlgorithm algo = new DatalogRewritingAlgorithm(this.dlgoperator, this.operator);
 		
 		algo.setProfiler(this.getProfiler());
 
-		Set<DatalogRule> ba =  algo.exec(q, unsolved);
+		Set<DatalogRule> ba =  algo.exec(newq, unsolved);
 		
 		List<DatalogRule> result = new LinkedList<>();
 		

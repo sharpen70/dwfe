@@ -1,49 +1,30 @@
 package org.guiiis.dwfe.opt;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
 import java.util.Set;
 
-import org.guiiis.dwfe.core.graal.PureQuery;
-
-import fr.lirmm.graphik.graal.api.core.Atom;
 import fr.lirmm.graphik.graal.api.core.GraphOfRuleDependencies;
-import fr.lirmm.graphik.graal.api.core.Predicate;
+
 import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.api.core.RuleSet;
-import fr.lirmm.graphik.graal.api.core.Term;
-import fr.lirmm.graphik.graal.core.factory.DefaultAtomFactory;
-import fr.lirmm.graphik.graal.core.factory.DefaultAtomSetFactory;
-import fr.lirmm.graphik.graal.core.factory.DefaultRuleFactory;
-import fr.lirmm.graphik.graal.core.grd.DefaultGraphOfRuleDependencies;
+
 import fr.lirmm.graphik.graal.core.ruleset.IndexedByHeadPredicatesRuleSet;
 import fr.lirmm.graphik.util.graph.scc.StronglyConnectedComponentsGraph;
-import fr.lirmm.graphik.util.stream.CloseableIteratorWithoutException;
 import fr.lirmm.graphik.util.stream.IteratorException;
 
 public class Optimizier {
-	public final static String ANSPredicateIdentifier = "guiiis.dwfe#ANS";
+	private final static int maxrulesize = 50000;
 	
 	private RuleSet rs;
 	private Eliminator elim;
-	private PureQuery q;
-	private Rule H;
 	private GraphOfRuleDependencies grd;
 	private IndexedByHeadPredicatesRuleSet unsolved = null;
 	private IndexedByHeadPredicatesRuleSet solved = null;
 	
-	public Optimizier(PureQuery _q, RuleSet _rs) throws IteratorException {
+	private boolean[] visited = new boolean[maxrulesize];
+	private boolean[] exfree = new boolean[maxrulesize];
+	
+	public Optimizier(RuleSet _rs) throws IteratorException {
 		this.rs = _rs;
-		this.q = _q;
-		
-		List<Term> ansVar = new LinkedList<>();
-		Predicate G = new Predicate(ANSPredicateIdentifier, 0);
-		Atom Ghead = DefaultAtomFactory.instance().create(G, ansVar);
-		this.H = DefaultRuleFactory.instance().create(q.getAtomSet(), DefaultAtomSetFactory.instance().create(Ghead));
-		this.H.setLabel(String.valueOf(this.rs.size()));
-		this.rs.add(this.H);
 		
 		this.elim = new Eliminator(rs);	
 	}
@@ -70,41 +51,46 @@ public class Optimizier {
 		this.elim.elim();
 		RuleSet ers = this.elim.getRuleSet();
 		
-		grd = new DefaultGraphOfRuleDependencies(ers);
+		System.out.println(ers);
+		
+		grd = new SimpleGraphOfRuleDependencies(ers);
 		StronglyConnectedComponentsGraph<Rule> sccg = grd.getStronglyConnectedComponentsGraph();
 		
+//		for(int i : sccg.vertexSet()) System.out.println(i + " : " + sccg.getComponent(i));
+//		
+//		for(int i : sccg.incomingEdgesOf(4)) System.out.println(sccg.getEdgeSource(i));
+		
 		Set<Integer> roots = sccg.getSinks();
-		Set<Rule> tmp = new HashSet<>();
 		
 		for(int i : roots) {
-			dfs(i, sccg, tmp);
+			dfs(i, sccg);
 		}
 	}
 	
-	private void dfs(int i, StronglyConnectedComponentsGraph<Rule> sccg, Set<Rule> tmp) {
+	private boolean dfs(int i, StronglyConnectedComponentsGraph<Rule> sccg) {
+		if(this.visited[i]) return this.exfree[i];
+		
+		this.visited[i] = true;
+		
 		Set<Rule> scc = sccg.getComponent(i);
 		
-		boolean exfree = true;
+		boolean free = true;
+		
+		Set<Integer> next = sccg.incomingEdgesOf(i);	
+
+		for(int n : next) free = dfs(sccg.getEdgeSource(n), sccg) && free;		
+
+		for(Rule r : scc) {
+			if(!r.getExistentials().isEmpty()) free = false;
+		}
+		
+		this.exfree[i] = free;
 		
 		for(Rule r : scc) {
-			if(!r.getExistentials().isEmpty()) exfree = false;
+			if(free) this.solved.add(r);
+			else this.unsolved.add(r);
 		}
 		
-		tmp.addAll(scc);
-		
-		if(!exfree) {
-			this.unsolved.addAll(tmp);
-			tmp.clear();
-		}
-		
-		Set<Integer> next = sccg.incomingEdgesOf(i);
-		
-		if(next.isEmpty()) {
-			this.solved.addAll(tmp);
-			tmp.clear();
-		}
-		else {
-			for(int n : next) dfs(sccg.getEdgeSource(n), sccg, tmp);
-		}
+		return free;
 	}
 }

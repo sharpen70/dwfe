@@ -84,10 +84,6 @@ public class BehaveChecker {
 			}
 		}
 		
-//		for(MarkedRule _r : affectedRule) {
-//			if(_r.isDominated()) return false;
-//		}
-		
 		return true;
 	}
 	

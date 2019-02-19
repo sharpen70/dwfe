@@ -54,9 +54,11 @@ public class Eliminator {
 	public void elim(Rule r) throws IteratorException {
 		InMemoryAtomSet head = r.getHead();
 		Set<Variable> existentials = r.getExistentials();
-				
+		
+		
 		CloseableIterator<Atom> it = head.iterator();
-		List<Atom> newhead = new LinkedList<>();
+		InMemoryAtomSet newhead = DefaultAtomSetFactory.instance().create();
+//		List<Atom> newhead = new LinkedList<>();
 		List<Tuple4<Rule, Predicate, Predicate, List<Integer>>> next = new LinkedList<>();
 		
 		while(it.hasNext()) {
@@ -88,9 +90,10 @@ public class Eliminator {
 				next.add(tuple);		
 			}
 		}
-			
-		head.removeAll(head);
-		for(Atom a : newhead) head.add(a);
+		
+		Rule newrule = DefaultRuleFactory.instance().create(r.getLabel(), r.getBody(), newhead);
+		this.ruleset.remove(r);
+		this.ruleset.add(newrule);
 		
 		for(Tuple4<Rule, Predicate, Predicate, List<Integer>> tuple : next) {
 			_elim(tuple.a, tuple.b, tuple.c, tuple.d);
