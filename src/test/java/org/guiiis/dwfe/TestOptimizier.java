@@ -1,13 +1,10 @@
 package org.guiiis.dwfe;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.guiiis.dwfe.core.DatalogRewriting;
-import org.guiiis.dwfe.core.graal.PureQuery;
-import org.guiiis.dwfe.opt.Eliminator;
 import org.guiiis.dwfe.opt.Optimizier;
 
 import fr.lirmm.graphik.graal.api.core.Atom;
@@ -23,7 +20,6 @@ import fr.lirmm.graphik.graal.core.factory.DefaultRuleFactory;
 import fr.lirmm.graphik.graal.core.ruleset.IndexedByHeadPredicatesRuleSet;
 import fr.lirmm.graphik.graal.io.dlp.DlgpParser;
 import fr.lirmm.graphik.graal.kb.KBBuilder;
-import fr.lirmm.graphik.graal.kb.KBBuilderException;
 import junit.framework.Assert;
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -93,7 +89,10 @@ public class TestOptimizier extends TestCase {
     	
     	IndexedByHeadPredicatesRuleSet irs = opt.getUnsolved();
     	
-    	for(Rule r : irs) System.out.println(r);
+    	List<Rule> s = opt.getSolved();
+    	
+    	for(Rule r : s) System.out.println(r);
+    	System.out.println(s.size());
     	
     	Assert.assertTrue(irs.size() == 0);
     }

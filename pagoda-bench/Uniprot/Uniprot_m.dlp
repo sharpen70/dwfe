@@ -1,0 +1,443 @@
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/implicit>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Interaction>(X0) :- <http://purl.uniprot.org/core/xeno>(X0, X3).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/falseNegative>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/PTM_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/annotation>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Structured_Name>(X0) :- <http://purl.uniprot.org/core/submittedName>(X3, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/cofactor>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/certain>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Induction_Annotation>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/height>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Interaction>(X0) :- <http://purl.uniprot.org/core/experiments>(X0, X3).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/alias>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/orfName>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/partial>(X1, X0).
+[_R0] <http://www.w3.org/2002/07/owl#Class>(X0) :- <http://purl.uniprot.org/core/Pathway>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/length>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Function_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Disease_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Similarity_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Subcellular_Location>(X0) :- <http://purl.uniprot.org/core/relatedLocation>(X0, X3).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/commonName>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/NotObsolete>(X0) :- <http://purl.uniprot.org/core/obsolete>(X0, false).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Caution_Annotation>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/fused>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Sequence>(X0) :- <http://purl.uniprot.org/core/crc64Checksum>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Subcellular_Location>(X0) :- <http://purl.uniprot.org/core/Topology>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/oldMnemonic>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/RNA_Editing_Annotation>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/place>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/pattern>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/measuredAffinity>(X1, X0).
+[_R0] <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>(X0) :- <http://purl.uniprot.org/core/Nucleotide_Mapping_Statement>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#token>(X0) :- <http://purl.uniprot.org/core/md5Checksum>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Citation>(X0) :- <http://purl.uniprot.org/core/locator>(X0, X3).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/referenceProteome>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Rank>(X0) :- <http://purl.uniprot.org/core/rank>(X3, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/complete>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Sequence>(X0) :- <http://purl.uniprot.org/core/md5Checksum>(X0, X3).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/xeno>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Strain>(X0) :- <http://purl.uniprot.org/core/strain>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Sequence>(X0) :- <http://purl.uniprot.org/core/seedFor>(X0, X3).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/hits>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Attribution>(X0) :- <http://purl.uniprot.org/core/attribution>(X3, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/activity>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/editor>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/abstract>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/group>(X1, X0).
+[_R0] <http://xmlns.com/foaf/0.1/Image>(X0) :- <http://purl.uniprot.org/core/height>(X0, X3).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/width>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Pharmaceutical_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Disruption_Phenotype_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence>(X0) :- <http://purl.uniprot.org/core/member>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Range>(X0) :- <http://purl.uniprot.org/core/range>(X3, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/experiments>(X1, X0).
+[_R0] <http://xmlns.com/foaf/0.1/Image>(X0) :- <http://purl.uniprot.org/core/width>(X0, X3).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/substitution>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#float>(X0) :- <http://purl.uniprot.org/core/measuredValue>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Citation>(X0) :- <http://purl.uniprot.org/core/citation>(X3, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#token>(X0) :- <http://purl.uniprot.org/core/crc64Checksum>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Subunit_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence>(X0) :- <http://purl.uniprot.org/core/memberOf>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Interaction>(X0) :- <http://purl.uniprot.org/core/interaction>(X3, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/mass>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Subcellular_Location>(X0) :- <http://purl.uniprot.org/core/encodedIn>(X3, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/institution>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Structured_Name>(X0) :- <http://purl.uniprot.org/core/alternativeName>(X3, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/limit>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Subcellular_Location>(X0) :- <http://purl.uniprot.org/core/partOf>(X3, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/measuredActivity>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Interaction>(X0) :- <http://purl.uniprot.org/core/negative>(X0, X3).
+[_R0] <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>(X0) :- <http://purl.uniprot.org/core/Structure_Mapping_Statement>(X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Toxic_Dose_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/checksum>(X0, X1) :- <http://purl.uniprot.org/core/crc64Checksum>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Developmental_Stage_Annotation>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/end>(X1, X0).
+[_R0] <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>(X0) :- <http://purl.uniprot.org/core/Domain_Assignment_Statement>(X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Cofactor_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Obsolete>(X0) :- <http://purl.uniprot.org/core/obsolete>(X0, true).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/maximum>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Citation>(X0) :- <http://purl.uniprot.org/core/title>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Interaction>(X0) :- <http://purl.uniprot.org/core/participant>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Attribution>(X0) :- <http://purl.uniprot.org/core/source>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Citation>(X0) :- <http://purl.uniprot.org/core/author>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Polymorphism_Annotation>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/begin>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/frameshift>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/position>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/title>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Structured_Name>(X0) :- <http://purl.uniprot.org/core/recommendedName>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Status>(X0) :- <http://purl.uniprot.org/core/status>(X3, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#float>(X0) :- <http://purl.uniprot.org/core/resolution>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/scope>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/pages>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Allergen_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence>(X0) :- <http://purl.uniprot.org/core/length>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Citation>(X0) :- <http://purl.uniprot.org/core/group>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Biophysicochemical_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Attribution>(X0) :- <http://purl.uniprot.org/core/manual>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Subcellular_Location>(X0) :- <http://purl.uniprot.org/core/Orientation>(X0).
+[_R0] <http://purl.uniprot.org/core/submittedTo>(X0, X3) :- <http://purl.uniprot.org/core/Submission_Citation>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/indexable>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/chain>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Part>(X0) :- <http://purl.uniprot.org/core/component>(X3, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/precursor>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/author>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/version>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/negative>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#float>(X0) :- <http://purl.uniprot.org/core/measuredError>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Structured_Name>(X0) :- <http://purl.uniprot.org/core/structuredName>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Subcellular_Location_Annotation>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/authorsIncomplete>(X1, X0).
+[_R0] <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>(X0) :- <http://purl.uniprot.org/core/Citation_Statement>(X0).
+[_R0] <http://purl.uniprot.org/core/Citation>(X0) :- <http://purl.uniprot.org/core/authorsIncomplete>(X0, X3).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/manual>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/locusName>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/obsolete>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Subcellular_Location>(X0) :- <http://purl.uniprot.org/core/relatedLocation>(X3, X0).
+[_R0] <http://www.w3.org/2002/07/owl#Class>(X0) :- <http://purl.uniprot.org/core/Enzyme>(X0).
+[_R0] <http://purl.uniprot.org/core/Tissue>(X0) :- <http://purl.uniprot.org/core/isolatedFrom>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Subcellular_Location>(X0) :- <http://purl.uniprot.org/core/partOf>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Structured_Name>(X0) :- <http://purl.uniprot.org/core/structuredNameType>(X0, X3).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/structuredNameType>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Sequence>(X0) :- <http://purl.uniprot.org/core/Unknown_Sequence>(X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Pathway_Annotation>(X0).
+[_R0] <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>(X0) :- <http://purl.uniprot.org/core/Family_Membership_Statement>(X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Biotechnology_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Participant>(X0) :- <http://purl.uniprot.org/core/participant>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Sequence>(X0) :- <http://purl.uniprot.org/core/member>(X3, X0), <http://purl.uniprot.org/core/Cluster>(X3).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Alternative_Products_Annotation>(X0).
+[_R0] <http://www.w3.org/2002/07/owl#Class>(X0) :- <http://purl.uniprot.org/core/Concept>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/mnemonic>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/checksum>(X0, X1) :- <http://purl.uniprot.org/core/md5Checksum>(X0, X1).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/synonym>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Tissue_Specificity_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Citation>(X0) :- <http://purl.uniprot.org/core/Unpublished_Citation>(X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Catalytic_Activity_Annotation>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/partOfLineage>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Domain_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Molecule>(X0) :- <http://purl.uniprot.org/core/DNA>(X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Enzyme_Regulation_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Annotation>(X0) :- <http://purl.uniprot.org/core/Sequence_Annotation>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/otherName>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Method>(X0) :- <http://purl.uniprot.org/core/Structure_Determination_Method>(X0).
+[_R0] <http://purl.uniprot.org/core/Method>(X0) :- <http://purl.uniprot.org/core/method>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Method>(X0) :- <http://purl.uniprot.org/core/Mass_Measurement_Method>(X0).
+[_R0] <http://purl.uniprot.org/core/Part>(X0) :- <http://purl.uniprot.org/core/part>(X3, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/scientificName>(X1, X0).
+[_R0] <http://www.w3.org/2004/02/skos/core#Concept>(X0) :- <http://purl.uniprot.org/core/Gene>(X0).
+[_R0] <http://purl.uniprot.org/core/Part>(X0) :- <http://purl.uniprot.org/core/domain>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Molecule>(X0) :- <http://purl.uniprot.org/core/RNA>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/reviewed>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Citation>(X0) :- <http://purl.uniprot.org/core/Published_Citation>(X0).
+[_R0] <http://purl.uniprot.org/core/Subcellular_Location>(X0) :- <http://purl.uniprot.org/core/Cellular_Component>(X0).
+[_R0] <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>(X0) :- <http://purl.uniprot.org/core/Endpoint_Statement>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence>(X0) :- <http://purl.uniprot.org/core/sequenceFor>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Sequence>(X0) :- <http://purl.uniprot.org/core/Known_Sequence>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#boolean>(X0) :- <http://purl.uniprot.org/core/atypical>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Sequence>(X0) :- <http://purl.uniprot.org/core/sequence>(X3, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/publisher>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/locator>(X1, X0).
+[_R0] <http://www.w3.org/2002/07/owl#Class>(X0) :- <http://purl.uniprot.org/core/Database>(X0).
+[_R0] <http://purl.uniprot.org/core/Molecule>(X0) :- <http://purl.uniprot.org/core/locatedOn>(X3, X0).
+[_R0] <http://www.w3.org/2002/07/owl#Class>(X0) :- <http://purl.uniprot.org/core/Taxon>(X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/domains>(X1, X0).
+[_R0] <http://www.w3.org/2001/XMLSchema#string>(X0) :- <http://purl.uniprot.org/core/name>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/existence>(X0, X3), <http://purl.uniprot.org/core/Protein_Existence>(X3) :- <http://purl.uniprot.org/core/NotObsoleteProtein>(X0).
+[_R0] <http://purl.uniprot.org/core/Topology>(X0) :- <http://purl.uniprot.org/core/topology>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/RNA_Editing_Annotation>(X0) :- <http://purl.uniprot.org/core/position>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/RNA_Editing_Annotation>(X0) :- <http://purl.uniprot.org/core/frameshift>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/member>(X0, X1) :- <http://purl.uniprot.org/core/memberOf>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/memberOf>(X1, X0) :- <http://purl.uniprot.org/core/member>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/institution>(X0, X3) :- <http://purl.uniprot.org/core/Thesis_Citation>(X0).
+[_R0] <http://purl.uniprot.org/core/Structure_Mapping_Statement>(X0) :- <http://purl.uniprot.org/core/chain>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Domain_Assignment_Statement>(X0) :- <http://purl.uniprot.org/core/falseNegative>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Domain_Assignment_Statement>(X0) :- <http://purl.uniprot.org/core/hits>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Domain_Assignment_Statement>(X0) :- <http://purl.uniprot.org/core/partial>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/author>(X0, X1) :- <http://purl.uniprot.org/core/group>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/Biophysicochemical_Annotation>(X0) :- <http://purl.uniprot.org/core/Temperature_Dependence_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Biophysicochemical_Annotation>(X0) :- <http://purl.uniprot.org/core/Absorption_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Biophysicochemical_Annotation>(X0) :- <http://purl.uniprot.org/core/PH_Dependence_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Biophysicochemical_Annotation>(X0) :- <http://purl.uniprot.org/core/Kinetics_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Biophysicochemical_Annotation>(X0) :- <http://purl.uniprot.org/core/Redox_Potential_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Orientation>(X0) :- <http://purl.uniprot.org/core/orientation>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Submission_Citation>(X0) :- <http://purl.uniprot.org/core/submittedTo>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/author>(X0, X1) :- <http://purl.uniprot.org/core/group>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredName>(X0, X1) :- <http://purl.uniprot.org/core/alternativeName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredName>(X0, X1) :- <http://purl.uniprot.org/core/submittedName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredName>(X0, X1) :- <http://purl.uniprot.org/core/recommendedName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/Subcellular_Location_Annotation>(X0) :- <http://purl.uniprot.org/core/locatedIn>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Citation_Statement>(X0) :- <http://purl.uniprot.org/core/scope>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Citation_Statement>(X0) :- <http://purl.uniprot.org/core/context>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/obsolete>(X0, true) :- <http://purl.uniprot.org/core/Obsolete>(X0).
+[_R0] <http://purl.uniprot.org/core/obsolete>(X0, false) :- <http://purl.uniprot.org/core/NotObsolete>(X0).
+[_R0] <http://purl.uniprot.org/core/Enzyme>(X0) :- <http://purl.uniprot.org/core/enzyme>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Enzyme>(X0) :- <http://purl.uniprot.org/core/cofactor>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Enzyme>(X0) :- <http://purl.uniprot.org/core/activity>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/shortName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/internationalNonproprietaryName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/cdAntigenName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/ecName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/fullName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/biotechName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/allergenName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/shortName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/internationalNonproprietaryName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/cdAntigenName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/ecName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/fullName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/biotechName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/structuredNameType>(X0, X1) :- <http://purl.uniprot.org/core/allergenName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/Family_Membership_Statement>(X0) :- <http://purl.uniprot.org/core/atypical>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Family_Membership_Statement>(X0) :- <http://purl.uniprot.org/core/domains>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Family_Membership_Statement>(X0) :- <http://purl.uniprot.org/core/fused>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Cluster>(X0) :- <http://purl.uniprot.org/core/commonTaxon>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/member>(X0, X1) :- <http://purl.uniprot.org/core/memberOf>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Cluster>(X0) :- <http://purl.uniprot.org/core/memberOf>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Cluster>(X0) :- <http://purl.uniprot.org/core/seedFor>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Cluster>(X0) :- <http://purl.uniprot.org/core/identity>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Cluster>(X0) :- <http://purl.uniprot.org/core/representativeFor>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Cluster>(X0) :- <http://purl.uniprot.org/core/member>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Alternative_Products_Annotation>(X0) :- <http://purl.uniprot.org/core/Alternative_Promoter_Usage_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Alternative_Products_Annotation>(X0) :- <http://purl.uniprot.org/core/Ribosomal_Frameshifting>(X0).
+[_R0] <http://purl.uniprot.org/core/Alternative_Products_Annotation>(X0) :- <http://purl.uniprot.org/core/Alternative_Initiation_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Alternative_Products_Annotation>(X0) :- <http://purl.uniprot.org/core/Alternative_Splicing_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Concept>(X0) :- <http://purl.uniprot.org/core/classifiedWith>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Unpublished_Citation>(X0) :- <http://purl.uniprot.org/core/Observation_Citation>(X0).
+[_R0] <http://purl.uniprot.org/core/DNA>(X0) :- <http://purl.uniprot.org/core/Other_DNA>(X0).
+[_R0] <http://purl.uniprot.org/core/DNA>(X0) :- <http://purl.uniprot.org/core/Unassigned_DNA>(X0).
+[_R0] <http://purl.uniprot.org/core/DNA>(X0) :- <http://purl.uniprot.org/core/Genomic_DNA>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence_Annotation>(X0) :- <http://purl.uniprot.org/core/range>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Sequence_Annotation>(X0) :- <http://purl.uniprot.org/core/Natural_Variation_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence_Annotation>(X0) :- <http://purl.uniprot.org/core/Molecule_Processing_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence_Annotation>(X0) :- <http://purl.uniprot.org/core/Modification_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence_Annotation>(X0) :- <http://purl.uniprot.org/core/Site_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence_Annotation>(X0) :- <http://purl.uniprot.org/core/Sequence_Caution_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence_Annotation>(X0) :- <http://purl.uniprot.org/core/Region_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence_Annotation>(X0) :- <http://purl.uniprot.org/core/Experimental_Information_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence_Annotation>(X0) :- <http://purl.uniprot.org/core/Secondary_Structure_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Structure_Determination_Method>(X0) :- <http://purl.uniprot.org/core/Structure_Resource>(X3), <http://purl.uniprot.org/core/method>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/method>(X0, X3) :- <http://purl.uniprot.org/core/Structure_Resource>(X0).
+[_R0] <http://purl.uniprot.org/core/Mass_Measurement_Method>(X0) :- <http://purl.uniprot.org/core/method>(X3, X0), <http://purl.uniprot.org/core/Mass_Spectrometry_Annotation>(X3).
+[_R0] <http://purl.uniprot.org/core/part>(X0, X1) :- <http://purl.uniprot.org/core/component>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/part>(X0, X1) :- <http://purl.uniprot.org/core/domain>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/scientificName>(X0, X3) :- <http://purl.uniprot.org/core/NotObsoleteTaxon>(X0).
+[_R0] <http://purl.uniprot.org/core/Gene>(X0) :- <http://purl.uniprot.org/core/encodedBy>(X3, X0).
+[_R0] <http://www.w3.org/2004/02/skos/core#prefLabel>(X0, X3), <http://purl.uniprot.org/core/Gene>(X3) :- <http://purl.uniprot.org/core/Gene>(X0).
+[_R0] <http://purl.uniprot.org/core/Protein>(X0) :- <http://purl.uniprot.org/core/NotObsoleteProtein>(X0).
+[_R0] <http://purl.uniprot.org/core/Protein>(X0) :- <http://purl.uniprot.org/core/isolatedFrom>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Protein>(X0) :- <http://purl.uniprot.org/core/annotation>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/replacedBy>(X0, X1) :- <http://purl.uniprot.org/core/replaces>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Protein>(X0) :- <http://purl.uniprot.org/core/ObsoleteProtein>(X0).
+[_R0] <http://purl.uniprot.org/core/Protein>(X0) :- <http://purl.uniprot.org/core/interaction>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Protein>(X0) :- <http://purl.uniprot.org/core/component>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Protein>(X0) :- <http://purl.uniprot.org/core/encodedBy>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/replaces>(X1, X0) :- <http://purl.uniprot.org/core/replacedBy>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/Protein>(X0) :- <http://purl.uniprot.org/core/encodedIn>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Protein>(X0) :- <http://purl.uniprot.org/core/classifiedWith>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Protein>(X0) :- <http://purl.uniprot.org/core/domain>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/RNA>(X0) :- <http://purl.uniprot.org/core/Viral_cRNA>(X0).
+[_R0] <http://purl.uniprot.org/core/RNA>(X0) :- <http://purl.uniprot.org/core/Other_RNA>(X0).
+[_R0] <http://purl.uniprot.org/core/RNA>(X0) :- <http://purl.uniprot.org/core/MRNA>(X0).
+[_R0] <http://purl.uniprot.org/core/RNA>(X0) :- <http://purl.uniprot.org/core/Unassigned_RNA>(X0).
+[_R0] <http://purl.uniprot.org/core/RNA>(X0) :- <http://purl.uniprot.org/core/Transcribed_RNA>(X0).
+[_R0] <http://purl.uniprot.org/core/RNA>(X0) :- <http://purl.uniprot.org/core/Genomic_RNA>(X0).
+[_R0] <http://purl.uniprot.org/core/Published_Citation>(X0) :- <http://purl.uniprot.org/core/Patent_Citation>(X0).
+[_R0] <http://purl.uniprot.org/core/Published_Citation>(X0) :- <http://purl.uniprot.org/core/erratumFor>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Published_Citation>(X0) :- <http://purl.uniprot.org/core/Journal_Citation>(X0).
+[_R0] <http://purl.uniprot.org/core/Published_Citation>(X0) :- <http://purl.uniprot.org/core/Submission_Citation>(X0).
+[_R0] <http://purl.uniprot.org/core/Published_Citation>(X0) :- <http://purl.uniprot.org/core/Thesis_Citation>(X0).
+[_R0] <http://purl.uniprot.org/core/Published_Citation>(X0) :- <http://purl.uniprot.org/core/Book_Citation>(X0).
+[_R0] <http://purl.uniprot.org/core/Published_Citation>(X0) :- <http://purl.uniprot.org/core/Electronic_Citation>(X0).
+[_R0] <http://purl.uniprot.org/core/Published_Citation>(X0) :- <http://purl.uniprot.org/core/erratumFor>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Published_Citation>(X0) :- <http://purl.uniprot.org/core/erratum>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Published_Citation>(X0) :- <http://purl.uniprot.org/core/erratum>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/cellularComponent>(X0, X4), <http://purl.uniprot.org/core/Cellular_Component>(X4) :- <http://purl.uniprot.org/core/orientation>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/cellularComponent>(X0, X4), <http://purl.uniprot.org/core/Cellular_Component>(X4) :- <http://purl.uniprot.org/core/topology>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/cellularComponent>(X0, X4), <http://purl.uniprot.org/core/Cellular_Component>(X4) :- <http://purl.uniprot.org/core/locatedIn>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/cellularComponent>(X0, X4), <http://purl.uniprot.org/core/Cellular_Component>(X4) :- <http://purl.uniprot.org/core/cellularComponent>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Cellular_Component>(X0) :- <http://purl.uniprot.org/core/cellularComponent>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Endpoint_Statement>(X0) :- <http://purl.uniprot.org/core/limit>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/sequenceFor>(X1, X0) :- <http://purl.uniprot.org/core/sequence>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/Known_Sequence>(X0) :- <http://purl.uniprot.org/core/Modified_Sequence>(X0).
+[_R0] <http://purl.uniprot.org/core/Known_Sequence>(X0) :- <http://purl.uniprot.org/core/External_Sequence>(X0).
+[_R0] <http://purl.uniprot.org/core/Known_Sequence>(X0) :- <http://purl.uniprot.org/core/Simple_Sequence>(X0).
+[_R0] <http://purl.uniprot.org/core/sequence>(X0, X3), <http://purl.uniprot.org/core/Simple_Sequence>(X3) :- <http://purl.uniprot.org/core/NotObsoleteProtein>(X0).
+[_R0] <http://purl.uniprot.org/core/sequence>(X0, X1) :- <http://purl.uniprot.org/core/sequenceFor>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Database>(X0) :- <http://purl.uniprot.org/core/implicit>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Database>(X0) :- <http://purl.uniprot.org/core/pattern>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Database>(X0) :- <http://purl.uniprot.org/core/abstract>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Database>(X0) :- <http://purl.uniprot.org/core/database>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/locatedOn>(X0, X3) :- <http://purl.uniprot.org/core/Nucleotide_Resource>(X0).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/partOfLineage>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/complete>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/NotObsoleteTaxon>(X0).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/host>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/organism>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/referenceProteome>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/ObsoleteTaxon>(X0).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/strain>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/host>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/rank>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/commonTaxon>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/name>(X0, X1) :- <http://purl.uniprot.org/core/scientificName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/name>(X0, X3) :- <http://purl.uniprot.org/core/Journal_Citation>(X0).
+[_R0] <http://purl.uniprot.org/core/name>(X0, X1) :- <http://purl.uniprot.org/core/mnemonic>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/name>(X0, X1) :- <http://purl.uniprot.org/core/locusName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/name>(X0, X1) :- <http://purl.uniprot.org/core/synonym>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/name>(X0, X1) :- <http://purl.uniprot.org/core/oldMnemonic>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/name>(X0, X1) :- <http://purl.uniprot.org/core/commonName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/name>(X0, X3) :- <http://purl.uniprot.org/core/Electronic_Citation>(X0).
+[_R0] <http://purl.uniprot.org/core/name>(X0, X1) :- <http://purl.uniprot.org/core/otherName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/name>(X0, X3) :- <http://purl.uniprot.org/core/Book_Citation>(X0).
+[_R0] <http://purl.uniprot.org/core/name>(X0, X1) :- <http://purl.uniprot.org/core/orfName>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/Thesis_Citation>(X0) :- <http://purl.uniprot.org/core/institution>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Absorption_Annotation>(X0) :- <http://purl.uniprot.org/core/maximum>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Kinetics_Annotation>(X0) :- <http://purl.uniprot.org/core/measuredAffinity>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Kinetics_Annotation>(X0) :- <http://purl.uniprot.org/core/measuredActivity>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Obsolete>(X0) :- <http://purl.uniprot.org/core/ObsoleteProtein>(X0).
+[_R0] <http://purl.uniprot.org/core/Obsolete>(X0) :- <http://purl.uniprot.org/core/ObsoleteTaxon>(X0).
+[_R0] <http://purl.uniprot.org/core/NotObsolete>(X0) :- <http://purl.uniprot.org/core/NotObsoleteTaxon>(X0).
+[_R0] <http://purl.uniprot.org/core/NotObsolete>(X0) :- <http://purl.uniprot.org/core/NotObsoleteProtein>(X0).
+[_R0] <http://purl.uniprot.org/core/Enzyme>(X0) :- <http://purl.uniprot.org/core/enzyme>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/replacedBy>(X0, X1) :- <http://purl.uniprot.org/core/replaces>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Enzyme>(X0) :- <http://purl.uniprot.org/core/cofactor>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Enzyme>(X0) :- <http://purl.uniprot.org/core/activity>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/replaces>(X1, X0) :- <http://purl.uniprot.org/core/replacedBy>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/memberOf>(X1, X0) :- <http://purl.uniprot.org/core/member>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/member>(X0, X1) :- <http://purl.uniprot.org/core/memberOf>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/Concept>(X0) :- <http://purl.uniprot.org/core/classifiedWith>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/replaces>(X1, X0) :- <http://purl.uniprot.org/core/replacedBy>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/Natural_Variation_Annotation>(X0) :- <http://purl.uniprot.org/core/Natural_Variant_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Natural_Variation_Annotation>(X0) :- <http://purl.uniprot.org/core/Alternative_Sequence_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Molecule_Processing_Annotation>(X0) :- <http://purl.uniprot.org/core/Signal_Peptide_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Molecule_Processing_Annotation>(X0) :- <http://purl.uniprot.org/core/Propeptide_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Molecule_Processing_Annotation>(X0) :- <http://purl.uniprot.org/core/Chain_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Molecule_Processing_Annotation>(X0) :- <http://purl.uniprot.org/core/Transit_Peptide_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Molecule_Processing_Annotation>(X0) :- <http://purl.uniprot.org/core/Peptide_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Molecule_Processing_Annotation>(X0) :- <http://purl.uniprot.org/core/Initiator_Methionine_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Modification_Annotation>(X0) :- <http://purl.uniprot.org/core/Cross-link_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Modification_Annotation>(X0) :- <http://purl.uniprot.org/core/Glycosylation_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Modification_Annotation>(X0) :- <http://purl.uniprot.org/core/Modified_Residue_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Modification_Annotation>(X0) :- <http://purl.uniprot.org/core/Disulfide_Bond_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Modification_Annotation>(X0) :- <http://purl.uniprot.org/core/Non-standard_Residue_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Modification_Annotation>(X0) :- <http://purl.uniprot.org/core/Lipidation_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Site_Annotation>(X0) :- <http://purl.uniprot.org/core/Binding_Site_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Site_Annotation>(X0) :- <http://purl.uniprot.org/core/Active_Site_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Site_Annotation>(X0) :- <http://purl.uniprot.org/core/Metal_Binding_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence_Caution_Annotation>(X0) :- <http://purl.uniprot.org/core/Erroneous_Termination_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence_Caution_Annotation>(X0) :- <http://purl.uniprot.org/core/Frameshift_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence_Caution_Annotation>(X0) :- <http://purl.uniprot.org/core/Erroneous_Gene_Model_Prediction_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence_Caution_Annotation>(X0) :- <http://purl.uniprot.org/core/Erroneous_Translation_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Sequence_Caution_Annotation>(X0) :- <http://purl.uniprot.org/core/Erroneous_Initiation_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Region_Annotation>(X0) :- <http://purl.uniprot.org/core/NP_Binding_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Region_Annotation>(X0) :- <http://purl.uniprot.org/core/Zinc_Finger_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Region_Annotation>(X0) :- <http://purl.uniprot.org/core/Motif_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Region_Annotation>(X0) :- <http://purl.uniprot.org/core/Domain_Extent_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Region_Annotation>(X0) :- <http://purl.uniprot.org/core/Repeat_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Region_Annotation>(X0) :- <http://purl.uniprot.org/core/Intramembrane_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Region_Annotation>(X0) :- <http://purl.uniprot.org/core/Compositional_Bias_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Region_Annotation>(X0) :- <http://purl.uniprot.org/core/Nucleotide_Binding_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Region_Annotation>(X0) :- <http://purl.uniprot.org/core/Calcium_Binding_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Region_Annotation>(X0) :- <http://purl.uniprot.org/core/Topological_Domain_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Region_Annotation>(X0) :- <http://purl.uniprot.org/core/Coiled_Coil_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Region_Annotation>(X0) :- <http://purl.uniprot.org/core/Transmembrane_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Experimental_Information_Annotation>(X0) :- <http://purl.uniprot.org/core/Sequence_Uncertainty_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Experimental_Information_Annotation>(X0) :- <http://purl.uniprot.org/core/Mutagenesis_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Experimental_Information_Annotation>(X0) :- <http://purl.uniprot.org/core/Mass_Spectrometry_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Experimental_Information_Annotation>(X0) :- <http://purl.uniprot.org/core/Sequence_Conflict_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Experimental_Information_Annotation>(X0) :- <http://purl.uniprot.org/core/Non-adjacent_Residues_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Experimental_Information_Annotation>(X0) :- <http://purl.uniprot.org/core/Non-terminal_Residue_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Secondary_Structure_Annotation>(X0) :- <http://purl.uniprot.org/core/Turn_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Secondary_Structure_Annotation>(X0) :- <http://purl.uniprot.org/core/Helix_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Secondary_Structure_Annotation>(X0) :- <http://purl.uniprot.org/core/Beta_Strand_Annotation>(X0).
+[_R0] <http://purl.uniprot.org/core/Structure_Resource>(X0) :- <http://purl.uniprot.org/core/resolution>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/method>(X0, X3) :- <http://purl.uniprot.org/core/Structure_Resource>(X0).
+[_R0] <http://purl.uniprot.org/core/Structure_Resource>(X0) :- <http://purl.uniprot.org/core/resolution>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Mass_Spectrometry_Annotation>(X0) :- <http://purl.uniprot.org/core/measuredValue>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Mass_Spectrometry_Annotation>(X0) :- <http://purl.uniprot.org/core/measuredError>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/method>(X0, X3) :- <http://purl.uniprot.org/core/Structure_Resource>(X0).
+[_R0] <http://purl.uniprot.org/core/Gene>(X0) :- <http://purl.uniprot.org/core/encodedBy>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/erratumFor>(X1, X0) :- <http://purl.uniprot.org/core/erratum>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/Submission_Citation>(X0) :- <http://purl.uniprot.org/core/submittedTo>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Thesis_Citation>(X0) :- <http://purl.uniprot.org/core/institution>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Book_Citation>(X0) :- <http://purl.uniprot.org/core/publisher>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Book_Citation>(X0) :- <http://purl.uniprot.org/core/editor>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/erratumFor>(X1, X0) :- <http://purl.uniprot.org/core/erratum>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/erratum>(X0, X1) :- <http://purl.uniprot.org/core/erratumFor>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/erratum>(X0, X1) :- <http://purl.uniprot.org/core/erratumFor>(X1, X0).
+[_R0] <http://purl.uniprot.org/core/cellularComponent>(X0, X4), <http://purl.uniprot.org/core/Cellular_Component>(X4) :- <http://purl.uniprot.org/core/orientation>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/cellularComponent>(X0, X4), <http://purl.uniprot.org/core/Cellular_Component>(X4) :- <http://purl.uniprot.org/core/topology>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/cellularComponent>(X0, X4), <http://purl.uniprot.org/core/Cellular_Component>(X4) :- <http://purl.uniprot.org/core/locatedIn>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/sequence>(X0, X3), <http://purl.uniprot.org/core/Simple_Sequence>(X3) :- <http://purl.uniprot.org/core/NotObsoleteProtein>(X0).
+[_R0] <http://purl.uniprot.org/core/Modified_Sequence>(X0) :- <http://purl.uniprot.org/core/modification>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Modified_Sequence>(X0) :- <http://purl.uniprot.org/core/basedOn>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/External_Sequence>(X0) :- <http://purl.uniprot.org/core/translatedFrom>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/External_Sequence>(X0) :- <http://purl.uniprot.org/core/conflictingSequence>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Simple_Sequence>(X0) :- <http://purl.uniprot.org/core/fragment>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Simple_Sequence>(X0) :- <http://purl.uniprot.org/core/basedOn>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Simple_Sequence>(X0) :- <http://purl.uniprot.org/core/mass>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Simple_Sequence>(X0) :- <http://purl.uniprot.org/core/Modified_Sequence>(X3), <http://purl.uniprot.org/core/basedOn>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Simple_Sequence>(X0) :- <http://purl.uniprot.org/core/precursor>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/sequence>(X0, X3), <http://purl.uniprot.org/core/Simple_Sequence>(X3) :- <http://purl.uniprot.org/core/NotObsoleteProtein>(X0).
+[_R0] <http://purl.uniprot.org/core/database>(X0, X3) :- <http://purl.uniprot.org/core/Resource>(X0).
+[_R0] <http://purl.uniprot.org/core/Nucleotide_Resource>(X0) :- <http://purl.uniprot.org/core/locatedOn>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Nucleotide_Resource>(X0) :- <http://purl.uniprot.org/core/translatedFrom>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Nucleotide_Resource>(X0) :- <http://purl.uniprot.org/core/locatedOn>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/organism>(X0, X3) :- <http://purl.uniprot.org/core/NotObsoleteProtein>(X0).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/partOfLineage>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/complete>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/NotObsoleteTaxon>(X0).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/host>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/organism>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/referenceProteome>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/ObsoleteTaxon>(X0).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/strain>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/replaces>(X1, X0) :- <http://purl.uniprot.org/core/replacedBy>(X0, X1).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/host>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/rank>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Taxon>(X0) :- <http://purl.uniprot.org/core/commonTaxon>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/scientificName>(X0, X3) :- <http://purl.uniprot.org/core/NotObsoleteTaxon>(X0).
+[_R0] <http://purl.uniprot.org/core/Book_Citation>(X0) :- <http://purl.uniprot.org/core/publisher>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Book_Citation>(X0) :- <http://purl.uniprot.org/core/editor>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Alternative_Sequence_Annotation>(X0) :- <http://purl.uniprot.org/core/modification>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Alternative_Sequence_Annotation>(X0) :- <http://purl.uniprot.org/core/Modified_Sequence>(X3), <http://purl.uniprot.org/core/modification>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Mass_Spectrometry_Annotation>(X0) :- <http://purl.uniprot.org/core/measuredValue>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Mass_Spectrometry_Annotation>(X0) :- <http://purl.uniprot.org/core/measuredError>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Structure_Resource>(X0) :- <http://purl.uniprot.org/core/resolution>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Structure_Resource>(X0) :- <http://purl.uniprot.org/core/resolution>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Modified_Sequence>(X0) :- <http://purl.uniprot.org/core/modification>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Modified_Sequence>(X0) :- <http://purl.uniprot.org/core/basedOn>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Resource>(X0) :- <http://purl.uniprot.org/core/database>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Resource>(X0) :- <http://purl.uniprot.org/core/Structure_Resource>(X0).
+[_R0] <http://purl.uniprot.org/core/Resource>(X0) :- <http://purl.uniprot.org/core/Transcript_Resource>(X0).
+[_R0] <http://purl.uniprot.org/core/Resource>(X0) :- <http://purl.uniprot.org/core/Nucleotide_Resource>(X0).
+[_R0] <http://purl.uniprot.org/core/organism>(X0, X3) :- <http://purl.uniprot.org/core/NotObsoleteProtein>(X0).
+[_R0] <http://purl.uniprot.org/core/Modified_Sequence>(X0) :- <http://purl.uniprot.org/core/modification>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Modified_Sequence>(X0) :- <http://purl.uniprot.org/core/basedOn>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Structure_Resource>(X0) :- <http://purl.uniprot.org/core/resolution>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Transcript_Resource>(X0) :- <http://purl.uniprot.org/core/transcribedFrom>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Transcript_Resource>(X0) :- <http://purl.uniprot.org/core/translatedTo>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Nucleotide_Resource>(X0) :- <http://purl.uniprot.org/core/locatedOn>(X0, X3).
+[_R0] <http://purl.uniprot.org/core/Nucleotide_Resource>(X0) :- <http://purl.uniprot.org/core/translatedFrom>(X3, X0).
+[_R0] <http://purl.uniprot.org/core/Nucleotide_Resource>(X0) :- <http://purl.uniprot.org/core/locatedOn>(X0, X3).

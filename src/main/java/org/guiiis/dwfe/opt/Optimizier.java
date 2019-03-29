@@ -1,12 +1,12 @@
 package org.guiiis.dwfe.opt;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 import fr.lirmm.graphik.graal.api.core.GraphOfRuleDependencies;
-
 import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.api.core.RuleSet;
-
 import fr.lirmm.graphik.graal.core.ruleset.IndexedByHeadPredicatesRuleSet;
 import fr.lirmm.graphik.util.graph.scc.StronglyConnectedComponentsGraph;
 import fr.lirmm.graphik.util.stream.IteratorException;
@@ -18,7 +18,7 @@ public class Optimizier {
 	private Eliminator elim;
 	private GraphOfRuleDependencies grd;
 	private IndexedByHeadPredicatesRuleSet unsolved = null;
-	private IndexedByHeadPredicatesRuleSet solved = null;
+	private List<Rule> solved = null;
 	
 	private boolean[] visited = new boolean[maxrulesize];
 	private boolean[] exfree = new boolean[maxrulesize];
@@ -32,16 +32,16 @@ public class Optimizier {
 	public IndexedByHeadPredicatesRuleSet getUnsolved() throws Exception {
 		if(this.unsolved == null) {
 			this.unsolved = new IndexedByHeadPredicatesRuleSet();
-			this.solved = new IndexedByHeadPredicatesRuleSet();
+			this.solved = new LinkedList<>();
 			sep();
 		}
 		return this.unsolved;
 	}
 	
-	public IndexedByHeadPredicatesRuleSet getSolved() throws Exception {
+	public List<Rule> getSolved() throws Exception {
 		if(this.solved == null) {
 			this.unsolved = new IndexedByHeadPredicatesRuleSet();
-			this.solved = new IndexedByHeadPredicatesRuleSet();
+			this.solved = new LinkedList<>();
 			sep();
 		}
 		return this.solved;
@@ -50,8 +50,6 @@ public class Optimizier {
 	private void sep() throws Exception {	
 		this.elim.elim();
 		RuleSet ers = this.elim.getRuleSet();
-		
-		System.out.println(ers);
 		
 		grd = new SimpleGraphOfRuleDependencies(ers);
 		StronglyConnectedComponentsGraph<Rule> sccg = grd.getStronglyConnectedComponentsGraph();

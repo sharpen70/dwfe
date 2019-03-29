@@ -38,9 +38,11 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	private Rtd rtd;
 	private RewTree rewtree;
 	
-	public final static String ANSPredicateIdentifier = "guiiis.dwfe#ANS";
+	public final static String ANSPredicateIdentifier = "guiiis.dwfe:ANS";
 	
 	private boolean test = false;
+	
+	private RulesCompilation compilation = NoCompilation.instance();
 	
 	public DatalogRewritingAlgorithm(DatalogRewritingOperator dp, ExtendedSRA op) {
 		this.dp = dp;
@@ -48,6 +50,179 @@ public class DatalogRewritingAlgorithm implements Profilable{
 	
 		this.rtd = new Rtd();
 		this.rewtree = new RewTree();
+	}
+	
+	public DatalogRewritingAlgorithm(DatalogRewritingOperator dp, ExtendedSRA op, RulesCompilation _compilation) {
+		this.dp = dp;
+		this.op = op;
+		this.compilation = _compilation;
+		
+		this.rtd = new Rtd();
+		this.rewtree = new RewTree();
+	}
+	
+	public Set<DatalogRule> pexec(ConjunctiveQuery query, IndexedByHeadPredicatesRuleSet ruleSet) {	
+		if(this.verbose) {
+			this.profiler.trace(query.toString());
+		//	this.profiler.put("CONFIG", op.getClass().getSimpleName());
+		}
+		LinkedList<ConjunctiveQuery> finalRewritingSet = new LinkedList<ConjunctiveQuery>();
+		Queue<ConjunctiveQuery> rewriteSetToExplore = new LinkedList<ConjunctiveQuery>();
+		Collection<ConjunctiveQuery> currentRewriteSet;
+		
+		Set<ConjunctiveQuery> rmSet = new HashSet<>();
+		
+		Set<DatalogRule> finalDatalog = new HashSet<DatalogRule>();
+		
+		int exploredRewrites = 0;
+		int generatedRewrites = 0;
+
+		if(this.verbose) {
+			this.profiler.clear("Rewriting time");
+			this.profiler.start("Rewriting time");
+		}
+	
+		// remove some basic redundancy
+		PureQuery pquery = new PureQuery(compilation.getIrredondant(query.getAtomSet()), query.getAnswerVariables());
+
+		pquery.addAnswerPredicate();
+		rewriteSetToExplore.add(pquery);
+		finalRewritingSet.add(pquery);
+		
+		// Construct the initial DatalogRule
+		List<Term> ansVar = query.getAnswerVariables();
+		Predicate G = new Predicate(ANSPredicateIdentifier, ansVar.size());
+		Atom Ghead = DefaultAtomFactory.instance().create(G, ansVar);
+		DatalogRule H = new DefaultDatalogRule(query.getAtomSet(), DefaultAtomSetFactory.instance().create(Ghead));
+		
+		rtd.add(pquery, new RuleRewPair(H, null, true));
+		
+//		finalDatalog.add(H);
+		
+		ConjunctiveQuery q;
+		
+		int i = 0;
+		
+		while (!Thread.currentThread().isInterrupted() && !rewriteSetToExplore.isEmpty()) {
+
+			/* take the first query to rewrite */
+			q = rewriteSetToExplore.poll();
+			
+			++exploredRewrites; // stats
+
+			/* compute all the rewrite from it */
+			currentRewriteSet = this.op.getRewritesFrom(q, ruleSet, compilation);
+			generatedRewrites += currentRewriteSet.size(); // stats
+			
+			int s1 = currentRewriteSet.size();
+			
+			if(test) {
+				System.out.println("\nIteration " + (i++) + "\n");
+				System.out.println("Current: " + q + "\n");
+	//			for(ConjunctiveQuery _q : currentRewriteSet) System.out.println(_q + "\n");
+			}
+			
+			/* keep only the most general among query just computed */
+			Utils.computeCover(currentRewriteSet, compilation);
+			
+			int s2 = currentRewriteSet.size();
+			
+			if(test) {
+				System.out.println("\nCover remove Current rewriting set\n" + s1 + " " + s2);
+			}
+			/*
+			 * keep only the query just computed that are more general than
+			 * query already compute
+			 */
+			selectMostGeneralFromRelativeTo(currentRewriteSet,
+					finalRewritingSet, compilation);
+			
+			int s3 = currentRewriteSet.size();
+			
+			if(test) {
+				System.out.println("\nCover remove Current rewriting set from final \n" + s2  + " " + s3);
+			}
+			
+			// keep to explore only most general query
+			selectMostGeneralFromRelativeTo(rewriteSetToExplore,
+					currentRewriteSet, compilation);
+			
+			// build rewriting tree according to the current rewriting
+			this.rewtree.add(q, currentRewriteSet);
+			
+			for(ConjunctiveQuery _q: currentRewriteSet) {
+				ExtendedQueryUnifier eu = op.getUnificationInfo(_q);
+				QueryUnifier u = eu.getUnifier();
+				
+//				if(test) {
+//					this.profiler.trace("rewrites: " + _q.toString());
+//					this.profiler.trace("Piece: " + u.getPiece().toString() + "\n");					
+//				}
+				DatalogRule r = findRep(u, u.getQuery(), null);
+				
+				RuleRewPair p = this.dp.getRewriteFrom(r, eu);
+				
+				rtd.add(_q, p);
+				
+				finalDatalog.addAll(p.getRules());
+				
+				if(test) System.out.println("\n Query to add:\n" + p.getRules());
+			}
+			
+			// add to explore the query just computed that we keep
+			rewriteSetToExplore.addAll(currentRewriteSet);
+			
+			int fs = finalRewritingSet.size();
+			/*
+			 * keep in final rewrite set only query more general than query just
+			 * computed
+			 */
+			Set<ConjunctiveQuery> toremove = selectMostGeneralFromRelativeTo(finalRewritingSet,
+					currentRewriteSet, compilation);
+			
+			if(test) {
+				for(ConjunctiveQuery _q : toremove) {
+					System.out.println("\nQuery to be removed:\n" + _q + "\n\nRelated DatalogRule:\n" + rtd.get(_q));
+				}
+			}
+			
+//			for(ConjunctiveQuery _q : toremove) rtd.rm(_q);
+			
+			if(test) rtd.show();
+			
+			rmSet.addAll(toremove);
+			
+			if(test) {
+				System.out.println("\nFinal rewriting size \n" + fs + " " + finalRewritingSet.size());
+			}
+			
+			// add in final rewrite set the query just compute that we keep
+			finalRewritingSet.addAll(currentRewriteSet);
+
+		}
+
+//		/* clean the rewrites to return */
+//		Utils.computeCover(finalRewritingSet);
+		
+		/* clean the datalog rule */
+		for(ConjunctiveQuery rq : rmSet) rtd.rm(rq);
+		
+		if(test) {
+			rtd.show();
+			System.out.println("\nFinal size before remove:" + finalDatalog.size() + "\n");
+			this.profiler.trace("Rule cleaned:\n");
+		}
+		clean(finalDatalog);
+		
+		if(this.verbose) {
+			this.profiler.stop("Rewriting time");
+			this.profiler.put("Generated rewritings", generatedRewrites);
+			this.profiler.put("Explored rewritings", exploredRewrites);
+			this.profiler.put("Pivotal rewritings", finalRewritingSet.size());
+			this.profiler.put("Datalog rewritings", finalDatalog.size());
+		}
+		
+		return finalDatalog;
 	}
 	
 	public Set<DatalogRule> exec(ConjunctiveQuery query, IndexedByHeadPredicatesRuleSet ruleSet) {

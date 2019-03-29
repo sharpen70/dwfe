@@ -1,0 +1,367 @@
+<http://purl.uniprot.org/core/Molecule_Processing_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Initiator_Methionine_Annotation>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Enzyme_Regulation_Annotation>(?x) .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>(?x)  :-  <http://purl.uniprot.org/core/Nucleotide_Mapping_Statement>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://purl.uniprot.org/core/Structure_Determination_Method>(?x), <http://FreshClass35>(?x) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?x)  :-  <http://purl.uniprot.org/core/Orientation>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Catalytic_Activity_Annotation>(?x) .
+<http://purl.uniprot.org/core/Known_Sequence>(?x)  :-  <http://purl.uniprot.org/core/External_Sequence>(?x) .
+<http://purl.uniprot.org/core/NotObsolete>(?x)  :-  <http://purl.uniprot.org/core/NotObsoleteProtein>(?x) .
+<http://purl.uniprot.org/core/Region_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Transmembrane_Annotation>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Toxic_Dose_Annotation>(?x) .
+<http://www.w3.org/2004/02/skos/core#Concept>(?x)  :-  <http://purl.uniprot.org/core/Gene>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Allergen_Annotation>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Sequence_Annotation>(?x) .
+<http://purl.uniprot.org/core/Resource>(?x)  :-  <http://purl.uniprot.org/core/Nucleotide_Resource>(?x) .
+<http://purl.uniprot.org/core/Resource>(?x)  :-  <http://FreshClass24>(?x), <http://FreshClass25>(?x) .
+<http://purl.uniprot.org/core/Secondary_Structure_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Helix_Annotation>(?x) .
+<http://www.w3.org/2002/07/owl#Class>(?x)  :-  <http://purl.uniprot.org/core/Database>(?x) .
+<http://purl.uniprot.org/core/Obsolete>(?x)  :-  <http://purl.uniprot.org/core/ObsoleteTaxon>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Developmental_Stage_Annotation>(?x) .
+<http://purl.uniprot.org/core/Alternative_Products_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Ribosomal_Frameshifting>(?x) .
+<http://FreshClass21>(?x)  :-  <http://FreshClass19>(?x) .
+<http://purl.uniprot.org/core/Sequence>(?x)  :-  <http://purl.uniprot.org/core/Known_Sequence>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/PTM_Annotation>(?x) .
+<http://purl.uniprot.org/core/Region_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Calcium_Binding_Annotation>(?x) .
+<http://www.w3.org/2002/07/owl#Thing>(?x)  :-  <http://purl.uniprot.org/core/Part>(?x) .
+<http://purl.uniprot.org/core/Modification_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Modified_Residue_Annotation>(?x) .
+<http://purl.uniprot.org/core/Sequence_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Molecule_Processing_Annotation>(?x) .
+<http://purl.uniprot.org/core/Taxon>(?x)  :-  <http://purl.uniprot.org/core/ObsoleteTaxon>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Biotechnology_Annotation>(?x) .
+<http://purl.uniprot.org/core/Site_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Binding_Site_Annotation>(?x) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?x)  :-  <http://purl.uniprot.org/core/Topology>(?x) .
+<http://purl.uniprot.org/core/Molecule_Processing_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Chain_Annotation>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Disruption_Phenotype_Annotation>(?x) .
+<http://purl.uniprot.org/core/Region_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Compositional_Bias_Annotation>(?x) .
+<http://purl.uniprot.org/core/RNA>(?x)  :-  <http://purl.uniprot.org/core/Other_RNA>(?x) .
+<http://purl.uniprot.org/core/DNA>(?x)  :-  <http://purl.uniprot.org/core/Genomic_DNA>(?x) .
+<http://purl.uniprot.org/core/Modification_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Cross-link_Annotation>(?x) .
+<http://purl.uniprot.org/core/Molecule_Processing_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Peptide_Annotation>(?x) .
+<http://purl.uniprot.org/core/Experimental_Information_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Sequence_Uncertainty_Annotation>(?x) .
+<http://purl.uniprot.org/core/Sequence_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Modification_Annotation>(?x) .
+<http://purl.uniprot.org/core/Sequence_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Experimental_Information_Annotation>(?x) .
+<http://purl.uniprot.org/core/Modification_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Lipidation_Annotation>(?x) .
+<http://purl.uniprot.org/core/Structure_Resource>(?x)  :-  <http://FreshClass23>(?x), <http://FreshClass30>(?x), <http://FreshClass26>(?x) .
+<http://www.w3.org/2002/07/owl#Class>(?x)  :-  <http://purl.uniprot.org/core/Concept>(?x) .
+<http://www.w3.org/2002/07/owl#Thing>(?x)  :-  <http://purl.uniprot.org/core/Protein>(?x) .
+<http://purl.uniprot.org/core/Protein>(?x)  :-  <http://purl.uniprot.org/core/NotObsoleteProtein>(?x) .
+<http://purl.uniprot.org/core/Biophysicochemical_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Kinetics_Annotation>(?x) .
+<http://purl.uniprot.org/core/Resource>(?x)  :-  <http://purl.uniprot.org/core/Transcript_Resource>(?x) .
+<http://purl.uniprot.org/core/Published_Citation>(?x)  :-  <http://purl.uniprot.org/core/Thesis_Citation>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Induction_Annotation>(?x) .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>(?x)  :-  <http://purl.uniprot.org/core/Family_Membership_Statement>(?x) .
+<http://purl.uniprot.org/core/Sequence_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Site_Annotation>(?x) .
+<http://purl.uniprot.org/core/Sequence_Caution_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Erroneous_Termination_Annotation>(?x) .
+<http://FreshClass26>(?x)  :-  <http://purl.uniprot.org/core/Structure_Resource>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Similarity_Annotation>(?x) .
+<http://purl.uniprot.org/core/Taxon>(?x)  :-  <http://purl.uniprot.org/core/NotObsoleteTaxon>(?x) .
+<http://purl.uniprot.org/core/Region_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Topological_Domain_Annotation>(?x) .
+<http://www.w3.org/2002/07/owl#Class>(?x)  :-  <http://purl.uniprot.org/core/Enzyme>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Caution_Annotation>(?x) .
+<http://purl.uniprot.org/core/Known_Sequence>(?x)  :-  <http://purl.uniprot.org/core/Simple_Sequence>(?x) .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>(?x)  :-  <http://purl.uniprot.org/core/Structure_Mapping_Statement>(?x) .
+<http://purl.uniprot.org/core/RNA>(?x)  :-  <http://purl.uniprot.org/core/Genomic_RNA>(?x) .
+<http://purl.uniprot.org/core/Region_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Coiled_Coil_Annotation>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/RNA_Editing_Annotation>(?x) .
+<http://FreshClass5>(?x)  :-  <http://purl.uniprot.org/core/Structure_Resource>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Pharmaceutical_Annotation>(?x) .
+<http://purl.uniprot.org/core/Published_Citation>(?x)  :-  <http://purl.uniprot.org/core/Patent_Citation>(?x) .
+<http://purl.uniprot.org/core/Molecule>(?x)  :-  <http://purl.uniprot.org/core/RNA>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Polymorphism_Annotation>(?x) .
+<http://FreshClass7>(?x)  :-  <http://purl.uniprot.org/core/NotObsoleteProtein>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Pathway_Annotation>(?x) .
+<http://purl.uniprot.org/core/Published_Citation>(?x)  :-  <http://purl.uniprot.org/core/Journal_Citation>(?x) .
+<http://purl.uniprot.org/core/Region_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Zinc_Finger_Annotation>(?x) .
+<http://purl.uniprot.org/core/Sequence_Caution_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Frameshift_Annotation>(?x) .
+<http://purl.uniprot.org/core/Nucleotide_Resource>(?x)  :-  <http://purl.uniprot.org/core/Nucleotide_Resource>(?x) .
+<http://purl.uniprot.org/core/RNA>(?x)  :-  <http://purl.uniprot.org/core/Transcribed_RNA>(?x) .
+<http://purl.uniprot.org/core/Modification_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Glycosylation_Annotation>(?x) .
+<http://purl.uniprot.org/core/Site_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Active_Site_Annotation>(?x) .
+<http://FreshClass21>(?x)  :-  <http://FreshClass21>(?x) .
+<http://purl.uniprot.org/core/Published_Citation>(?x)  :-  <http://purl.uniprot.org/core/Electronic_Citation>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Cofactor_Annotation>(?x) .
+<http://purl.uniprot.org/core/Experimental_Information_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Mutagenesis_Annotation>(?x) .
+<http://www.w3.org/2002/07/owl#Thing>(?x)  :-  <http://purl.uniprot.org/core/Cluster>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Domain_Annotation>(?x) .
+<http://purl.uniprot.org/core/RNA>(?x)  :-  <http://purl.uniprot.org/core/Unassigned_RNA>(?x) .
+<http://FreshClass4>(?x)  :-  <http://purl.uniprot.org/core/NotObsoleteProtein>(?x) .
+<http://purl.uniprot.org/core/Experimental_Information_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Non-terminal_Residue_Annotation>(?x) .
+<http://purl.uniprot.org/core/Biophysicochemical_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Absorption_Annotation>(?x) .
+<http://purl.uniprot.org/core/Biophysicochemical_Annotation>(?x)  :-  <http://purl.uniprot.org/core/PH_Dependence_Annotation>(?x) .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>(?x)  :-  <http://purl.uniprot.org/core/Endpoint_Statement>(?x) .
+<http://FreshClass21>(?x)  :-  <http://FreshClass22>(?x) .
+<http://purl.uniprot.org/core/Published_Citation>(?x)  :-  <http://purl.uniprot.org/core/Book_Citation>(?x) .
+<http://purl.uniprot.org/core/Citation>(?x)  :-  <http://purl.uniprot.org/core/Published_Citation>(?x) .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>(?x)  :-  <http://purl.uniprot.org/core/Citation_Statement>(?x) .
+<http://purl.uniprot.org/core/Secondary_Structure_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Turn_Annotation>(?x) .
+<http://purl.uniprot.org/core/Obsolete>(?x)  :-  <http://purl.uniprot.org/core/ObsoleteProtein>(?x) .
+<http://purl.uniprot.org/core/Sequence>(?x)  :-  <http://purl.uniprot.org/core/Unknown_Sequence>(?x) .
+<http://purl.uniprot.org/core/RNA>(?x)  :-  <http://purl.uniprot.org/core/Viral_cRNA>(?x) .
+<http://purl.uniprot.org/core/Modification_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Disulfide_Bond_Annotation>(?x) .
+<http://FreshClass15>(?x)  :-  <http://purl.uniprot.org/core/NotObsoleteProtein>(?x) .
+<http://purl.uniprot.org/core/Modification_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Non-standard_Residue_Annotation>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Tissue_Specificity_Annotation>(?x) .
+<http://purl.uniprot.org/core/Protein>(?x)  :-  <http://purl.uniprot.org/core/ObsoleteProtein>(?x) .
+<http://purl.uniprot.org/core/Citation>(?x)  :-  <http://purl.uniprot.org/core/Unpublished_Citation>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Disease_Annotation>(?x) .
+<http://purl.uniprot.org/core/Sequence_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Region_Annotation>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Subunit_Annotation>(?x) .
+<http://FreshClass5>(?x)  :-  <http://FreshClass33>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Function_Annotation>(?x) .
+<http://purl.uniprot.org/core/Molecule_Processing_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Propeptide_Annotation>(?x) .
+<http://purl.uniprot.org/core/Method>(?x)  :-  <http://purl.uniprot.org/core/Mass_Measurement_Method>(?x) .
+<http://purl.uniprot.org/core/Resource>(?x)  :-  <http://purl.uniprot.org/core/Resource>(?x) .
+<http://purl.uniprot.org/core/Natural_Variation_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Natural_Variant_Annotation>(?x) .
+<http://purl.uniprot.org/core/Region_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Domain_Extent_Annotation>(?x) .
+<http://purl.uniprot.org/core/Region_Annotation>(?x)  :-  <http://purl.uniprot.org/core/NP_Binding_Annotation>(?x) .
+<http://purl.uniprot.org/core/Site_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Metal_Binding_Annotation>(?x) .
+<http://purl.uniprot.org/core/Experimental_Information_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Mass_Spectrometry_Annotation>(?x) .
+<http://purl.uniprot.org/core/Biophysicochemical_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Redox_Potential_Annotation>(?x) .
+<http://purl.uniprot.org/core/Experimental_Information_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Non-adjacent_Residues_Annotation>(?x) .
+<http://purl.uniprot.org/core/Unpublished_Citation>(?x)  :-  <http://purl.uniprot.org/core/Observation_Citation>(?x) .
+<http://purl.uniprot.org/core/NotObsolete>(?x)  :-  <http://purl.uniprot.org/core/NotObsoleteTaxon>(?x) .
+<http://purl.uniprot.org/core/Sequence_Caution_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Erroneous_Translation_Annotation>(?x) .
+<http://purl.uniprot.org/core/Alternative_Products_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Alternative_Initiation_Annotation>(?x) .
+<http://purl.uniprot.org/core/Region_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Repeat_Annotation>(?x) .
+<http://purl.uniprot.org/core/Experimental_Information_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Sequence_Conflict_Annotation>(?x) .
+<http://purl.uniprot.org/core/Method>(?x)  :-  <http://purl.uniprot.org/core/Structure_Determination_Method>(?x) .
+<http://FreshClass25>(?x)  :-  <http://purl.uniprot.org/core/Resource>(?x) .
+<http://purl.uniprot.org/core/Sequence_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Sequence_Caution_Annotation>(?x) .
+<http://purl.uniprot.org/core/Biophysicochemical_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Temperature_Dependence_Annotation>(?x) .
+<http://www.w3.org/2002/07/owl#Class>(?x)  :-  <http://purl.uniprot.org/core/Pathway>(?x) .
+<http://purl.uniprot.org/core/Molecule_Processing_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Transit_Peptide_Annotation>(?x) .
+<http://www.w3.org/2002/07/owl#Class>(?x)  :-  <http://purl.uniprot.org/core/Taxon>(?x) .
+<http://purl.uniprot.org/core/Natural_Variation_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Alternative_Sequence_Annotation>(?x) .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>(?x)  :-  <http://purl.uniprot.org/core/Domain_Assignment_Statement>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Biophysicochemical_Annotation>(?x) .
+<http://purl.uniprot.org/core/Region_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Nucleotide_Binding_Annotation>(?x) .
+<http://purl.uniprot.org/core/Obsolete>(?x)  :-  <http://FreshClass8>(?x) .
+<http://purl.uniprot.org/core/Molecule>(?x)  :-  <http://purl.uniprot.org/core/DNA>(?x) .
+<http://purl.uniprot.org/core/Sequence_Caution_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Erroneous_Gene_Model_Prediction_Annotation>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Subcellular_Location_Annotation>(?x) .
+<http://purl.uniprot.org/core/RNA>(?x)  :-  <http://purl.uniprot.org/core/MRNA>(?x) .
+<http://purl.uniprot.org/core/Secondary_Structure_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Beta_Strand_Annotation>(?x) .
+<http://purl.uniprot.org/core/Known_Sequence>(?x)  :-  <http://purl.uniprot.org/core/Modified_Sequence>(?x) .
+<http://purl.uniprot.org/core/Sequence_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Natural_Variation_Annotation>(?x) .
+<http://purl.uniprot.org/core/Region_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Intramembrane_Annotation>(?x) .
+<http://FreshClass26>(?x)  :-  <http://FreshClass33>(?x) .
+<http://www.w3.org/2002/07/owl#Thing>(?x)  :-  <http://purl.uniprot.org/core/Gene>(?x) .
+<http://purl.uniprot.org/core/DNA>(?x)  :-  <http://purl.uniprot.org/core/Unassigned_DNA>(?x) .
+<http://purl.uniprot.org/core/Alternative_Products_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Alternative_Splicing_Annotation>(?x) .
+<http://purl.uniprot.org/core/Region_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Motif_Annotation>(?x) .
+<http://purl.uniprot.org/core/Published_Citation>(?x)  :-  <http://purl.uniprot.org/core/Submission_Citation>(?x) .
+<http://purl.uniprot.org/core/Sequence_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Secondary_Structure_Annotation>(?x) .
+<http://purl.uniprot.org/core/Annotation>(?x)  :-  <http://purl.uniprot.org/core/Alternative_Products_Annotation>(?x) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?x)  :-  <http://purl.uniprot.org/core/Cellular_Component>(?x) .
+<http://www.w3.org/2002/07/owl#Thing>(?x)  :-  <http://purl.uniprot.org/core/Subcellular_Location>(?x) .
+<http://FreshClass21>(?x)  :-  <http://FreshClass20>(?x) .
+<http://purl.uniprot.org/core/DNA>(?x)  :-  <http://purl.uniprot.org/core/Other_DNA>(?x) .
+<http://purl.uniprot.org/core/Sequence_Caution_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Erroneous_Initiation_Annotation>(?x) .
+<http://purl.uniprot.org/core/Alternative_Products_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Alternative_Promoter_Usage_Annotation>(?x) .
+<http://purl.uniprot.org/core/Resource>(?x)  :-  <http://purl.uniprot.org/core/Structure_Resource>(?x) .
+<http://purl.uniprot.org/core/Molecule_Processing_Annotation>(?x)  :-  <http://purl.uniprot.org/core/Signal_Peptide_Annotation>(?x) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass21>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass21>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass21>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass21>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass21>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass21>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass21>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass21>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass21>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass21>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass21>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass21>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass19>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass19>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass19>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://www.w3.org/2004/02/skos/core#Concept>(?y)  :-  <http://purl.uniprot.org/core/Gene>(?x), <http://purl.uniprot.org/core/Gene>(?x), <http://www.w3.org/2004/02/skos/core#prefLabel>(?x, ?y), <http://purl.uniprot.org/core/Gene>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass19>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass19>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass19>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass19>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass19>(?x), <http://FreshClass21>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass20>(?x), <http://FreshClass21>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass21>(?x), <http://FreshClass21>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://FreshClass22>(?x), <http://FreshClass21>(?x), <http://FreshClass20>(?x), <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/Cellular_Component>(?y) .
+<owlapi:ontology#ont3translationStoredIn>(?x0, ?x2)  :-  <http://purl.uniprot.org/core/translatedTo>(?x1, ?x2), <http://purl.uniprot.org/core/database>(?x1, ?x0) .
+<owlapi:ontology#ont3cellularOrientation>(?x0, ?x2)  :-  <http://purl.uniprot.org/core/orientation>(?x1, ?x2), <http://purl.uniprot.org/core/cellularComponent>(?x1, ?x0) .
+<owlapi:ontology#ont3transcriptionStoredIn>(?x0, ?x2)  :-  <http://purl.uniprot.org/core/transcribedFrom>(?x1, ?x2), <http://purl.uniprot.org/core/database>(?x1, ?x0) .
+<http://purl.uniprot.org/core/Cluster>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/seedFor>(?x, ?y) .
+<http://purl.uniprot.org/core/Transcript_Resource>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/translatedTo>(?y, ?x) .
+<http://purl.uniprot.org/core/External_Sequence>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/conflictingSequence>(?x, ?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/encodedIn>(?x, ?y) .
+<http://purl.uniprot.org/core/Structured_Name>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/structuredName>(?x, ?y) .
+<http://FreshClass25>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/database>(?y, ?x) .
+<http://purl.uniprot.org/core/Enzyme>(?y)  :-  <http://purl.uniprot.org/core/Enzyme>(?x), <http://purl.uniprot.org/core/replacedBy>(?y, ?x) .
+<http://purl.uniprot.org/core/Sequence>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/sequenceFor>(?y, ?x) .
+<http://FreshClass10>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/replacedBy>(?x, ?y) .
+<http://FreshClass20>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/topology>(?y, ?x) .
+<http://purl.uniprot.org/core/Taxon>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/organism>(?x, ?y) .
+<http://purl.uniprot.org/core/Taxon>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/commonTaxon>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://FreshClass19>(?x), <http://purl.uniprot.org/core/orientation>(?x, ?y), <http://purl.uniprot.org/core/orientation>(?x, ?z), <http://purl.uniprot.org/core/Orientation>(?y), <http://purl.uniprot.org/core/Orientation>(?z) .
+<http://purl.uniprot.org/core/Sequence>(?y)  :-  <http://purl.uniprot.org/core/Cluster>(?x), <http://purl.uniprot.org/core/memberOf>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://FreshClass22>(?x), <http://purl.uniprot.org/core/topology>(?x, ?y), <http://purl.uniprot.org/core/topology>(?x, ?z), <http://purl.uniprot.org/core/Topology>(?y), <http://purl.uniprot.org/core/Topology>(?z) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/commonTaxon>(?x, ?y), <http://purl.uniprot.org/core/commonTaxon>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://purl.uniprot.org/core/Taxon>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/strain>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://FreshClass20>(?x), <http://purl.uniprot.org/core/orientation>(?x, ?y), <http://purl.uniprot.org/core/orientation>(?x, ?z), <http://purl.uniprot.org/core/Orientation>(?y), <http://purl.uniprot.org/core/Orientation>(?z) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://FreshClass22>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/cellularComponent>(?x, ?z), <http://purl.uniprot.org/core/Cellular_Component>(?y), <http://purl.uniprot.org/core/Cellular_Component>(?z) .
+<http://purl.uniprot.org/core/Structure_Determination_Method>(?y)  :-  <http://purl.uniprot.org/core/Structure_Resource>(?x), <http://purl.uniprot.org/core/method>(?x, ?y) .
+<http://purl.uniprot.org/core/Sequence_Annotation>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/range>(?y, ?x) .
+<http://purl.uniprot.org/core/Protein>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/component>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://FreshClass21>(?x), <http://purl.uniprot.org/core/topology>(?x, ?y), <http://purl.uniprot.org/core/topology>(?x, ?z), <http://purl.uniprot.org/core/Topology>(?y), <http://purl.uniprot.org/core/Topology>(?z) .
+<http://FreshClass2>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/recommendedName>(?y, ?x) .
+<http://FreshClass19>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/locatedIn>(?x, ?y) .
+<http://purl.uniprot.org/core/Sequence>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/seedFor>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/database>(?x, ?y), <http://purl.uniprot.org/core/database>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://purl.uniprot.org/core/Citation>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/citation>(?x, ?y) .
+<http://purl.uniprot.org/core/Citation_Statement>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/context>(?y, ?x) .
+<http://purl.uniprot.org/core/Alternative_Sequence_Annotation>(?y)  :-  <http://purl.uniprot.org/core/Modified_Sequence>(?x), <http://purl.uniprot.org/core/modification>(?x, ?y) .
+<http://purl.uniprot.org/core/Gene>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/encodedBy>(?x, ?y) .
+<http://purl.uniprot.org/core/Published_Citation>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/erratumFor>(?x, ?y) .
+<http://purl.uniprot.org/core/Database>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/database>(?x, ?y) .
+<http://purl.uniprot.org/core/Structured_Name>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/submittedName>(?x, ?y) .
+<http://purl.uniprot.org/core/Subcellular_Location_Annotation>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/locatedIn>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://purl.uniprot.org/core/NotObsoleteProtein>(?x), <http://purl.uniprot.org/core/organism>(?x, ?y), <http://purl.uniprot.org/core/organism>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://purl.uniprot.org/core/Topology>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/topology>(?x, ?y) .
+<http://purl.uniprot.org/core/Nucleotide_Resource>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/locatedOn>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/representativeFor>(?y, ?x), <http://purl.uniprot.org/core/representativeFor>(?z, ?x), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://FreshClass1>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/attribution>(?y, ?x) .
+<http://purl.uniprot.org/core/Transcript_Resource>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/transcribedFrom>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://FreshClass19>(?x), <http://purl.uniprot.org/core/topology>(?x, ?y), <http://purl.uniprot.org/core/topology>(?x, ?z), <http://purl.uniprot.org/core/Topology>(?y), <http://purl.uniprot.org/core/Topology>(?z) .
+<http://purl.uniprot.org/core/Alternative_Sequence_Annotation>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/modification>(?x, ?y) .
+<http://FreshClass22>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/orientation>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://FreshClass19>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/cellularComponent>(?x, ?z), <http://purl.uniprot.org/core/Cellular_Component>(?y), <http://purl.uniprot.org/core/Cellular_Component>(?z) .
+<http://FreshClass9>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/representativeFor>(?y, ?x) .
+<http://purl.uniprot.org/core/Concept>(?y)  :-  <http://purl.uniprot.org/core/Concept>(?x), <http://purl.uniprot.org/core/replacedBy>(?y, ?x) .
+<http://FreshClass17>(?y)  :-  <http://purl.uniprot.org/core/Citation_Statement>(?x), <http://purl.uniprot.org/core/context>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://FreshClass21>(?x), <http://purl.uniprot.org/core/orientation>(?x, ?y), <http://purl.uniprot.org/core/orientation>(?x, ?z), <http://purl.uniprot.org/core/Orientation>(?y), <http://purl.uniprot.org/core/Orientation>(?z) .
+<http://purl.uniprot.org/core/Protein>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/annotation>(?y, ?x) .
+<http://purl.uniprot.org/core/Participant>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/participant>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/rank>(?x, ?y), <http://purl.uniprot.org/core/rank>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://FreshClass20>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/cellularComponent>(?x, ?z), <http://purl.uniprot.org/core/Cellular_Component>(?y), <http://purl.uniprot.org/core/Cellular_Component>(?z) .
+<http://purl.uniprot.org/core/Interaction>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/participant>(?y, ?x) .
+<http://purl.uniprot.org/core/Protein>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/classifiedWith>(?y, ?x) .
+<http://purl.uniprot.org/core/Annotation>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/annotation>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://purl.uniprot.org/core/Gene>(?x), <http://www.w3.org/2004/02/skos/core#prefLabel>(?x, ?y), <http://www.w3.org/2004/02/skos/core#prefLabel>(?x, ?z), <http://purl.uniprot.org/core/Gene>(?y), <http://purl.uniprot.org/core/Gene>(?z) .
+<http://FreshClass0>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/structuredName>(?y, ?x) .
+<http://purl.uniprot.org/core/Cluster>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/memberOf>(?x, ?y) .
+<http://purl.uniprot.org/core/Attribution>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/source>(?y, ?x) .
+<http://purl.uniprot.org/core/Protein>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/encodedBy>(?y, ?x) .
+<http://purl.uniprot.org/core/Published_Citation>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/erratumFor>(?y, ?x) .
+<http://purl.uniprot.org/core/Protein>(?y)  :-  <http://purl.uniprot.org/core/Protein>(?x), <http://purl.uniprot.org/core/replacedBy>(?y, ?x) .
+<http://purl.uniprot.org/core/Part>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/domain>(?x, ?y) .
+<http://FreshClass21>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/cellularComponent>(?y, ?x) .
+<http://FreshClass16>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/enzyme>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://FreshClass20>(?x), <http://purl.uniprot.org/core/topology>(?x, ?y), <http://purl.uniprot.org/core/topology>(?x, ?z), <http://purl.uniprot.org/core/Topology>(?y), <http://purl.uniprot.org/core/Topology>(?z) .
+<http://FreshClass3>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/replacedBy>(?x, ?y) .
+<http://purl.uniprot.org/core/Taxon>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/rank>(?y, ?x) .
+<http://FreshClass5>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/method>(?y, ?x) .
+<http://purl.uniprot.org/core/Cluster>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/representativeFor>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://purl.uniprot.org/core/Resource>(?x), <http://purl.uniprot.org/core/database>(?x, ?y), <http://purl.uniprot.org/core/database>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/partOf>(?x, ?y) .
+<http://purl.uniprot.org/core/Protein>(?y)  :-  <http://purl.uniprot.org/core/Protein>(?x), <http://purl.uniprot.org/core/replacedBy>(?x, ?y) .
+<http://purl.uniprot.org/core/Strain>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/strain>(?x, ?y) .
+<http://purl.uniprot.org/core/Cellular_Component>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://purl.uniprot.org/core/Structure_Resource>(?x), <http://purl.uniprot.org/core/method>(?x, ?y), <http://purl.uniprot.org/core/method>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/relatedLocation>(?x, ?y) .
+<http://purl.uniprot.org/core/Mass_Measurement_Method>(?y)  :-  <http://purl.uniprot.org/core/Mass_Spectrometry_Annotation>(?x), <http://purl.uniprot.org/core/method>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://purl.uniprot.org/core/Mass_Spectrometry_Annotation>(?x), <http://purl.uniprot.org/core/method>(?x, ?y), <http://purl.uniprot.org/core/method>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://purl.uniprot.org/core/Protein>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/domain>(?y, ?x) .
+<http://purl.uniprot.org/core/Taxon>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/host>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/status>(?x, ?y), <http://purl.uniprot.org/core/status>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://purl.uniprot.org/core/Interaction>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/interaction>(?x, ?y) .
+<http://purl.uniprot.org/core/External_Sequence>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/translatedFrom>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://FreshClass22>(?x), <http://purl.uniprot.org/core/orientation>(?x, ?y), <http://purl.uniprot.org/core/orientation>(?x, ?z), <http://purl.uniprot.org/core/Orientation>(?y), <http://purl.uniprot.org/core/Orientation>(?z) .
+<http://purl.uniprot.org/core/Method>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/method>(?x, ?y) .
+<http://FreshClass12>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/submittedName>(?y, ?x) .
+<http://purl.uniprot.org/core/Modified_Sequence>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/basedOn>(?y, ?x) .
+<http://FreshClass11>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/conflictingSequence>(?y, ?x) .
+<http://FreshClass13>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/alternativeName>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://FreshClass21>(?x), <http://purl.uniprot.org/core/cellularComponent>(?x, ?y), <http://purl.uniprot.org/core/cellularComponent>(?x, ?z), <http://purl.uniprot.org/core/Cellular_Component>(?y), <http://purl.uniprot.org/core/Cellular_Component>(?z) .
+<http://purl.uniprot.org/core/Protein>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/encodedIn>(?y, ?x) .
+<http://purl.uniprot.org/core/Structured_Name>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/alternativeName>(?x, ?y) .
+<http://purl.uniprot.org/core/Sequence>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/memberOf>(?y, ?x) .
+<http://FreshClass7>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/sequenceFor>(?x, ?y) .
+<http://purl.uniprot.org/core/Taxon>(?y)  :-  <http://purl.uniprot.org/core/Taxon>(?x), <http://purl.uniprot.org/core/replacedBy>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/basedOn>(?x, ?y), <http://purl.uniprot.org/core/basedOn>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://purl.uniprot.org/core/Protein>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/interaction>(?y, ?x) .
+<http://FreshClass6>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/replacedBy>(?y, ?x) .
+<http://purl.uniprot.org/core/Simple_Sequence>(?y)  :-  <http://purl.uniprot.org/core/Modified_Sequence>(?x), <http://purl.uniprot.org/core/basedOn>(?x, ?y) .
+<http://purl.uniprot.org/core/Rank>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/rank>(?x, ?y) .
+<http://purl.uniprot.org/core/Modified_Sequence>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/modification>(?y, ?x) .
+<http://purl.uniprot.org/core/Status>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/status>(?x, ?y) .
+<http://FreshClass14>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/citation>(?y, ?x) .
+<http://purl.uniprot.org/core/Range>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/range>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/representativeFor>(?x, ?y), <http://purl.uniprot.org/core/representativeFor>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://FreshClass4>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/organism>(?y, ?x) .
+<http://purl.uniprot.org/core/Attribution>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/attribution>(?x, ?y) .
+<http://purl.uniprot.org/core/Protein>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/isolatedFrom>(?y, ?x) .
+<http://purl.uniprot.org/core/Part>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/part>(?x, ?y) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/relatedLocation>(?y, ?x) .
+<http://purl.uniprot.org/core/Concept>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/classifiedWith>(?x, ?y) .
+<http://purl.uniprot.org/core/Enzyme>(?y)  :-  <http://purl.uniprot.org/core/Enzyme>(?x), <http://purl.uniprot.org/core/replacedBy>(?x, ?y) .
+<http://purl.uniprot.org/core/Molecule>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/locatedOn>(?x, ?y) .
+<http://purl.uniprot.org/core/Resource>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/database>(?y, ?x) .
+<http://purl.uniprot.org/core/Taxon>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/host>(?y, ?x) .
+<http://purl.uniprot.org/core/Simple_Sequence>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/basedOn>(?x, ?y) .
+<http://purl.uniprot.org/core/Tissue>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/isolatedFrom>(?x, ?y) .
+<http://purl.uniprot.org/core/Part>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/component>(?x, ?y) .
+<http://purl.uniprot.org/core/Orientation>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/orientation>(?x, ?y) .
+<http://purl.uniprot.org/core/Cluster>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/commonTaxon>(?y, ?x) .
+<http://FreshClass8>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/replacedBy>(?y, ?x) .
+<http://FreshClass26>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/method>(?y, ?x) .
+<http://purl.uniprot.org/core/Subcellular_Location>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/partOf>(?y, ?x) .
+<http://FreshClass15>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/sequenceFor>(?x, ?y) .
+<http://purl.uniprot.org/core/Nucleotide_Resource>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/translatedFrom>(?x, ?y) .
+<http://purl.uniprot.org/core/Enzyme>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/enzyme>(?x, ?y) .
+<http://purl.uniprot.org/core/Structured_Name>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://purl.uniprot.org/core/recommendedName>(?x, ?y) .
+<http://purl.uniprot.org/core/part>(?x, ?y)  :-  <http://purl.uniprot.org/core/domain>(?x, ?y) .
+<http://purl.uniprot.org/core/erratumFor>(?y, ?x)  :-  <http://purl.uniprot.org/core/erratumFor>(?y, ?x) .
+<http://purl.uniprot.org/core/structuredName>(?x, ?y)  :-  <http://purl.uniprot.org/core/alternativeName>(?x, ?y) .
+<http://purl.uniprot.org/core/memberOf>(?x, ?y)  :-  <http://purl.uniprot.org/core/memberOf>(?x, ?y) .
+<http://purl.uniprot.org/core/sequenceFor>(?x, ?y)  :-  <http://purl.uniprot.org/core/sequenceFor>(?x, ?y) .
+<http://purl.uniprot.org/core/structuredName>(?x, ?y)  :-  <http://purl.uniprot.org/core/submittedName>(?x, ?y) .
+<http://purl.uniprot.org/core/erratumFor>(?x, ?y)  :-  <http://purl.uniprot.org/core/erratumFor>(?x, ?y) .
+<http://purl.uniprot.org/core/replacedBy>(?y, ?x)  :-  <http://purl.uniprot.org/core/replacedBy>(?y, ?x) .
+<http://purl.uniprot.org/core/sequenceFor>(?y, ?x)  :-  <http://purl.uniprot.org/core/sequenceFor>(?y, ?x) .
+<http://purl.uniprot.org/core/part>(?x, ?y)  :-  <http://purl.uniprot.org/core/component>(?x, ?y) .
+<http://purl.uniprot.org/core/memberOf>(?y, ?x)  :-  <http://purl.uniprot.org/core/memberOf>(?y, ?x) .
+<http://purl.uniprot.org/core/structuredName>(?x, ?y)  :-  <http://purl.uniprot.org/core/recommendedName>(?x, ?y) .
+<http://purl.uniprot.org/core/replacedBy>(?x, ?y)  :-  <http://purl.uniprot.org/core/replacedBy>(?x, ?y) .

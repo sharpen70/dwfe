@@ -9,18 +9,18 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-import org.apache.commons.collections4.ListUtils;
 import org.guiiis.dwfe.core.graal.PureQuery;
 import org.guiiis.dwfe.opt.Optimizier;
 
 import fr.lirmm.graphik.graal.api.core.Atom;
-import fr.lirmm.graphik.graal.api.core.AtomSet;
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
 import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
 import fr.lirmm.graphik.graal.api.core.Predicate;
 import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.api.core.RuleSet;
+import fr.lirmm.graphik.graal.api.core.RulesCompilation;
 import fr.lirmm.graphik.graal.api.core.Term;
+import fr.lirmm.graphik.graal.core.compilation.IDCompilation;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomFactory;
 import fr.lirmm.graphik.graal.core.factory.DefaultAtomSetFactory;
 import fr.lirmm.graphik.graal.core.factory.DefaultRuleFactory;
@@ -34,7 +34,6 @@ import fr.lirmm.graphik.graal.rulesetanalyser.util.AnalyserRuleSet;
 import fr.lirmm.graphik.util.profiler.NoProfiler;
 import fr.lirmm.graphik.util.profiler.Profilable;
 import fr.lirmm.graphik.util.profiler.Profiler;
-import fr.lirmm.graphik.util.stream.CloseableIterator;
 import fr.lirmm.graphik.util.stream.CloseableIteratorWithoutException;
 
 /**
@@ -59,7 +58,7 @@ public class DatalogRewriting implements Profilable {
 		setLabel(this.onto);
 	}
 	
-	public Collection<DatalogRule> pexec(ConjunctiveQuery q) throws Exception {
+	public List<DatalogRule> pexec(ConjunctiveQuery q) throws Exception {
 		if (this.getProfiler() != null && this.getProfiler().isProfilingEnabled()) {
 			this.getProfiler().trace(q.getLabel());
 		}
@@ -80,6 +79,17 @@ public class DatalogRewriting implements Profilable {
 		
 		IndexedByHeadPredicatesRuleSet unsolved = opt.getUnsolved();
 		
+		for(Rule r :unsolved) System.out.println(r);
+		
+		IDCompilation ruleCompilation = new IDCompilation();
+		List<Rule> compiledrule = new LinkedList<>();
+		
+		for(Rule r : unsolved) {
+			if(ruleCompilation.isCompilable(r)) compiledrule.add(r);
+		}
+		
+		ruleCompilation.compile(unsolved.iterator());
+		
 		// checking
 		AnalyserRuleSet analyserruleset = new AnalyserRuleSet(unsolved);
 		Analyser analyser = new Analyser(analyserruleset);
@@ -95,27 +105,18 @@ public class DatalogRewriting implements Profilable {
 		PureQuery newq = new PureQuery(Gheads, new LinkedList<>());
 		
 		// further rewriting
-		DatalogRewritingAlgorithm algo = new DatalogRewritingAlgorithm(this.dlgoperator, this.operator);
+		DatalogRewritingAlgorithm algo = new DatalogRewritingAlgorithm(this.dlgoperator, this.operator, ruleCompilation);
 		
 		algo.setProfiler(this.getProfiler());
 
-		Set<DatalogRule> ba =  algo.exec(newq, unsolved);
+		Set<DatalogRule> ba =  algo.pexec(newq, unsolved);
 		
 		List<DatalogRule> result = new LinkedList<>();
 		
-		IndexedByHeadPredicatesRuleSet solved = opt.getSolved();
+		result.addAll(ba);
 		
-		for(DatalogRule r : ba) {
-			result.add(r);
-			
-			AtomSet body = r.getBody();
-			CloseableIterator<Atom> it = body.iterator();
-			
-			while(it.hasNext()) {
-				Atom a = it.next();
-				for(Rule _r :solved.getRulesByHeadPredicate(a.getPredicate())) result.add(new DefaultDatalogRule(_r));
-			}
-		}		
+		for(Rule r : opt.getSolved()) result.add(new DefaultDatalogRule(r));
+		for(Rule r : compiledrule) result.add(new DefaultDatalogRule(r));
 		
 		return result;
 	}
@@ -147,7 +148,7 @@ public class DatalogRewriting implements Profilable {
 			CloseableIteratorWithoutException<Atom> _it = queue.poll();
 			
 			while(_it.hasNext()) {
-				Atom a = it.next();
+				Atom a = _it.next();
 				for(Rule r : indexedRuleSet.getRulesByHeadPredicate(a.getPredicate())) {
 					if(labels.add(Integer.valueOf(r.getLabel()))) {
 						re.add(r);
@@ -162,10 +163,10 @@ public class DatalogRewriting implements Profilable {
 	
 	/** Add label to each rule in the ontology if not exist **/
 	private void setLabel(RuleSet rs) {
-		int i = 0;
+		int i = 1;
 		
 		for(Rule r: rs) {
-			r.setLabel(String.valueOf(i));
+			r.setLabel(String.valueOf(i));  
 			i++;
 		}
 	}

@@ -1,0 +1,194 @@
+^[Query223]
+SELECT ?X ?Y
+WHERE {
+?X <http://purl.uniprot.org/core/replacedBy> ?Y .
+}
+
+^[Query224]
+SELECT ?X ?Y
+WHERE {
+?X <http://purl.uniprot.org/core/seedFor> ?Y .
+}
+
+^[Query225]
+SELECT ?X ?Y
+WHERE {
+?X <http://purl.uniprot.org/core/category> ?Y .
+}
+
+^[Query226]
+SELECT ?X ?Y
+WHERE {
+?X <http://purl.uniprot.org/core/topology> ?Y .
+}
+
+^[Query227]
+SELECT ?X ?Y
+WHERE {
+?X <http://purl.uniprot.org/core/encodedIn> ?Y .
+}
+
+^[Query3]
+PREFIX up:<http://purl.uniprot.org/core/>
+PREFIX taxon:<http://purl.uniprot.org/taxonomy/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?protein ?s
+WHERE
+{
+	?protein a up:Protein .
+	?protein up:organism ?organism .
+	?protein up:organism taxon:83333 .
+	?protein up:sequence ?s
+}
+
+^[Query3]
+PREFIX up:<http://purl.uniprot.org/core/>
+PREFIX taxon:<http://purl.uniprot.org/taxonomy/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?protein
+WHERE
+{
+	?protein a up:Protein .
+	?protein up:organism ?organism .
+	?protein up:organism taxon:83333 .
+}
+
+^[Query3]
+PREFIX up:<http://purl.uniprot.org/core/>
+PREFIX taxon:<http://purl.uniprot.org/taxonomy/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?protein ?s
+WHERE
+{
+	?protein a up:Protein .
+	?protein up:organism ?organism .
+	?protein up:organism taxon:1227497 .
+	?protein up:sequence ?s .
+}
+
+^[Query4]
+PREFIX up:<http://purl.uniprot.org/core/>
+SELECT ?protein
+WHERE
+{
+		?protein a up:Protein .
+		?protein up:mnemonic "A4_HUMAN"
+}
+
+^[Query4]
+PREFIX up:<http://purl.uniprot.org/core/>
+SELECT ?protein ?y
+WHERE
+{
+		?protein a up:Protein .
+		?protein up:mnemonic ?y
+}
+
+
+^[Query5]
+PREFIX up:<http://purl.uniprot.org/core/>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?protein ?db
+WHERE
+{
+		?protein a up:Protein .
+		?protein rdfs:seeAlso ?db .
+		?db up:database <http://purl.uniprot.org/database/PDB>
+}
+
+^[Query6]
+PREFIX up:<http://purl.uniprot.org/core/>
+PREFIX keywords:<http://purl.uniprot.org/keywords/>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?link
+WHERE
+{
+	?protein a up:Protein .
+	?protein up:classifiedWith keywords:3 .
+	?protein rdfs:seeAlso ?link .
+	?link up:database ?db .
+	?db up:category "3D structure databases"
+}
+
+
+^[Query7]
+PREFIX up:<http://purl.uniprot.org/core/>
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+SELECT ?protein ?name ?text
+WHERE
+{
+		?protein a up:Protein .
+		?protein up:recommendedName ?recommended .
+		?recommended up:fullName ?name .
+		?protein up:encodedBy ?gene .
+		?gene skos:prefLabel ?text
+}
+
+^[Query7]
+PREFIX up:<http://purl.uniprot.org/core/>
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+SELECT ?protein ?name
+WHERE
+{
+		?protein a up:Protein .
+		?protein up:recommendedName ?recommended .
+		?recommended up:fullName ?name .
+		?protein up:encodedBy ?gene
+}
+
+^[Query8]
+PREFIX up:<http://purl.uniprot.org/core/>
+PREFIX taxon:<http://purl.uniprot.org/taxonomy/>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+SELECT ?name ?text
+WHERE
+{
+		?protein a up:Protein .
+		?protein up:organism taxon:9606 .
+		?protein up:encodedBy ?gene .
+		?gene skos:prefLabel ?name .
+		?protein up:annotation ?annotation .
+		?annotation a up:Disease_Annotation .
+		?annotation rdfs:comment ?text
+}
+
+^[Query8]
+PREFIX up:<http://purl.uniprot.org/core/>
+PREFIX taxon:<http://purl.uniprot.org/taxonomy/>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+SELECT ?protein
+WHERE
+{
+		?protein a up:Protein .
+		?protein up:organism taxon:9606 .
+}
+
+^[Query11]
+PREFIX up:<http://purl.uniprot.org/core/>
+PREFIX faldo:<http://biohackathon.org/resource/faldo#>
+SELECT ?protein ?begin ?end
+WHERE
+{
+	?protein a up:Protein .
+	?protein up:annotation ?annotation .
+	?annotation a up:Transmembrane_Annotation .
+	?annotation up:range ?range .
+	?range faldo:begin ?begin .
+	?range faldo:end ?end
+}
+
+^[Query14]
+PREFIX up:<http://purl.uniprot.org/core/>
+PREFIX taxon:<http://purl.uniprot.org/taxonomy/>
+SELECT ?protein
+WHERE
+{
+	?protein a up:Protein .
+	?protein up:organism taxon:9606
+}
+

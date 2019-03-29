@@ -1,0 +1,539 @@
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhenotypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#ExperimentalFormVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalFormVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceModificationVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x), <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x), <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RelationshipTypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#CellularLocationVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#RnaReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReferenceTypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#RelationshipTypeVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CellVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#PhenotypeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#InteractionVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#TissueVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Xref>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RelationshipXref>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Transport>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#TransportWithBiochemicalReaction>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x), <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Catalysis>(?x), <http://www.biopax.org/release/biopax-level3.owl#Modulation>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RnaRegionReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#RnaReference>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x)  :-  <http://FreshClass12>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?x)  :-  <http://tPlusFreshConceptName.org#0-12-1>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CellVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#CellularLocationVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#UnificationXref>(?x), <http://www.biopax.org/release/biopax-level3.owl#PublicationXref>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#BiochemicalReaction>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#TransportWithBiochemicalReaction>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x), <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SmallMoleculeReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#ProteinReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Degradation>(?x), <http://www.biopax.org/release/biopax-level3.owl#BiochemicalReaction>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Degradation>(?x), <http://www.biopax.org/release/biopax-level3.owl#Transport>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Complex>(?x), <http://www.biopax.org/release/biopax-level3.owl#RnaRegion>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Complex>(?x)  :-  <http://tPlusFreshConceptName.org#3-12-1>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CellVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityReferenceTypeVocabulary>(?x) .
+<http://tPlusFreshConceptName.org#7-12-0>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RnaRegion>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#BindingFeature>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CovalentBindingFeature>(?x) .
+<http://tPlusFreshConceptName.org#1-12-0>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Dna>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RelationshipTypeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x), <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SequenceModificationVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#TissueVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x), <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x), <http://www.biopax.org/release/biopax-level3.owl#Score>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Conversion>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Transport>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhenotypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceModificationVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhenotypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityReferenceTypeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Entity>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Interaction>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x), <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RelationshipTypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceModificationVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReferenceTypeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegion>(?x), <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Rna>(?x), <http://www.biopax.org/release/biopax-level3.owl#DnaRegion>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x), <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x), <http://www.biopax.org/release/biopax-level3.owl#Score>(?x) .
+<http://tPlusFreshConceptName.org#0-12-0>(?x)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x) .
+<http://tPlusFreshConceptName.org#4-12-0>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Rna>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SmallMoleculeReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#RnaReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RelationshipTypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#EvidenceCodeVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x), <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ProteinReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#RnaRegionReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Dna>(?x), <http://www.biopax.org/release/biopax-level3.owl#Rna>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Modulation>(?x), <http://www.biopax.org/release/biopax-level3.owl#TemplateReactionRegulation>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhenotypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#TissueVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CellVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#RelationshipTypeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x), <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhenotypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#CellularLocationVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhenotypeVocabulary>(?x) .
+<http://tPlusFreshConceptName.org#8-4-0>(?x)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SequenceRegionVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#CellularLocationVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CellVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#InteractionVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Entity>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Pathway>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Control>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#TemplateReactionRegulation>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x), <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Dna>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x), <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Protein>(?x)  :-  <http://tPlusFreshConceptName.org#6-12-1>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhenotypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#RelationshipTypeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalFormVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#RelationshipTypeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CellVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#TissueVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReferenceTypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceRegionVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x), <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x) .
+<http://tPlusFreshConceptName.org#3-12-0>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Complex>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x), <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x), <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#Score>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Dna>(?x), <http://www.biopax.org/release/biopax-level3.owl#RnaRegion>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Score>(?x), <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x), <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Conversion>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ComplexAssembly>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ModificationFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegionReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#RnaReference>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?x), <http://www.biopax.org/release/biopax-level3.owl#Pathway>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x)  :-  <http://FreshClass17>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Control>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Modulation>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#InteractionVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceModificationVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Entity>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Gene>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Dna>(?x), <http://www.biopax.org/release/biopax-level3.owl#DnaRegion>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SequenceRegionVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ModificationFeature>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CovalentBindingFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#MolecularInteraction>(?x), <http://www.biopax.org/release/biopax-level3.owl#GeneticInteraction>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Transport>(?x), <http://www.biopax.org/release/biopax-level3.owl#ComplexAssembly>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Score>(?x), <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x), <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#Score>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalFormVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#TissueVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?x), <http://www.biopax.org/release/biopax-level3.owl#Interaction>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CellVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceModificationVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CellVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#ExperimentalFormVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Interaction>(?x), <http://www.biopax.org/release/biopax-level3.owl#Gene>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x)  :-  <http://FreshClass18>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SequenceRegionVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#EvidenceCodeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x), <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#GeneticInteraction>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#GeneticInteraction>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RnaReference>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x), <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Dna>(?x)  :-  <http://tPlusFreshConceptName.org#1-12-1>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Rna>(?x), <http://www.biopax.org/release/biopax-level3.owl#RnaRegion>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x), <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegion>(?x), <http://www.biopax.org/release/biopax-level3.owl#RnaRegion>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#GeneticInteraction>(?x), <http://www.biopax.org/release/biopax-level3.owl#Control>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReferenceTypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#TissueVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Xref>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PublicationXref>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegion>(?x), <http://www.biopax.org/release/biopax-level3.owl#Complex>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#InteractionVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityReferenceTypeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ProteinReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#RnaReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CellVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceRegionVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Gene>(?x), <http://www.biopax.org/release/biopax-level3.owl#Pathway>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Degradation>(?x), <http://www.biopax.org/release/biopax-level3.owl#ComplexAssembly>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x), <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#InteractionVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#RelationshipTypeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RelationshipTypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#TissueVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SequenceInterval>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceSite>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#InteractionVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#CellularLocationVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalFormVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceRegionVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Score>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Interaction>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#MolecularInteraction>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#BiochemicalPathwayStep>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReferenceTypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#EvidenceCodeVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Interaction>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Conversion>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SequenceInterval>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x), <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Dna>(?x), <http://www.biopax.org/release/biopax-level3.owl#Complex>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhenotypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceRegionVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x), <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#SmallMoleculeReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x), <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Rna>(?x)  :-  <http://tPlusFreshConceptName.org#4-12-1>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#InteractionVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x), <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EvidenceCodeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#CellularLocationVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#InteractionVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#PhenotypeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x), <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x), <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SmallMoleculeReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#RnaRegionReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#Score>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Complex>(?x), <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Interaction>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#GeneticInteraction>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#InteractionVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#ExperimentalFormVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x)  :-  <http://tPlusFreshConceptName.org#2-12-1>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CellVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#EvidenceCodeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#InteractionVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#EvidenceCodeVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x), <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Complex>(?x), <http://www.biopax.org/release/biopax-level3.owl#Protein>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CellVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x), <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?x), <http://www.biopax.org/release/biopax-level3.owl#Gene>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x), <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x) .
+<http://tPlusFreshConceptName.org#5-12-0>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegion>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#DnaRegion>(?x)  :-  <http://tPlusFreshConceptName.org#5-12-1>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x), <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ComplexAssembly>(?x), <http://www.biopax.org/release/biopax-level3.owl#BiochemicalReaction>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x), <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ProteinReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Catalysis>(?x), <http://www.biopax.org/release/biopax-level3.owl#TemplateReactionRegulation>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Rna>(?x), <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#TemplateReaction>(?x), <http://www.biopax.org/release/biopax-level3.owl#GeneticInteraction>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EvidenceCodeVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Conversion>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#BiochemicalReaction>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SequenceRegionVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#TissueVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x), <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#MolecularInteraction>(?x), <http://www.biopax.org/release/biopax-level3.owl#Control>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x), <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Rna>(?x), <http://www.biopax.org/release/biopax-level3.owl#Protein>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#ProteinReference>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#BindingFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhenotypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#EvidenceCodeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Score>(?x), <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x)  :-  <http://tPlusFreshConceptName.org#8-4-1>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Protein>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RelationshipTypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceRegionVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x), <http://www.biopax.org/release/biopax-level3.owl#Protein>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x) .
+<http://tPlusFreshConceptName.org#2-12-0>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReferenceTypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#ExperimentalFormVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EvidenceCodeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceModificationVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SmallMoleculeReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Interaction>(?x), <http://www.biopax.org/release/biopax-level3.owl#Pathway>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Dna>(?x), <http://www.biopax.org/release/biopax-level3.owl#Protein>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegion>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Conversion>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Degradation>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x), <http://www.biopax.org/release/biopax-level3.owl#Score>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Interaction>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#TemplateReaction>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#FragmentFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Control>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Catalysis>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#InteractionVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceRegionVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Score>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RnaRegion>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegionReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#ProteinReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Complex>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#CellularLocationVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x), <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x), <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalFormVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#CellularLocationVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SequenceModificationVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#CellularLocationVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Xref>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#UnificationXref>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SequenceSite>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Dna>(?x), <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EvidenceCodeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#TissueVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x), <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Rna>(?x), <http://www.biopax.org/release/biopax-level3.owl#Complex>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegionReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#BindingFeature>(?x), <http://www.biopax.org/release/biopax-level3.owl#FragmentFeature>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Interaction>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Control>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReferenceTypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceModificationVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x), <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x), <http://www.biopax.org/release/biopax-level3.owl#Score>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Rna>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Entity>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Evidence>(?x), <http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x), <http://www.biopax.org/release/biopax-level3.owl#Score>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#GeneticInteraction>(?x), <http://www.biopax.org/release/biopax-level3.owl#Conversion>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#UtilityClass>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#KPrime>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#TissueVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#CellularLocationVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#TissueVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ModificationFeature>(?x), <http://www.biopax.org/release/biopax-level3.owl#FragmentFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#TemplateReaction>(?x), <http://www.biopax.org/release/biopax-level3.owl#Control>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegion>(?x), <http://www.biopax.org/release/biopax-level3.owl#Protein>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#EntityReferenceTypeVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#CellularLocationVocabulary>(?x) .
+<http://tPlusFreshConceptName.org#6-12-0>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Protein>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalFormVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#EvidenceCodeVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegionReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#RnaRegionReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Score>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegionReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#SmallMoleculeReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SequenceRegionVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#SequenceModificationVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#RnaRegionReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RnaRegion>(?x), <http://www.biopax.org/release/biopax-level3.owl#Protein>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Xref>(?x), <http://www.biopax.org/release/biopax-level3.owl#BioSource>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Control>(?x), <http://www.biopax.org/release/biopax-level3.owl#Conversion>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?x), <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x), <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RnaRegionReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#DnaRegionReference>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x), <http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?x), <http://www.biopax.org/release/biopax-level3.owl#Score>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#SequenceModificationVocabulary>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#RnaRegion>(?x)  :-  <http://tPlusFreshConceptName.org#7-12-1>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#RnaRegion>(?x), <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ExperimentalFormVocabulary>(?x) .
+<http://www.w3.org/2002/07/owl#Nothing>(?x)  :-  <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?x) .
+<http://www.biopax.org/release/biopax-level3.owl#coControlled>(?x0, ?x2)  :-  <http://www.biopax.org/release/biopax-level3.owl#controlled>(?x2, ?x1), <http://www.biopax.org/release/biopax-level3.owl#controlled>(?x0, ?x1) .
+<http://www.biopax.org/release/biopax-level3.owl#interactionScoreProvenance>(?x0, ?x2)  :-  <http://www.biopax.org/release/biopax-level3.owl#scoreSource>(?x1, ?x2), <http://www.biopax.org/release/biopax-level3.owl#interactionScore>(?x0, ?x1) .
+<http://www.biopax.org/release/biopax-level3.owl#organismCellVocabulary>(?x0, ?x2)  :-  <http://www.biopax.org/release/biopax-level3.owl#organism>(?x0, ?x1), <http://www.biopax.org/release/biopax-level3.owl#CellVocabulary>(?x2, ?x1) .
+<http://www.biopax.org/release/biopax-level3.owl#controledBy>(?x0, ?x2)  :-  <http://www.biopax.org/release/biopax-level3.owl#controller>(?x1, ?x2), <http://www.biopax.org/release/biopax-level3.owl#controlled>(?x1, ?x0) .
+<http://www.biopax.org/release/biopax-level3.owl#memberFeature>(?x0, ?x2)  :-  <http://www.biopax.org/release/biopax-level3.owl#memberFeature>(?x1, ?x2), <http://www.biopax.org/release/biopax-level3.owl#memberFeature>(?x0, ?x1) .
+<http://www.biopax.org/release/biopax-level3.owl#participantDataSource>(?x0, ?x2)  :-  <http://www.biopax.org/release/biopax-level3.owl#participant>(?x0, ?x1), <http://www.biopax.org/release/biopax-level3.owl#dataSource>(?x1, ?x2) .
+<http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x0, ?x2)  :-  <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x0, ?x1), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x1, ?x2) .
+<http://www.biopax.org/release/biopax-level3.owl#Complex>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#Complex>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#pathwayOrder>(?x, ?y) .
+<http://tPlusFreshConceptName.org#5-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#5-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#DnaRegionReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegion>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityReference>(?x, ?y) .
+<http://FreshClass7>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#product>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#SmallMoleculeReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityReference>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityFeature>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#cofactor>(?x, ?y) .
+<http://tPlusFreshConceptName.org#2-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#2-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#stepConversion>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#stepConversion>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#feature>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#BiochemicalPathwayStep>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#stepConversion>(?y, ?x) .
+<http://tPlusFreshConceptName.org#2-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#2-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#SequenceSite>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#sequenceIntervalBegin>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.biopax.org/release/biopax-level3.owl#GeneticInteraction>(?x), <http://www.biopax.org/release/biopax-level3.owl#phenotype>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#phenotype>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?x), <http://www.biopax.org/release/biopax-level3.owl#physicalEntity>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#physicalEntity>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#Catalysis>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#cofactor>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Conversion>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#participantStoichiometry>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#cellType>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#cellType>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#Conversion>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#right>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#TemplateReaction>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#product>(?y, ?x) .
+<http://tPlusFreshConceptName.org#5-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#5-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#right>(?x, ?y) .
+<http://FreshClass1>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#regionType>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#DnaRegion>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegion>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#Catalysis>(?x), <http://www.biopax.org/release/biopax-level3.owl#controller>(?x, ?y) .
+<http://tPlusFreshConceptName.org#6-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#6-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#physicalEntity>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Entity>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#dataSource>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#bindsTo>(?y, ?x), <http://www.biopax.org/release/biopax-level3.owl#bindsTo>(?z, ?x), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#experimentalFormDescription>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#featureLocationType>(?y, ?x) .
+<http://tPlusFreshConceptName.org#2-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#2-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Interaction>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#interactionType>(?y, ?x) .
+<http://tPlusFreshConceptName.org#6-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#6-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Provenance>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#dataSource>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#KPrime>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#kEQ>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Control>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#controlled>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#SequenceInterval>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#sequenceIntervalEnd>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#TemplateReaction>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#template>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#DnaRegionReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaRegionReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#subRegion>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Evidence>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#evidenceCode>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#cellularLocation>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#cellularLocation>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberEntityReference>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#BindingFeature>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#bindsTo>(?y, ?x) .
+<http://tPlusFreshConceptName.org#6-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#6-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://tPlusFreshConceptName.org#8-4-1>(?y)  :-  <http://tPlusFreshConceptName.org#8-4-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberFeature>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#physicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#experimentalFeature>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Evidence>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#confidence>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#TemplateReaction>(?x), <http://www.biopax.org/release/biopax-level3.owl#participant>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#RnaRegionReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#RnaRegion>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityReference>(?x, ?y) .
+<http://FreshClass3>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#template>(?x, ?y) .
+<http://tPlusFreshConceptName.org#6-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#6-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://tPlusFreshConceptName.org#8-4-0>(?y)  :-  <http://tPlusFreshConceptName.org#8-4-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberFeature>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#DnaRegionReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#subRegion>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#experimentalForm>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#experimentalFormEntity>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#RelationshipXref>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#relationshipType>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityReferenceType>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#entityReferenceType>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#Pathway>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#pathwayOrder>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#RnaRegionReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#RnaRegionReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#subRegion>(?x, ?y) .
+<http://FreshClass10>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#evidence>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PhenotypeVocabulary>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#phenotype>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.biopax.org/release/biopax-level3.owl#Gene>(?x), <http://www.biopax.org/release/biopax-level3.owl#organism>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#organism>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityReferenceType>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#absoluteRegion>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#absoluteRegion>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://tPlusFreshConceptName.org#3-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#3-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://tPlusFreshConceptName.org#8-4-0>(?y)  :-  <http://tPlusFreshConceptName.org#8-4-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberFeature>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#component>(?y, ?x), <http://www.biopax.org/release/biopax-level3.owl#component>(?z, ?x), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#BioSource>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#tissue>(?y, ?x) .
+<http://tPlusFreshConceptName.org#3-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#3-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#ProteinReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#ProteinReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberEntityReference>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#DeltaG>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#deltaG>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Conversion>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#stepConversion>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Pathway>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#pathwayComponent>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#regionType>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#regionType>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#BioSource>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#organism>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityFeature>(?y, ?x), <http://www.biopax.org/release/biopax-level3.owl#entityFeature>(?z, ?x), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#TemplateReaction>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#TemplateReactionRegulation>(?x), <http://www.biopax.org/release/biopax-level3.owl#controlled>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Catalysis>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#Modulation>(?x), <http://www.biopax.org/release/biopax-level3.owl#controlled>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Provenance>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#scoreSource>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#stepProcess>(?y, ?x) .
+<http://tPlusFreshConceptName.org#7-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#7-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://FreshClass16>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#experimentalFormEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityFeature>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#ProteinReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#Protein>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityReference>(?x, ?y) .
+<http://tPlusFreshConceptName.org#3-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#3-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityReference>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityReference>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#entityReference>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#Rna>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#Rna>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#BindingFeature>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x), <http://www.biopax.org/release/biopax-level3.owl#feature>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#Conversion>(?x), <http://www.biopax.org/release/biopax-level3.owl#participant>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Protein>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#Protein>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#sequenceIntervalBegin>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#sequenceIntervalBegin>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#InteractionVocabulary>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#interactionType>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Control>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#BiochemicalPathwayStep>(?x), <http://www.biopax.org/release/biopax-level3.owl#stepProcess>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#SmallMoleculeReference>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#structure>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#featureLocation>(?y, ?x) .
+<http://tPlusFreshConceptName.org#3-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#3-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#ExperimentalFormVocabulary>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#experimentalFormDescription>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#DnaReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#DnaReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberEntityReference>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#BiochemicalReaction>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#kEQ>(?y, ?x) .
+<http://tPlusFreshConceptName.org#1-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#1-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#TissueVocabulary>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#tissue>(?x, ?y) .
+<http://FreshClass13>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#subRegion>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#bindsTo>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#bindsTo>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://tPlusFreshConceptName.org#0-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#0-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#SequenceSite>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#sequenceIntervalEnd>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#GeneticInteraction>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#interactionScore>(?y, ?x) .
+<http://tPlusFreshConceptName.org#0-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#0-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#SmallMoleculeReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#SmallMoleculeReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberEntityReference>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#SequenceRegionVocabulary>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#featureLocationType>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#notFeature>(?x, ?y) .
+<http://FreshClass15>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#controller>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Score>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#scoreSource>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#left>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Conversion>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#Catalysis>(?x), <http://www.biopax.org/release/biopax-level3.owl#controlled>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Complex>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#component>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#modificationType>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#modificationType>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#Gene>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#GeneticInteraction>(?x), <http://www.biopax.org/release/biopax-level3.owl#participant>(?x, ?y) .
+<http://tPlusFreshConceptName.org#1-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#1-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#absoluteRegion>(?x, ?y) .
+<http://FreshClass6>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#absoluteRegion>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#BiochemicalReaction>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#deltaG>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ExperimentalForm>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#experimentalFeature>(?y, ?x) .
+<http://tPlusFreshConceptName.org#0-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#0-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Interaction>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#participant>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#nextStep>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#RnaReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#Rna>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityReference>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Complex>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#componentStoichiometry>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#ModificationFeature>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#modificationType>(?y, ?x) .
+<http://FreshClass11>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityReference>(?y, ?x) .
+<http://tPlusFreshConceptName.org#8-4-1>(?y)  :-  <http://tPlusFreshConceptName.org#8-4-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberFeature>(?x, ?y) .
+<http://tPlusFreshConceptName.org#0-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#0-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://FreshClass14>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#stepProcess>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Evidence>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#evidence>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#CellularLocationVocabulary>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#cellularLocation>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Conversion>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#left>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#GeneticInteraction>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#phenotype>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#BindingFeature>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#bindsTo>(?x, ?y) .
+<http://tPlusFreshConceptName.org#7-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#7-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Dna>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#Dna>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#RnaRegionReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#RnaReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#subRegion>(?x, ?y) .
+<http://FreshClass8>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#controlled>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#RnaReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#RnaReference>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberEntityReference>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#RelationshipTypeVocabulary>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#relationshipType>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Score>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#interactionScore>(?x, ?y) .
+<http://FreshClass9>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#Provenance>(?x), <http://www.biopax.org/release/biopax-level3.owl#xref>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#cellularLocation>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#controlled>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#controlled>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://tPlusFreshConceptName.org#4-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#4-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://tPlusFreshConceptName.org#4-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#4-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#scoreSource>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#scoreSource>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#Evidence>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#experimentalForm>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#feature>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#SequenceInterval>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#sequenceIntervalBegin>(?y, ?x) .
+<http://tPlusFreshConceptName.org#4-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#4-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#MolecularInteraction>(?x), <http://www.biopax.org/release/biopax-level3.owl#participant>(?x, ?y) .
+<http://tPlusFreshConceptName.org#1-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#1-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#participantStoichiometry>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#component>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#notFeature>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#SequenceModificationVocabulary>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#modificationType>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Xref>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#xref>(?x, ?y) .
+<http://FreshClass4>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#xref>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#TemplateReactionRegulation>(?x), <http://www.biopax.org/release/biopax-level3.owl#controller>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#BindingFeature>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>(?x), <http://www.biopax.org/release/biopax-level3.owl#notFeature>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberFeature>(?x, ?y) .
+<http://FreshClass2>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#subRegion>(?y, ?x) .
+<http://FreshClass0>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#organism>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Stoichiometry>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#componentStoichiometry>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#CellVocabulary>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#cellType>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#SequenceLocation>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#featureLocation>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityReferenceTypeVocabulary>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityReferenceType>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.biopax.org/release/biopax-level3.owl#GeneticInteraction>(?x), <http://www.biopax.org/release/biopax-level3.owl#interactionType>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#interactionType>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#DnaReference>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#Dna>(?x), <http://www.biopax.org/release/biopax-level3.owl#entityReference>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Entity>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#participant>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityReference>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberEntityReference>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#BioSource>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#cellType>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#Control>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#controller>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#phenotype>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#phenotype>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://FreshClass5>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#pathwayComponent>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#ChemicalStructure>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#structure>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#physicalEntity>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#physicalEntity>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#template>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#template>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#tissue>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#tissue>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#EntityFeature>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberFeature>(?y, ?x) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#sequenceIntervalEnd>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#sequenceIntervalEnd>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://tPlusFreshConceptName.org#2-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#2-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://tPlusFreshConceptName.org#1-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#1-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://tPlusFreshConceptName.org#7-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#7-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#Modulation>(?x), <http://www.biopax.org/release/biopax-level3.owl#controller>(?x, ?y) .
+<http://tPlusFreshConceptName.org#7-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#7-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://tPlusFreshConceptName.org#5-12-0>(?y)  :-  <http://tPlusFreshConceptName.org#5-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#structure>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#structure>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#SequenceRegionVocabulary>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#regionType>(?x, ?y) .
+<http://tPlusFreshConceptName.org#4-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#4-12-1>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.w3.org/2002/07/owl#sameAs>(?y, ?z)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#organism>(?x, ?y), <http://www.biopax.org/release/biopax-level3.owl#organism>(?x, ?z), <http://www.w3.org/2002/07/owl#Thing>(?y), <http://www.w3.org/2002/07/owl#Thing>(?z) .
+<http://www.biopax.org/release/biopax-level3.owl#RnaRegion>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#RnaRegion>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#Score>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#confidence>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#UnificationXref>(?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#ControlledVocabulary>(?x), <http://www.biopax.org/release/biopax-level3.owl#xref>(?x, ?y) .
+<http://tPlusFreshConceptName.org#5-12-1>(?y)  :-  <http://tPlusFreshConceptName.org#5-12-0>(?x), <http://www.biopax.org/release/biopax-level3.owl#memberPhysicalEntity>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#EvidenceCodeVocabulary>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#evidenceCode>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#PathwayStep>(?y)  :-  <http://www.w3.org/2002/07/owl#Thing>(?x), <http://www.biopax.org/release/biopax-level3.owl#nextStep>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#bindsTo>(?x, ?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#bindsTo>(?y, ?x) .
+<http://www.biopax.org/release/biopax-level3.owl#participant>(?x, ?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#template>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#participant>(?x, ?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#controlled>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#participant>(?x, ?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#product>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#stepProcess>(?x, ?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#stepConversion>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#participant>(?x, ?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#left>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#participant>(?x, ?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#right>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#participant>(?x, ?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#controller>(?x, ?y) .
+<http://www.biopax.org/release/biopax-level3.owl#participant>(?x, ?y)  :-  <http://www.biopax.org/release/biopax-level3.owl#cofactor>(?x, ?y) .
