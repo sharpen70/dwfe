@@ -16,7 +16,7 @@ import fr.lirmm.graphik.graal.io.owl.OWL2Parser;
 import fr.lirmm.graphik.graal.io.sparql.SparqlConjunctiveQueryParser;
 import fr.lirmm.graphik.graal.kb.KBBuilder;
 
-public class RwToDlg {
+public class RwToUCQ {
 	public static void main(String[] args) throws Exception {	
 		
 		String ontologyfile = null;		
@@ -62,13 +62,11 @@ public class RwToDlg {
 		if(query_syntax == 1) qs = SimpleQueryFileReader.read2(new File(queriesfile));
 		else qs = SimpleQueryFileReader.read(new File(queriesfile));
 		
-		DatalogRewriting dr = new DatalogRewriting(kb.getOntology());
-		
 		for(int i = 0; i < qs.size(); i++) {
 			ConjunctiveQuery query;
 			String s = qs.get(i);
 			
-			File outputfile = new File(fdir.getAbsolutePath() + "/" + ontofile.getName() + "_q" + i + "_RwToDlg");
+			File outputfile = new File(fdir.getAbsolutePath() + "/" + ontofile.getName() + "_q" + i + "_RwToUCQ");
 			System.out.println(outputfile);
 			outputfile.createNewFile();
 	
@@ -84,9 +82,12 @@ public class RwToDlg {
 	//		if(mode == 1) kb.rewriteToUCQ(query, new PrintStream(outputfile));
 			PrintStream ps = new PrintStream(outputfile);
 			
+			DatalogRewriting dr = new DatalogRewriting(kb.getOntology());
+			
+			
 			Collection<DatalogRule> re = dr.exec(query);
 			
-			for(DatalogRule r : re) ps.println(r.toRDFox());
+			for(DatalogRule r : re) ps.println(r);
 			
 			ps.close();
 		}

@@ -51,6 +51,8 @@ public class Optimizier {
 		this.elim.elim();
 		RuleSet ers = this.elim.getRuleSet();
 		
+		System.out.println("elim size:" + ers.size());
+		
 		grd = new SimpleGraphOfRuleDependencies(ers);
 		StronglyConnectedComponentsGraph<Rule> sccg = grd.getStronglyConnectedComponentsGraph();
 		

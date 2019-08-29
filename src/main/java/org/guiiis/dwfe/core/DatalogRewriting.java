@@ -50,6 +50,10 @@ public class DatalogRewriting implements Profilable {
 	private DatalogRewritingOperator    dlgoperator;
 	private RuleSet onto;
 	
+	private IndexedByHeadPredicatesRuleSet compiledrule;
+	private RulesCompilation rulesCompilation;
+	private boolean compiled = false;
+	
 	public DatalogRewriting(RuleSet _onto) {
 		this.operator = new ExtendedSRA();
 		this.onto = _onto;
@@ -66,6 +70,8 @@ public class DatalogRewriting implements Profilable {
 		PureQuery pquery = new PureQuery(q);
 		
 		RuleSet re = this.focus(pquery);
+		
+		System.out.println("focus size:" + re.size());
 		
 		List<Term> ansVar = new LinkedList<>();
 		Predicate G = new Predicate(ANSPredicateIdentifier, 0);
@@ -122,6 +128,51 @@ public class DatalogRewriting implements Profilable {
 	}
 	
 	public Collection<DatalogRule> exec(ConjunctiveQuery q) throws Exception {
+		if (this.getProfiler() != null && this.getProfiler().isProfilingEnabled()) {
+			this.getProfiler().trace(q.getLabel());
+		}			
+		this.complileRule();
+		// rewriting
+		
+		long start = System.currentTimeMillis();
+		
+		DatalogRewritingAlgorithm algo = new DatalogRewritingAlgorithm(this.dlgoperator, this.operator, this.rulesCompilation);
+		
+		algo.setProfiler(this.getProfiler());
+		
+		IndexedByHeadPredicatesRuleSet ruleset = new IndexedByHeadPredicatesRuleSet(this.onto);
+		
+		Collection<DatalogRule> result = new LinkedList<>();
+		result.addAll(algo.exec(q, ruleset));
+		
+		Queue<CloseableIteratorWithoutException<Atom>> queue = new LinkedList<>();
+		Set<Integer> labels = new HashSet<>();
+		
+		for(DatalogRule r : result) 
+			queue.add(r.getBody().iterator());
+		
+		while(!queue.isEmpty()) {
+			CloseableIteratorWithoutException<Atom> _it = queue.poll();
+			
+			while(_it.hasNext()) {
+				Atom a = _it.next();
+				for(Rule r : this.compiledrule.getRulesByHeadPredicate(a.getPredicate())) {
+					if(labels.add(Integer.valueOf(r.getLabel()))) {
+						result.add(new DefaultDatalogRule(r));
+						queue.add(r.getBody().iterator());
+					}
+				}
+			}
+		}
+		
+		long end = System.currentTimeMillis();
+		
+		System.out.println("Total size: " + result.size() + ", Total time: " + (end - start));
+		
+		return result;
+	}
+	
+	public Collection<DatalogRule> oexec(ConjunctiveQuery q) throws Exception {
 		if (this.getProfiler() != null && this.getProfiler().isProfilingEnabled()) {
 			this.getProfiler().trace(q.getLabel());
 		}		
@@ -182,4 +233,19 @@ public class DatalogRewriting implements Profilable {
 	public Profiler getProfiler() {
 		return this.profiler;
 	}	
+	
+	public void complileRule() {
+		if(this.compiled) return;
+		else {
+			this.compiled = true;
+			this.rulesCompilation = new IDCompilation();
+			this.compiledrule = new IndexedByHeadPredicatesRuleSet();
+			
+			for(Rule r : this.onto) {
+				if(this.rulesCompilation.isCompilable(r)) compiledrule.add(r);
+			}		
+			
+			this.rulesCompilation.compile(this.onto.iterator());
+		}
+	}
 }

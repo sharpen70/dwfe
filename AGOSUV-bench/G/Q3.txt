@@ -1,1 +1,0 @@
-Q(?0) <- isConsequenceOf(?0, ?1), Hypertension(?1)

@@ -2,6 +2,7 @@ package org.guiiis.dwfe;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Collection;
 import java.util.List;
 
 import org.guiiis.dwfe.core.DatalogRewriting;
@@ -20,7 +21,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 public class TestLargeOntology extends TestCase {
-	private static String rootDir = "./AGOSUV-bench/O";
+	private static String rootDir = "./AGOSUV-bench";
 	/**
      * Create the test case
      *
@@ -61,20 +62,26 @@ public class TestLargeOntology extends TestCase {
     
     public void test2() throws Exception {
     	KBBuilder builder = new KBBuilder();
-    	builder.addRules(new OWL2Parser(new File("./pagoda-bench/Reactome/Reactome.owl")));
+//    	builder.addRules(new OWL2Parser(new File("./pagoda-bench/Reactome/Reactome.owl")));
+    	builder.addRules(new DlgpParser(new File(rootDir, "G/G.dlp")));
     	KnowledgeBase kb = builder.build();
     	RuleSet rs = kb.getOntology();
     	
-    	ConjunctiveQuery query = DlgpParser.parseQuery(
-    			"@prefix biopax3: <http://www.biopax.org/release/biopax-level3.owl#>\n"
-    			+ "?(X, Y) :- biopax3:displayName(X, Y), biopax3:Pathway(X).");
+//    	ConjunctiveQuery query = DlgpParser.parseQuery(
+//    			"@prefix biopax3: <http://www.biopax.org/release/biopax-level3.owl#>\n"
+//    			+ "?(X, Y) :- biopax3:displayName(X, Y), biopax3:Pathway(X).");
     	
+    	ConjunctiveQuery query = DlgpParser.parseQuery(
+    			"@prefix : <file:///c:/tmp/OpenGALEN2_FULL_WithPropertyChains.owl#>\n"
+    			+ "?(X0) :- :isConsequenceOf(X0, X1), :Hypertension(X1).");
+
     	DatalogRewriting dr = new DatalogRewriting(rs);
     	
-    	List<DatalogRule> result = dr.pexec(query);
+    	Collection<DatalogRule> result = dr.exec(query);
     	
-    	if(result != null)
-    		for(DatalogRule r : result) System.out.println(r);
+    	System.out.println(result.size());
+//    	if(result != null)
+//    		for(DatalogRule r : result) System.out.println(r);
     	
     	Assert.assertTrue(true);
     }

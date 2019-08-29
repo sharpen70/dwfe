@@ -1,1 +1,0 @@
-Q(?0) <- isSpecificConsequenceOf(?0, ?1), InfectionProcess(?1)

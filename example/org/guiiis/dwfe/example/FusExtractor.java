@@ -35,6 +35,7 @@ public class FusExtractor {
 			
 			for(Rule r : fus) {
 				writer.write(r);
+				
 			}
 			
 			writer.close();

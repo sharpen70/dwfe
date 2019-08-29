@@ -69,6 +69,10 @@ public class DlgKnowledgeBase {
 	private RuleSet fusComponent = null;
 	private boolean force_rewriting = true;
 	
+	private IndexedByHeadPredicatesRuleSet compiledrule;
+	private RulesCompilation rulesCompilation;
+	private boolean compiled = false;
+	
 	public DlgKnowledgeBase(Parser<Object> parser) throws AtomSetException {
 //		this.store = new DefaultInMemoryGraphStore();
 		this.ruleset = new LinkedListRuleSet();
@@ -110,7 +114,7 @@ public class DlgKnowledgeBase {
 	//	outputStream.println("\nRewriting Result:\n");
 		
 		if(this.isDecidable()) {
-			Collection<DatalogRule> re = dr.exec(q);
+			Collection<DatalogRule> re = dr.oexec(q);
 			for(DatalogRule r : re) outputStream.println(r.toRDFox());
 		}		
 //		else if(this.force_rewriting) {
@@ -165,8 +169,8 @@ public class DlgKnowledgeBase {
 //		RulesCompilation compilation = new IDCompilation();
 //		compilation.compile(ontology.iterator());
 //		
-//		AggregSingleRuleOperator operator = new AggregSingleRuleOperator();
-		RewritingOperator operator = new AggregAllRulesOperator();
+		AggregSingleRuleOperator operator = new AggregSingleRuleOperator();
+//		RewritingOperator operator = new AggregAllRulesOperator();
 
 		Profiler p = new RealTimeProfiler(profileSteam);
 		RewritingAlgorithm algo = new RewritingAlgorithm(operator);
@@ -201,6 +205,29 @@ public class DlgKnowledgeBase {
 		writer.close();
 	}
 	
+	public void rewriteToUCQWithComp(ConjunctiveQuery q, PrintStream outputStream) throws IOException {
+		this.complileRule();
+//		
+//		AggregSingleRuleOperator operator = new AggregSingleRuleOperator();
+		RewritingOperator operator = new AggregAllRulesOperator();
+
+		Profiler p = new RealTimeProfiler(profileSteam);
+		RewritingAlgorithm algo = new RewritingAlgorithm(operator);
+		operator.setProfiler(p);
+		algo.setProfiler(p);
+		
+		SparqlUnionOfConjunctiveQueryWriter writer = new SparqlUnionOfConjunctiveQueryWriter(outputStream);
+		
+		if(this.isDecidable()) {	
+			UnionOfConjunctiveQueries ucq = new DefaultUnionOfConjunctiveQueries(q.getAnswerVariables(), 
+					algo.execute(q, new IndexedByHeadPredicatesRuleSet(this.ruleset), this.rulesCompilation));
+			
+			writer.write(ucq);
+		}		
+
+		writer.close();
+	}
+	
 	protected Boolean isDecidable() {
 		if(this.decidable != null) return decidable;
 		else {					
@@ -231,6 +258,20 @@ public class DlgKnowledgeBase {
 
 	}
 	
+	public void complileRule() {
+		if(this.compiled) return;
+		else {
+			this.compiled = true;
+			this.rulesCompilation = new IDCompilation();
+			this.compiledrule = new IndexedByHeadPredicatesRuleSet();
+			
+			for(Rule r : this.ruleset) {
+				if(this.rulesCompilation.isCompilable(r)) compiledrule.add(r);
+			}		
+			
+			this.rulesCompilation.compile(this.ruleset.iterator());
+		}
+	}
 //	public void close() {
 //		if (this.store instanceof Closeable) {
 //			try {

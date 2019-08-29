@@ -2,7 +2,6 @@ package org.guiiis.dwfe;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.eclipse.rdf4j.RDF4JException;
@@ -10,7 +9,6 @@ import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.sail.SailRepository;
 import org.eclipse.rdf4j.rio.RDFFormat;
-import org.eclipse.rdf4j.rio.RDFParser;
 import org.eclipse.rdf4j.sail.memory.MemoryStore;
 import org.guiiis.dwfe.utils.SimpleQueryFileReader;
 
@@ -19,16 +17,10 @@ import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
 import fr.lirmm.graphik.graal.api.core.Substitution;
 import fr.lirmm.graphik.graal.api.kb.Approach;
 import fr.lirmm.graphik.graal.api.kb.KnowledgeBase;
-import fr.lirmm.graphik.graal.api.store.Store;
-import fr.lirmm.graphik.graal.core.mapper.MappedStore;
-import fr.lirmm.graphik.graal.core.mapper.PrefixMapper;
-import fr.lirmm.graphik.graal.homomorphism.AtomicQueryHomomorphism;
 import fr.lirmm.graphik.graal.io.dlp.DlgpParser;
 import fr.lirmm.graphik.graal.io.owl.OWL2Parser;
 import fr.lirmm.graphik.graal.io.sparql.SparqlConjunctiveQueryParser;
 import fr.lirmm.graphik.graal.kb.KBBuilder;
-import fr.lirmm.graphik.graal.store.rdbms.driver.SqliteDriver;
-import fr.lirmm.graphik.graal.store.rdbms.natural.NaturalRDBMSStore;
 import fr.lirmm.graphik.graal.store.triplestore.rdf4j.RDF4jStore;
 import fr.lirmm.graphik.util.stream.CloseableIterator;
 
@@ -104,8 +96,11 @@ public class Origin {
 		
 		System.out.println("BuildTime cost: " + (t2 - t1) + "ms");		
 
-		for(String query : qs) {
+		for(int i = 0; i < qs.size(); i++) {
+			String query = qs.get(i);
 			ConjunctiveQuery q;
+			
+			System.out.println("Executing query " + (i + 1));
 			
 			if(query_syntax == 0) q = DlgpParser.parseQuery(query);
 			else q = new SparqlConjunctiveQueryParser(query).getConjunctiveQuery();
