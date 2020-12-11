@@ -188,7 +188,7 @@ public class DlgKnowledgeBase {
 			UnionOfConjunctiveQueries ucq = new DefaultUnionOfConjunctiveQueries(q.getAnswerVariables(), 
 					algo.execute(q, new IndexedByHeadPredicatesRuleSet(this.ruleset), NoCompilation.instance()));
 			
-		//	writer.write(ucq);
+			//	writer.write(ucq);
 		}		
 		else if(this.force_rewriting) {
 			if(this.fusComponent == null) {
@@ -198,7 +198,7 @@ public class DlgKnowledgeBase {
 			UnionOfConjunctiveQueries ucq = new DefaultUnionOfConjunctiveQueries(q.getAnswerVariables(), 
 					algo.execute(q, new IndexedByHeadPredicatesRuleSet(this.fusComponent), NoCompilation.instance()));
 			
-		//	writer.write(ucq);	
+			//	writer.write(ucq);	
 		}
 		else {
 			System.out.println("The ontology is not fus, not suitable for current rewritng approach.");
@@ -221,21 +221,8 @@ public class DlgKnowledgeBase {
 	
 		Collection<ConjunctiveQuery> qs = algo.execute(q, 
 					new IndexedByHeadPredicatesRuleSet(this.ruleset), this.rulesCompilation);
-			
-//			for(ConjunctiveQuery cq : qs) {
-//				Predicate hp = new Predicate("ANS", cq.getAnswerVariables().size());
-//				Atom h = new DefaultAtom(hp, cq.getAnswerVariables());
-//				InMemoryAtomSet head = new LinkedListAtomSet();
-//				head.add(h);
-//				Rule r = new DefaultRule(cq.getAtomSet(), head);
-//				
-//				rewriting.add(r);
-//			}
-//			rewriting.addAll(this.compiledrule);
-//			
-//			return rewriting;		
+				
 		return qs;
-
 	}
 	
 	public Boolean isDecidable() {

@@ -3,6 +3,7 @@ package org.guiiis.dwfe.example;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.rio.RDFFormat;
@@ -27,14 +28,13 @@ public class TurtleDataToDlgp {
 		AtomFactory factory = DefaultAtomFactory.instance();
 		
 		File dbdir = new File(db);
-		
-		for(File b : dbdir.listFiles()) {
-			for(File ttl : b.listFiles()) {
+		File ttl = new File("/home/sharpen/projects/dwfe_evaluation/data/Uniprot/big.ttl");
+//		for(File b : dbdir.listFiles()) {
+//			for(File ttl : b.listFiles()) {
 				if(ttl.getName().endsWith(".ttl")) {
 					System.out.println("Converting turtle data " + ttl + " ...");
 					String out = ttl.getAbsolutePath().replaceAll(".ttl", ".dlp");
 					File outfile = new File(out);
-					if(outfile.exists()) continue;
 					DlgpWriter writer = new DlgpWriter(outfile);
 					
 					Model results = Rio.parse(new FileInputStream(ttl), "", RDFFormat.TURTLE);
@@ -59,10 +59,10 @@ public class TurtleDataToDlgp {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-					});					
+					});			
 					writer.close();
 				}
 			}
-		}		
-	}
+//		}		
+//	}
 }
