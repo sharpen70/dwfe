@@ -64,7 +64,7 @@ import fr.lirmm.graphik.util.profiler.Profiler;
  */
 public class RewritingAlgorithm implements Profilable {
 
-	private boolean verbose = true;
+	private boolean verbose = false;
 	private Profiler          profiler;
 	
 	private RewritingOperator operator;
@@ -181,7 +181,7 @@ public class RewritingAlgorithm implements Profilable {
 		}
 
 		/* clean the rewrites to return */
-	//	Utils.computeCover(finalRewritingSet);
+		Utils.computeCover(finalRewritingSet);
 		
 		for(ConjunctiveQuery _q : finalRewritingSet) {
 			PureQuery.removeAnswerPredicate(_q);

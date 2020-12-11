@@ -1,14 +1,13 @@
 package org.guiiis.dwfe.core;
 
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.guiiis.dwfe.core.graal.RewritingAlgorithm;
 import org.guiiis.dwfe.io.SparqlUnionOfConjunctiveQueryWriter;
@@ -20,28 +19,31 @@ import fr.lirmm.graphik.graal.api.core.Atom;
 import fr.lirmm.graphik.graal.api.core.AtomSet;
 import fr.lirmm.graphik.graal.api.core.AtomSetException;
 import fr.lirmm.graphik.graal.api.core.ConjunctiveQuery;
+import fr.lirmm.graphik.graal.api.core.Constant;
+import fr.lirmm.graphik.graal.api.core.InMemoryAtomSet;
+import fr.lirmm.graphik.graal.api.core.Literal;
 import fr.lirmm.graphik.graal.api.core.Predicate;
 import fr.lirmm.graphik.graal.api.core.Rule;
 import fr.lirmm.graphik.graal.api.core.RuleSet;
 import fr.lirmm.graphik.graal.api.core.RulesCompilation;
 import fr.lirmm.graphik.graal.api.core.Term;
+import fr.lirmm.graphik.graal.api.core.TermGenerator;
 import fr.lirmm.graphik.graal.api.core.UnionOfConjunctiveQueries;
+import fr.lirmm.graphik.graal.api.core.Variable;
+import fr.lirmm.graphik.graal.api.core.Term.Type;
 import fr.lirmm.graphik.graal.api.io.Parser;
 import fr.lirmm.graphik.graal.backward_chaining.pure.AggregAllRulesOperator;
 import fr.lirmm.graphik.graal.backward_chaining.pure.AggregSingleRuleOperator;
-import fr.lirmm.graphik.graal.backward_chaining.pure.BasicAggregAllRulesOperator;
 import fr.lirmm.graphik.graal.backward_chaining.pure.RewritingOperator;
-import fr.lirmm.graphik.graal.core.DefaultConjunctiveQuery;
+import fr.lirmm.graphik.graal.core.DefaultAtom;
+import fr.lirmm.graphik.graal.core.DefaultRule;
 import fr.lirmm.graphik.graal.core.DefaultUnionOfConjunctiveQueries;
 import fr.lirmm.graphik.graal.core.Rules;
-import fr.lirmm.graphik.graal.core.atomset.graph.DefaultInMemoryGraphStore;
+import fr.lirmm.graphik.graal.core.atomset.LinkedListAtomSet;
 import fr.lirmm.graphik.graal.core.compilation.IDCompilation;
 import fr.lirmm.graphik.graal.core.compilation.NoCompilation;
-import fr.lirmm.graphik.graal.core.factory.DefaultAtomFactory;
-import fr.lirmm.graphik.graal.core.factory.DefaultAtomSetFactory;
 import fr.lirmm.graphik.graal.core.ruleset.IndexedByHeadPredicatesRuleSet;
 import fr.lirmm.graphik.graal.core.ruleset.LinkedListRuleSet;
-import fr.lirmm.graphik.graal.io.sparql.SparqlConjunctiveQueryWriter;
 import fr.lirmm.graphik.graal.rulesetanalyser.Analyser;
 import fr.lirmm.graphik.graal.rulesetanalyser.RuleSetPropertyHierarchy;
 import fr.lirmm.graphik.graal.rulesetanalyser.property.FUSProperty;
@@ -49,6 +51,8 @@ import fr.lirmm.graphik.graal.rulesetanalyser.property.RuleSetProperty;
 import fr.lirmm.graphik.graal.rulesetanalyser.util.AnalyserRuleSet;
 import fr.lirmm.graphik.util.profiler.Profiler;
 import fr.lirmm.graphik.util.profiler.RealTimeProfiler;
+import fr.lirmm.graphik.util.stream.CloseableIterator;
+import fr.lirmm.graphik.util.stream.CloseableIteratorWithoutException;
 import fr.lirmm.graphik.util.stream.IteratorException;
 
 
@@ -70,7 +74,7 @@ public class DlgKnowledgeBase {
 	private boolean force_rewriting = true;
 	
 	private IndexedByHeadPredicatesRuleSet compiledrule;
-	private RulesCompilation rulesCompilation;
+	private RulesCompilation rulesCompilation = NoCompilation.instance();
 	private boolean compiled = false;
 	
 	public DlgKnowledgeBase(Parser<Object> parser) throws AtomSetException {
@@ -101,9 +105,7 @@ public class DlgKnowledgeBase {
 	
 	public void init() {
 		this.ruleset = new LinkedListRuleSet(Rules.computeSinglePiece(this.ruleset.iterator()));
-		this.analyzerRuleSet = new AnalyserRuleSet(this.ruleset);
-		this.analyzer = new Analyser(this.analyzerRuleSet);
-		this.fusAnalyzer = new FUSAnalyser(this.analyzerRuleSet);
+		this.compiledrule = new IndexedByHeadPredicatesRuleSet();
 	}
 	
 	public void rewriteToDlg(ConjunctiveQuery q, PrintStream outputStream) throws Exception {
@@ -186,7 +188,7 @@ public class DlgKnowledgeBase {
 			UnionOfConjunctiveQueries ucq = new DefaultUnionOfConjunctiveQueries(q.getAnswerVariables(), 
 					algo.execute(q, new IndexedByHeadPredicatesRuleSet(this.ruleset), NoCompilation.instance()));
 			
-			writer.write(ucq);
+		//	writer.write(ucq);
 		}		
 		else if(this.force_rewriting) {
 			if(this.fusComponent == null) {
@@ -196,7 +198,7 @@ public class DlgKnowledgeBase {
 			UnionOfConjunctiveQueries ucq = new DefaultUnionOfConjunctiveQueries(q.getAnswerVariables(), 
 					algo.execute(q, new IndexedByHeadPredicatesRuleSet(this.fusComponent), NoCompilation.instance()));
 			
-			writer.write(ucq);	
+		//	writer.write(ucq);	
 		}
 		else {
 			System.out.println("The ontology is not fus, not suitable for current rewritng approach.");
@@ -205,32 +207,44 @@ public class DlgKnowledgeBase {
 		writer.close();
 	}
 	
-	public void rewriteToUCQWithComp(ConjunctiveQuery q, PrintStream outputStream) throws IOException {
-		this.complileRule();
+	public Collection<ConjunctiveQuery> rewriteToUCQWithComp(ConjunctiveQuery q) throws IOException {
+//		this.complileRule();
 //		
-//		AggregSingleRuleOperator operator = new AggregSingleRuleOperator();
-		RewritingOperator operator = new AggregAllRulesOperator();
+		AggregSingleRuleOperator operator = new AggregSingleRuleOperator();
+//		RewritingOperator operator = new AggregAllRulesOperator();
 
 		Profiler p = new RealTimeProfiler(profileSteam);
 		RewritingAlgorithm algo = new RewritingAlgorithm(operator);
 		operator.setProfiler(p);
 		algo.setProfiler(p);
 		
-		SparqlUnionOfConjunctiveQueryWriter writer = new SparqlUnionOfConjunctiveQueryWriter(outputStream);
-		
-		if(this.isDecidable()) {	
-			UnionOfConjunctiveQueries ucq = new DefaultUnionOfConjunctiveQueries(q.getAnswerVariables(), 
-					algo.execute(q, new IndexedByHeadPredicatesRuleSet(this.ruleset), this.rulesCompilation));
+	
+		Collection<ConjunctiveQuery> qs = algo.execute(q, 
+					new IndexedByHeadPredicatesRuleSet(this.ruleset), this.rulesCompilation);
 			
-			writer.write(ucq);
-		}		
+//			for(ConjunctiveQuery cq : qs) {
+//				Predicate hp = new Predicate("ANS", cq.getAnswerVariables().size());
+//				Atom h = new DefaultAtom(hp, cq.getAnswerVariables());
+//				InMemoryAtomSet head = new LinkedListAtomSet();
+//				head.add(h);
+//				Rule r = new DefaultRule(cq.getAtomSet(), head);
+//				
+//				rewriting.add(r);
+//			}
+//			rewriting.addAll(this.compiledrule);
+//			
+//			return rewriting;		
+		return qs;
 
-		writer.close();
 	}
 	
-	protected Boolean isDecidable() {
+	public Boolean isDecidable() {
 		if(this.decidable != null) return decidable;
-		else {					
+		else {				
+			this.analyzerRuleSet = new AnalyserRuleSet(this.ruleset);
+			this.analyzer = new Analyser(this.analyzerRuleSet);
+//			this.fusAnalyzer = new FUSAnalyser(this.analyzerRuleSet);
+			
 			Map<String, RuleSetProperty> properties = new HashMap<>();
 			properties.putAll(RuleSetPropertyHierarchy.generatePropertyMapSpecializationOf(FUSProperty.instance()));
 			this.analyzer.setProperties(properties.values());
@@ -263,14 +277,17 @@ public class DlgKnowledgeBase {
 		else {
 			this.compiled = true;
 			this.rulesCompilation = new IDCompilation();
-			this.compiledrule = new IndexedByHeadPredicatesRuleSet();
 			
 			for(Rule r : this.ruleset) {
-				if(this.rulesCompilation.isCompilable(r)) compiledrule.add(r);
+				if(this.rulesCompilation.isCompilable(r)) this.compiledrule.add(r);
 			}		
 			
 			this.rulesCompilation.compile(this.ruleset.iterator());
 		}
+	}
+	
+	public IndexedByHeadPredicatesRuleSet getCompliedRule() {
+		return this.compiledrule;
 	}
 //	public void close() {
 //		if (this.store instanceof Closeable) {
