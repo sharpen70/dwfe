@@ -103,9 +103,7 @@ public class Querying {
 			end = System.currentTimeMillis();			
 			
 			long rew_t = end - start;
-			if(verbose) System.out.println("Finish rewriting the query, rewriting size " + rewriting.size() + "(" + related.size() + ") "+ " cost " + (end - start) + " ms");
-			else System.out.println(rewriting.size() + " + " + related.size() + ", " + (end - start));
-			
+	
 			if(datafile != null) {			
 				long dstart = System.currentTimeMillis();
 				KnowledgeBase vlogbase = new KnowledgeBase();
@@ -137,7 +135,14 @@ public class Querying {
 
 					if(verbose) System.out.println("Finish answering queries, answers " + result.size() + " cost " + (end - start + rew_t) + " ms.");
 					if(verbose) System.out.println("Total time cost " + (end - tstart) + " ms.");
+					else {
+						System.out.println("Rew Size: " + (rewriting.size() + related.size()) + " Rew Time: " + rew_t + " Querying Time: " + (end - start));
+					}
 				}
+			}
+			else {
+				if(verbose) System.out.println("Finish rewriting the query, rewriting size " + rewriting.size() + "(" + related.size() + ") "+ " cost " + (end - start) + " ms");				
+				else System.out.println(rewriting.size() + " + " + related.size() + ", " + (end - start));				
 			}
 		}
 		
